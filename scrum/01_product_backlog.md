@@ -40,3 +40,16 @@ Finally, `The Client` demands that it be an *easy-to-use* website.
 
 - API
 - CSS Frameworks
+
+<br>
+
+## User Stories
+
+### Epic 1
+
+\#US 1.01 - As a user, I want to see the current price of the Dollar in relation to the Argentine Peso. \
+\#US 1.02 - As a user, I want to see the current price of the Euro in relation to the Argentine Peso. \
+\#US 1.03 - As a user, I want to see the current price of the Reai in relation to the Argentine Peso.
+
+\#US 1.04 - As a regular visitor, I want an indicator that expresses whether each rate went up or down from the previous day.
+
