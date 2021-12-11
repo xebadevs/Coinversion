@@ -53,3 +53,14 @@ Finally, `The Client` demands that it be an *easy-to-use* website.
 
 \#US 1.04 - As a regular visitor, I want an indicator that expresses whether each rate went up or down from the previous day.
 
+<br>
+
+### Epic 2
+
+\#US 2.01 - As a user, I need to verify the current value of BTC (Bitcoin), expressed in USDT. \
+\#US 2.02 - As a user, I need to verify the current value of ETH (Ethereum), expressed in USDT. \
+\#US 2.03 - As a user, I need to verify the current value of DOT (Polkadot), expressed in USDT. \
+\#US 2.04 - As a user, I need to verify the current value of Cardano (ADA), expressed in USDT. \
+\#US 2.05 - As a user, I need to verify the current value of Litecoin (LTC), expressed in USDT.
+
+\#US 2.06 - As a user, I expect the fluctuation of each currency on a daily, weekly and monthly basis.
