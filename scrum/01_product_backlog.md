@@ -64,3 +64,11 @@ Finally, `The Client` demands that it be an *easy-to-use* website.
 \#US 2.05 - As a user, I need to verify the current value of Litecoin (LTC), expressed in USDT.
 
 \#US 2.06 - As a user, I expect the fluctuation of each currency on a daily, weekly and monthly basis.
+
+<br>
+
+### Epic 3
+
+\#US 3.01 - As a user, I hope to have access to the most relevant news in the financial sector.
+\#US 3.02 - As a user, I prefer to see such news on the same and only web page.
+\#US 3.03 - As a user, I want the option to read more about a particular news item.
