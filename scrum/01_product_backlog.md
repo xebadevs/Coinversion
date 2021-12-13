@@ -47,20 +47,23 @@ Finally, `The Client` demands that it be an *easy-to-use* website.
 
 ### Epic 1
 
-\#US 1.01 - As a user, I want to see the current price of the Dollar in relation to the Argentine Peso. \
-\#US 1.02 - As a user, I want to see the current price of the Euro in relation to the Argentine Peso. \
-\#US 1.03 - As a user, I want to see the current price of the Reai in relation to the Argentine Peso.
+\#US 1.01 - As a user, I want to see the current price of the Dollar (Official) in relation to the Argentine Peso. \
+\#US 1.02 - As a user, I want to see the current price of the Dollar (Blue) in relation to the Argentine Peso. \
+\#US 1.03 - As a user, I want to see the current price of the Euro in relation to the Argentine Peso. \
+\#US 1.04 - As a user, I want to see the current price of the Reai in relation to the Argentine Peso. \
+\#US 1.05 - As a user, I want to see the current price of the Uruguayan Peso in relation to the Argentine Peso. \
+\#US 1.06 - As a user, I want to see the current price of the Chilean Peso in relation to the Argentine Peso.
 
-\#US 1.04 - As a regular visitor, I want an indicator that expresses whether each rate went up or down from the previous day.
+\#US 1.07 - As a regular visitor, I want an indicator that expresses whether each rate went up or down from the previous day.
 <br>
 
 ### Epic 2
 
-\#US 2.01 - As a user, I need to verify the current value of BTC (Bitcoin), expressed in USDT. \
-\#US 2.02 - As a user, I need to verify the current value of ETH (Ethereum), expressed in USDT. \
-\#US 2.03 - As a user, I need to verify the current value of DOT (Polkadot), expressed in USDT. \
-\#US 2.04 - As a user, I need to verify the current value of ADA (Cardano), expressed in USDT. \
-\#US 2.05 - As a user, I need to verify the current value of LTC (Litecoin), expressed in USDT.
+\#US 2.01 - As a user, I need to verify the current value of BTC (Bitcoin), expressed in USD. \
+\#US 2.02 - As a user, I need to verify the current value of ETH (Ethereum), expressed in USD. \
+\#US 2.03 - As a user, I need to verify the current value of DOT (Polkadot), expressed in USD. \
+\#US 2.04 - As a user, I need to verify the current value of ADA (Cardano), expressed in USD. \
+\#US 2.05 - As a user, I need to verify the current value of LTC (Litecoin), expressed in USD.
 
 \#US 2.06 - As a user, I expect the fluctuation of each currency on a daily, weekly and monthly basis.
 <br>
