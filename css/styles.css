@@ -20,6 +20,18 @@ body {
     border-bottom: 1px solid #00D1B2;
 }
 
+.xd-nborder {
+    border-bottom: 1px solid #3e8ed042;
+}
+
+.xd-bright {
+    border-right: 1px solid #3e8ed042;
+}
+
+.xd-height {
+    min-height: 300px;
+}
+
 /* --------------------------------------------------------------------------------------------------------------------------- */
 
 .xxx {
