@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: #EDEDED;
 }
@@ -8,8 +12,8 @@ body {
 }
 
 .image .xd-crypto {
-    width: 25px;
-    height: 25px;
+    width: 24px;
+    height: 24px;
 }
 
 .xd-bborder {
