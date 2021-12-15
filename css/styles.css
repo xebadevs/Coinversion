@@ -7,6 +7,11 @@ body {
     height: 20px;
 }
 
+.image .xd-crypto {
+    width: 25px;
+    height: 25px;
+}
+
 .xd-bborder {
     border-bottom: 1px solid #00D1B2;
 }
