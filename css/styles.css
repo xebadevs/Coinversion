@@ -7,7 +7,9 @@ body {
 }
 
 
-/* xd is for XebaDevs + the element/s */
+/* Note: xd is for XebaDevs + the element/s */
+
+/* ---------------------- Icons size ---------------------- */
 .image .xd-icons {
     width: 20px;
     height: 20px;
@@ -18,6 +20,8 @@ body {
     height: 24px;
 }
 
+
+/* ---------------------- Borders ---------------------- */
 .xd-bborder {
     border-bottom: 1px solid #00D1B2;
 }
@@ -34,6 +38,8 @@ body {
     min-height: 300px;
 }
 
+
+/* ---------------------- Shadows ---------------------- */
 .xd-shadow {
     box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
 }
@@ -46,6 +52,11 @@ body {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
+.xd-bshadow {
+    box-shadow: 0 0 0 0;
+}
+
+/* ---------------------- Footer ---------------------- */
 footer {
     display: flex;
     flex-direction: column;
@@ -53,16 +64,15 @@ footer {
     margin-top: auto;
 }
 
-/* --------------------------------------------------------------------------------------------------------------------------- */
-
 .xxx {
     border: 1px solid black;
 }
 
-.zzz {
-    margin-top: 5px;;
-}
 
-.yyy {
-    height: 100%;
+/* ---------------------- MediaQueries ---------------------- */
+
+@media screen and (min-width: 1500px) and (orientation: landscape){
+    .xd-bshadow {
+        box-shadow: 0 28px 45px -45px rgba(0, 0, 0, .5);
+    }
 }
