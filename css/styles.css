@@ -6,6 +6,8 @@ body {
     background-color: #EDEDED;
 }
 
+
+/* xd is for XebaDevs + the element/s */
 .image .xd-icons {
     width: 20px;
     height: 20px;
@@ -30,6 +32,18 @@ body {
 
 .xd-height {
     min-height: 300px;
+}
+
+.xd-shadow {
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+}
+
+.xd-shadowtop {
+    box-shadow: 0 -1px 1px rgba(0, 0, 0, .2);
+}
+
+.xd-lightshadow {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 
 footer {
