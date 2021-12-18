@@ -1,19 +1,20 @@
 <?php
-    $url = "https://www.dolarsi.com";
 
-    $xml = new DOMDocument();
-    $xml->loadHTML($url);
-    $xpath = new DOMXPath($xml);
 
-    $html = 'cosaagsdgasd';
-    //foreach($xpath->query('//div[@id=c1']/node()')' as $node){
-    //    $html .= $xml->saveHTML($node);
-    //}
-    foreach ($xpath->query('//div[@id="ventaDolar"]/node()') as $node){
-    $html .= $xml->saveXML($node);
-    }
+include('simple_html_dom.php');
 
-    echo $html;
+// $html = file_get_html('https://es.wikihow.com/ajustar-los-graves-en-una-computadora');
+// $title = $html->find("div#intro", 0)->innertext;
+// echo $title;
+
+$html = file_get_html('https://www.infodolar.com');
+$dolarBlueCompra = $html->find("td.colCompraVenta", 0)->innertext;
+$dolarBlueVenta = $html->find("td.colCompraVenta", 1)->innertext;
+$value = trim($dolarBlueCompra, ' $');
+$finalValue = substr($value, 0, 6);
+// echo "Dolar venta: $dolarBlueVenta";
+echo $finalValue;
+
 
 ?>
 
