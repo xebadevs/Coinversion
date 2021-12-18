@@ -10,10 +10,10 @@ include('simple_html_dom.php');
 $html = file_get_html('https://www.infodolar.com');
 $dolarBlueCompra = $html->find("td.colCompraVenta", 0)->innertext;
 $dolarBlueVenta = $html->find("td.colCompraVenta", 1)->innertext;
-$value = trim($dolarBlueCompra, ' $');
-$finalValue = substr($value, 0, 6);
+$dolarBlueCompraString = trim($dolarBlueCompra, ' $');
+$dolarBlueCompraValue = substr($dolarBlueCompraString, 0, 6);
 // echo "Dolar venta: $dolarBlueVenta";
-echo $finalValue;
+echo $dolarBlueCompraValue;
 
 
 ?>
@@ -115,7 +115,7 @@ echo $finalValue;
                         <div class="column is-4 is-inline has-text-centered">VAR</div>
                     </div>
                     <div class="columns has-background-white has-text-centered is-mobile">
-                        <div class="column is-4 is-inline has-text-centered">101.56</div>
+                        <div class="column is-4 is-inline has-text-centered"><?= $dolarBlueCompraValue ?></div>
                         <div class="column is-4 is-inline has-text-centered">107.56</div>
                         <div class="column is-4 is-inline has-text-centered has-text-weight-bold">0.36%</div>
                     </div>
