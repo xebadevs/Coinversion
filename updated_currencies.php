@@ -12,9 +12,20 @@ $dolarBlueCompra = $html->find("td.colCompraVenta", 0)->innertext;
 $dolarBlueVenta = $html->find("td.colCompraVenta", 1)->innertext;
 $dolarBlueCompraString = trim($dolarBlueCompra, ' $');
 $dolarBlueCompraValue = substr($dolarBlueCompraString, 0, 6);
-// echo "Dolar venta: $dolarBlueVenta";
-echo $dolarBlueCompraValue;
+//echo "Dolar venta: $dolarBlueVenta";
+//echo $dolarBlueCompraValue;
 
+function getMoneyValue($url, $element, $int){
+    $html = file_get_html($url);
+    $currencie = $html->find($element, $int)->innertext;
+    $currencieString = trim($currencie, ' $');
+    $currencieValue = substr($currencieString, 0, 6);
+    return $currencieValue;
+}
+
+echo getMoneyValue('https://www.infodolar.com', 'td.colCompraVenta', 0);
+echo '<br>';
+echo getMoneyValue('https://www.infodolar.com', 'td.colCompraVenta', 1);
 
 ?>
 
