@@ -1,3 +1,23 @@
+<?php
+    $url = "https://www.dolarsi.com";
+
+    $xml = new DOMDocument();
+    $xml->loadHTML($url);
+    $xpath = new DOMXPath($xml);
+
+    $html = 'cosaagsdgasd';
+    //foreach($xpath->query('//div[@id=c1']/node()')' as $node){
+    //    $html .= $xml->saveHTML($node);
+    //}
+    foreach ($xpath->query('//div[@id="ventaDolar"]/node()') as $node){
+    $html .= $xml->saveXML($node);
+    }
+
+    echo $html;
+
+?>
+
+
 <section class="section">
             <div class="columns is-centered">
                 <div class="column is-3 xd-lightshadow">
