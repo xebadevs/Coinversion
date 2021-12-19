@@ -51,7 +51,7 @@ echo '<br>';
 echo 'Dollar(Official) Sell value: ' . $dollarOfficialSell;
 echo '<br>';
 $dollarVariation = $html->find("td.colVariacion", 0);
-echo 'Last variation: ' . $dollarVariation;
+echo 'Last variation: ' . str_replace(' ', '', $dollarVariation);
 
 echo '<hr>';
 
@@ -62,11 +62,17 @@ function showMeTheMoney($url, $element, $num){
     return substr($moneyString, 0, 6);
 }
 
+function showMeTheVariation($url, $element, $num){
+    $html = file_get_html($url);
+    $variation = $html->find($element, $num);
+    return str_replace(' ', '', $variation);
+}
+
 echo 'Dollar(Official) Buy: ' . showMeTheMoney('https://www.infodolar.com/cotizacion-dolar-oficial.aspx', 'td.colCompraVenta', 0);
 echo '<br>';
 echo 'Dollar(Official) Sell: ' . showMeTheMoney('https://www.infodolar.com/cotizacion-dolar-oficial.aspx', 'td.colCompraVenta', 1);
-
-
+echo '<br>';
+echo 'Dollar(Official) Variation: ' . showMeTheVariation('https://www.infodolar.com/cotizacion-dolar-oficial.aspx', 'td.colVariacion', 0);
 
 
 
