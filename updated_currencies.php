@@ -14,18 +14,19 @@ $dolarBlueCompraString = trim($dolarBlueCompra, ' $');
 $dolarBlueCompraValue = substr($dolarBlueCompraString, 0, 6);
 //echo "Dolar venta: $dolarBlueVenta";
 //echo $dolarBlueCompraValue;
+$dolarBlueVariation = $html->find("td.colVariacion", 0);
+echo $dolarBlueVariation;
 
 function getMoneyValue($url, $element, $int){
     $html = file_get_html($url);
     $currencie = $html->find($element, $int)->innertext;
     $currencieString = trim($currencie, ' $');
-    $currencieValue = substr($currencieString, 0, 6);
-    return $currencieValue;
+    return substr($currencieString, 0, 6);
 }
 
-echo getMoneyValue('https://www.infodolar.com', 'td.colCompraVenta', 0);
+echo 'Dollar(Blue) Buy: ' . getMoneyValue('https://www.infodolar.com', 'td.colCompraVenta', 0);
 echo '<br>';
-echo getMoneyValue('https://www.infodolar.com', 'td.colCompraVenta', 1);
+echo 'Dollar(Blue) Sell: ' . getMoneyValue('https://www.infodolar.com', 'td.colCompraVenta', 1);
 
 ?>
 
@@ -36,7 +37,7 @@ echo getMoneyValue('https://www.infodolar.com', 'td.colCompraVenta', 1);
                     <div class="columns has-background-primary">
                         <div class="column has-text-centered">
                             <div class="image is-inline">
-                                <img class="is-inline mr-2 image xd-icons" src="./img/eeuu.png">
+                                <img class="is-inline mr-2 image xd-icons" src="./img/eeuu.png" alt="EEUU flag icon">
                             </div>
                             <div class="is-inline">
                                 <p class="title is-4 is-inline has-text-white has-text-weight-bold">DOLLAR (Official)</p>
@@ -61,7 +62,7 @@ echo getMoneyValue('https://www.infodolar.com', 'td.colCompraVenta', 1);
                     <div class="columns has-background-primary">
                         <div class="column has-text-centered">
                             <div class="image is-inline">
-                                <img class="is-inline mr-2 image xd-icons" src="./img/eu.png">
+                                <img class="is-inline mr-2 image xd-icons" src="./img/eu.png" alt="Europe Union flag icon">
                             </div>
                             <div class="is-inline">
                                 <p class="title is-4 is-inline has-text-white has-text-weight-bold">EURO (Official)</p>
@@ -86,7 +87,7 @@ echo getMoneyValue('https://www.infodolar.com', 'td.colCompraVenta', 1);
                     <div class="columns has-background-primary">
                         <div class="column has-text-centered">
                             <div class="image is-inline">
-                                <img class="is-inline mr-2 image xd-icons" src="./img/bra.png">
+                                <img class="is-inline mr-2 image xd-icons" src="./img/bra.png" alt="Brasil flag icon">
                             </div>
                             <div class="is-inline">
                                 <p class="title is-4 is-inline has-text-white has-text-weight-bold">REAI(Brasil)</p>
@@ -113,7 +114,7 @@ echo getMoneyValue('https://www.infodolar.com', 'td.colCompraVenta', 1);
                     <div class="columns has-background-primary">
                         <div class="column has-text-centered">
                             <div class="image is-inline">
-                                <img class="is-inline mr-2 image xd-icons" src="./img/eeuu.png">
+                                <img class="is-inline mr-2 image xd-icons" src="./img/eeuu.png" alt="EEUU flag icon">
                             </div>
                             <div class="is-inline">
                                 <p class="title is-4 is-inline has-text-white has-text-weight-bold">DOLLAR (Blue)</p>
@@ -138,7 +139,7 @@ echo getMoneyValue('https://www.infodolar.com', 'td.colCompraVenta', 1);
                     <div class="columns has-background-primary">
                         <div class="column has-text-centered">
                             <div class="image is-inline">
-                                <img class="is-inline mr-2 image xd-icons" src="./img/chi.png">
+                                <img class="is-inline mr-2 image xd-icons" src="./img/chi.png" alt="Chile flag icon">
                             </div>
                             <div class="is-inline">
                                 <p class="title is-4 is-inline has-text-white has-text-weight-bold">PESO (Chile)</p>
@@ -163,7 +164,7 @@ echo getMoneyValue('https://www.infodolar.com', 'td.colCompraVenta', 1);
                     <div class="columns has-background-primary">
                         <div class="column has-text-centered">
                             <div class="image is-inline">
-                                <img class="is-inline mr-2 image xd-icons" src="./img/uru.png">
+                                <img class="is-inline mr-2 image xd-icons" src="./img/uru.png" alt="Uruguay flag icon">
                             </div>
                             <div class="is-inline">
                                 <p class="title is-4 is-inline has-text-white has-text-weight-bold">PESO (Uruguay)</p>
