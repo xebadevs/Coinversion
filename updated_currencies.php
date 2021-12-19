@@ -14,8 +14,8 @@ $dolarBlueCompraString = trim($dolarBlueCompra, ' $');
 $dolarBlueCompraValue = substr($dolarBlueCompraString, 0, 6);
 //echo "Dolar venta: $dolarBlueVenta";
 //echo $dolarBlueCompraValue;
-$dolarBlueVariation = $html->find("td.colVariacion", 0);
-echo $dolarBlueVariation;
+$dolarOfficialVariation = str_replace(' ', '', $html->find("td.colVariacion", 10));
+$dolarBlueVariation = str_replace(' ', '', $html->find("td.colVariacion", 0));
 
 function getMoneyValue($url, $element, $int){
     $html = file_get_html($url);
@@ -24,9 +24,51 @@ function getMoneyValue($url, $element, $int){
     return substr($currencieString, 0, 6);
 }
 
+echo 'Dollar(Official) Buy: ' . getMoneyValue('https://www.infodolar.com', 'td.colCompraVenta', 12);
+echo '<br>';
+echo 'Dollar(Official) Sell: ' . getMoneyValue('https://www.infodolar.com', 'td.colCompraVenta', 13);
+echo '<br>';
+//echo 'Dollar(Official) Variation: ' . trim($dolarOfficialVariation, '5');
+echo '<br>';
 echo 'Dollar(Blue) Buy: ' . getMoneyValue('https://www.infodolar.com', 'td.colCompraVenta', 0);
 echo '<br>';
 echo 'Dollar(Blue) Sell: ' . getMoneyValue('https://www.infodolar.com', 'td.colCompraVenta', 1);
+echo '<br>';
+echo 'Dollar(Blue) Variation: ' . trim($dolarBlueVariation, '5');
+echo '<br>';
+
+
+echo 'Probando' . $html->find("td.colCompraVenta", 12)->innertext;
+echo '<br>';
+echo 'Probando' . $html->find("td.colCompraVenta", 13)->innertext;
+echo '<br>';
+
+$html = file_get_html('https://www.infodolar.com/cotizacion-dolar-oficial.aspx');
+$dollarOfficialBuy = $html->find("td.colCompraVenta", 0);
+$dollarOfficialSell = $html->find("td.colCompraVenta", 1);
+echo 'Dollar(Official) Buy value: ' . $dollarOfficialBuy;
+echo '<br>';
+echo 'Dollar(Official) Sell value: ' . $dollarOfficialSell;
+echo '<br>';
+$dollarVariation = $html->find("td.colVariacion", 0);
+echo 'Last variation: ' . $dollarVariation;
+
+echo '<hr>';
+
+function showMeTheMoney($url, $element, $num){
+    $html = file_get_html($url);
+    $money = $html->find($element, $num)->innertext;
+    $moneyString = trim($money, ' $');
+    return substr($moneyString, 0, 6);
+}
+
+echo 'Dollar(Official) Buy: ' . showMeTheMoney('https://www.infodolar.com/cotizacion-dolar-oficial.aspx', 'td.colCompraVenta', 0);
+echo '<br>';
+echo 'Dollar(Official) Sell: ' . showMeTheMoney('https://www.infodolar.com/cotizacion-dolar-oficial.aspx', 'td.colCompraVenta', 1);
+
+
+
+
 
 ?>
 
