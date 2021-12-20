@@ -33,27 +33,44 @@ $pesoUruguayVariation = showMeTheVariation('https://www.infodolar.com/cotizacion
 
 
 // COTIZADOR: JSON FILE FROM 'DOLARSI.COM'
-$dollarOff_url = 'https://www.dolarsi.com/api/api.php?type=cotizador';
-$dollarOff_html = file_get_contents($dollarOff_url);
-$dollarOff_num = preg_match_all('!\d+!', $dollarOff_html, $matches);
-
-var_dump($dollarOff_html);
-echo '<br>';
-echo '<br>';
-
-echo '<pre>';
-print_r($matches);
-echo '</pre>';
-
-echo '<br>';
-echo '<br>';
+$cotizador_url = 'https://www.dolarsi.com/api/api.php?type=cotizador';
+$cotizador_html = file_get_contents($cotizador_url);
+$cotizador_num = preg_match_all('!\d+!', $cotizador_html, $matches);
 
 $dollar_off_buy = $matches[0][0] . ',' . $matches[0][1];
 echo 'Dollar (Official) Buy: ' . $dollar_off_buy;
 echo '<br>';
 $dollar_off_sell = $matches[0][3] . ',' . $matches[0][4];
 echo 'Dollar (Official) Sell: ' . $dollar_off_sell;
+echo '<br>';
 
+$euro_buy = $matches[0][6] . ',' . $matches[0][7];
+echo 'Euro Buy: ' . $euro_buy;
+echo '<br>';
+$euro_sell = $matches[0][8] . ',' . $matches[0][9];
+echo 'Euro Sell: ' . $euro_sell;
+echo '<br>';
+
+$real_buy = $matches[0][12] . ',' . $matches[0][13];
+echo 'Real Buy: ' . $real_buy;
+echo '<br>';
+$real_sell = $matches[0][14] . ',' . $matches[0][15];
+echo 'Real Sell: ' . $real_sell;
+echo '<br>';
+
+$peso_uruguay_buy = $matches[0][24] . ',' . $matches[0][25];
+echo 'Peso (Uruguay) Buy: ' . $peso_uruguay_buy;
+echo '<br>';
+$peso_uruguay_sell = $matches[0][26] . ',' . $matches[0][27];
+echo 'Peso (Uruguay) Sell: ' . $peso_uruguay_sell;
+echo '<br>';
+
+$peso_chile_buy = $matches[0][30] . ',' . $matches[0][31];
+echo 'Peso (Chile) Buy: ' . $peso_chile_buy;
+echo '<br>';
+$peso_chile_sell = $matches[0][32] . ',' . $matches[0][33];
+echo 'Peso (Chile) Sell: ' . $peso_chile_sell;
+echo '<br>';
 ?>
 
 
