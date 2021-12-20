@@ -32,6 +32,27 @@ $pesoChileVariation = showMeTheVariation('https://www.infodolar.com/cotizacion-p
 $pesoUruguayVariation = showMeTheVariation('https://www.infodolar.com/cotizacion-peso-uruguayo.aspx', 'td.colVariacion', 0);
 
 
+// COTIZADOR: JSON FILE FROM 'DOLARSI.COM'
+$dollarOff_url = 'https://www.dolarsi.com/api/api.php?type=cotizador';
+$dollarOff_html = file_get_contents($dollarOff_url);
+$dollarOff_num = preg_match_all('!\d+!', $dollarOff_html, $matches);
+
+var_dump($dollarOff_html);
+echo '<br>';
+echo '<br>';
+
+echo '<pre>';
+print_r($matches);
+echo '</pre>';
+
+echo '<br>';
+echo '<br>';
+
+$dollar_off_buy = $matches[0][0] . ',' . $matches[0][1];
+echo 'Dollar (Official) Buy: ' . $dollar_off_buy;
+echo '<br>';
+$dollar_off_sell = $matches[0][3] . ',' . $matches[0][4];
+echo 'Dollar (Official) Sell: ' . $dollar_off_sell;
 
 ?>
 
