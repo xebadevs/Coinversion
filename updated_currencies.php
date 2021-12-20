@@ -7,72 +7,29 @@ include('simple_html_dom.php');
 // $title = $html->find("div#intro", 0)->innertext;
 // echo $title;
 
-$html = file_get_html('https://www.infodolar.com');
-$dolarBlueCompra = $html->find("td.colCompraVenta", 0)->innertext;
-$dolarBlueVenta = $html->find("td.colCompraVenta", 1)->innertext;
-$dolarBlueCompraString = trim($dolarBlueCompra, ' $');
-$dolarBlueCompraValue = substr($dolarBlueCompraString, 0, 6);
-//echo "Dolar venta: $dolarBlueVenta";
-//echo $dolarBlueCompraValue;
-$dolarOfficialVariation = str_replace(' ', '', $html->find("td.colVariacion", 10));
-$dolarBlueVariation = str_replace(' ', '', $html->find("td.colVariacion", 0));
 
-function getMoneyValue($url, $element, $int){
-    $html = file_get_html($url);
-    $currencie = $html->find($element, $int)->innertext;
-    $currencieString = trim($currencie, ' $');
-    return substr($currencieString, 0, 6);
-}
-
-echo 'Dollar(Official) Buy: ' . getMoneyValue('https://www.infodolar.com', 'td.colCompraVenta', 12);
-echo '<br>';
-echo 'Dollar(Official) Sell: ' . getMoneyValue('https://www.infodolar.com', 'td.colCompraVenta', 13);
-echo '<br>';
-//echo 'Dollar(Official) Variation: ' . trim($dolarOfficialVariation, '5');
-echo '<br>';
-echo 'Dollar(Blue) Buy: ' . getMoneyValue('https://www.infodolar.com', 'td.colCompraVenta', 0);
-echo '<br>';
-echo 'Dollar(Blue) Sell: ' . getMoneyValue('https://www.infodolar.com', 'td.colCompraVenta', 1);
-echo '<br>';
-echo 'Dollar(Blue) Variation: ' . trim($dolarBlueVariation, '5');
-echo '<br>';
-
-
-echo 'Probando' . $html->find("td.colCompraVenta", 12)->innertext;
-echo '<br>';
-echo 'Probando' . $html->find("td.colCompraVenta", 13)->innertext;
-echo '<br>';
-
-$html = file_get_html('https://www.infodolar.com/cotizacion-dolar-oficial.aspx');
-$dollarOfficialBuy = $html->find("td.colCompraVenta", 0);
-$dollarOfficialSell = $html->find("td.colCompraVenta", 1);
-echo 'Dollar(Official) Buy value: ' . $dollarOfficialBuy;
-echo '<br>';
-echo 'Dollar(Official) Sell value: ' . $dollarOfficialSell;
-echo '<br>';
-$dollarVariation = $html->find("td.colVariacion", 0);
-echo 'Last variation: ' . str_replace(' ', '', $dollarVariation);
-
-echo '<hr>';
-
-function showMeTheMoney($url, $element, $num){
+function showMeTheMoney($url, $element, $num): string
+{
     $html = file_get_html($url);
     $money = $html->find($element, $num)->innertext;
     $moneyString = trim($money, ' $');
     return substr($moneyString, 0, 6);
 }
 
-function showMeTheVariation($url, $element, $num){
+function showMeTheVariation($url, $element, $num): array|string
+{
     $html = file_get_html($url);
-    $variation = $html->find($element, $num);
+    $variation = str_replace('=', '', $html->find($element, $num));
     return str_replace(' ', '', $variation);
 }
 
-echo 'Dollar(Official) Buy: ' . showMeTheMoney('https://www.infodolar.com/cotizacion-dolar-oficial.aspx', 'td.colCompraVenta', 0);
-echo '<br>';
-echo 'Dollar(Official) Sell: ' . showMeTheMoney('https://www.infodolar.com/cotizacion-dolar-oficial.aspx', 'td.colCompraVenta', 1);
-echo '<br>';
-echo 'Dollar(Official) Variation: ' . showMeTheVariation('https://www.infodolar.com/cotizacion-dolar-oficial.aspx', 'td.colVariacion', 0);
+//$dollarOfficialBuy = showMeTheMoney('https://www.infodolar.com/cotizacion-dolar-oficial.aspx', 'td.colCompraVenta', 0);
+//$dollarOfficialSell = showMeTheMoney('https://www.infodolar.com/cotizacion-dolar-oficial.aspx', 'td.colCompraVenta', 1);
+
+$euroVariation = showMeTheVariation('https://www.infodolar.com/cotizacion-euro.aspx', 'td.colVariacion', 0);
+$realVariation = showMeTheVariation('https://www.infodolar.com/cotizacion-real.aspx', 'td.colVariacion', 0);
+$pesoChileVariation = showMeTheVariation('https://www.infodolar.com/cotizacion-peso-chileno.aspx', 'td.colVariacion', 0);
+$pesoUruguayVariation = showMeTheVariation('https://www.infodolar.com/cotizacion-peso-uruguayo.aspx', 'td.colVariacion', 0);
 
 
 
@@ -98,9 +55,9 @@ echo 'Dollar(Official) Variation: ' . showMeTheVariation('https://www.infodolar.
                         <div class="column is-4 is-inline has-text-centered">VAR</div>
                     </div>
                     <div class="columns has-background-white has-text-centered is-mobile">
-                        <div class="column is-4 is-inline has-text-centered">101.56</div>
-                        <div class="column is-4 is-inline has-text-centered">107.56</div>
-                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold">0.36%</div>
+                        <div class="column is-4 is-inline has-text-centered">0,00</div>
+                        <div class="column is-4 is-inline has-text-centered">0,00</div>
+                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold">0,00</div>
                     </div>
                 </div>
 
@@ -123,9 +80,9 @@ echo 'Dollar(Official) Variation: ' . showMeTheVariation('https://www.infodolar.
                         <div class="column is-4 is-inline has-text-centered">VAR</div>
                     </div>
                     <div class="columns has-background-white has-text-centered is-mobile">
-                        <div class="column is-4 is-inline has-text-centered">101.56</div>
-                        <div class="column is-4 is-inline has-text-centered">107.56</div>
-                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold">0.36%</div>
+                        <div class="column is-4 is-inline has-text-centered">0,00</div>
+                        <div class="column is-4 is-inline has-text-centered">0,00</div>
+                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold"><?= $euroVariation?></div>
                     </div>
                 </div>
 
@@ -150,7 +107,7 @@ echo 'Dollar(Official) Variation: ' . showMeTheVariation('https://www.infodolar.
                     <div class="columns has-background-white has-text-centered is-mobile">
                         <div class="column is-4 is-inline has-text-centered">101.56</div>
                         <div class="column is-4 is-inline has-text-centered">107.56</div>
-                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold">0.36%</div>
+                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold"><?= $realVariation?></div>
                     </div>
                 </div>
             </div>
@@ -175,7 +132,7 @@ echo 'Dollar(Official) Variation: ' . showMeTheVariation('https://www.infodolar.
                         <div class="column is-4 is-inline has-text-centered">VAR</div>
                     </div>
                     <div class="columns has-background-white has-text-centered is-mobile">
-                        <div class="column is-4 is-inline has-text-centered"><?= $dolarBlueCompraValue ?></div>
+                        <div class="column is-4 is-inline has-text-centered">100.13</div>
                         <div class="column is-4 is-inline has-text-centered">107.56</div>
                         <div class="column is-4 is-inline has-text-centered has-text-weight-bold">0.36%</div>
                     </div>
@@ -202,7 +159,7 @@ echo 'Dollar(Official) Variation: ' . showMeTheVariation('https://www.infodolar.
                     <div class="columns has-background-white has-text-centered is-mobile">
                         <div class="column is-4 is-inline has-text-centered">101.56</div>
                         <div class="column is-4 is-inline has-text-centered">107.56</div>
-                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold">0.36%</div>
+                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold"><?= $pesoChileVariation?></div>
                     </div>
                 </div>
 
@@ -227,7 +184,7 @@ echo 'Dollar(Official) Variation: ' . showMeTheVariation('https://www.infodolar.
                     <div class="columns has-background-white has-text-centered is-mobile">
                         <div class="column is-4 is-inline has-text-centered">101.56</div>
                         <div class="column is-4 is-inline has-text-centered">107.56</div>
-                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold">0.36%</div>
+                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold"><?= $pesoUruguayVariation?></div>
                     </div>
                 </div>
             </div>
