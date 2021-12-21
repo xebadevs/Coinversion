@@ -22,6 +22,12 @@ function showMeTheVariation($url, $element, $num): array|string
     $variation = str_replace('=', '', $html->find($element, $num));
     return str_replace(' ', '', $variation);
 }
+function showMeTheVariJson($url){
+    $html = file_get_contents($url);
+    $str = substr($html, 1, -1);
+    $obj = json_decode($str);
+    return $obj->variation;
+}
 
 //$dollarOfficialBuy = showMeTheMoney('https://www.infodolar.com/cotizacion-dolar-oficial.aspx', 'td.colCompraVenta', 0);
 //$dollarOfficialSell = showMeTheMoney('https://www.infodolar.com/cotizacion-dolar-oficial.aspx', 'td.colCompraVenta', 1);
@@ -71,6 +77,43 @@ echo '<br>';
 $peso_chile_sell = $matches[0][32] . ',' . $matches[0][33];
 echo 'Peso (Chile) Sell: ' . $peso_chile_sell;
 echo '<br>';
+
+// --------------------------------------------------------------------------- JSON VARIATIONS ---------------------------------------------------------------------------
+
+// EURO
+$infobae_euro_url = 'https://api.economico.infobae.com/financial/asset/?ids=EURPES&range=now';
+$infobae_euro_html = file_get_contents($infobae_euro_url);
+$infobae_euro_str = substr($infobae_euro_html, 1, -1);
+$infobae_euro_obj = json_decode($infobae_euro_str);
+
+echo 'Euro variation: ' . $infobae_euro_obj->variation;
+echo '<br>';
+echo '<br>';
+
+
+// REAL
+$infobae_real_url = 'https://api.economico.infobae.com/financial/asset/?ids=CMPES&range=now';
+$infobae_real_html = file_get_contents($infobae_real_url);
+$infobae_real_str = substr($infobae_real_html, 1, -1);
+$infobae_real_obj = json_decode($infobae_real_str);
+
+echo 'Real variation: ' . $infobae_real_obj->variation;
+echo '<br>';
+echo '<br>';
+
+// PESO URUGUAY
+$infobae_pesou_url = 'https://api.economico.infobae.com/financial/asset/?ids=URUPES&range=now';
+$infobae_pesou_html = file_get_contents($infobae_pesou_url);
+$infobae_pesou_str = substr($infobae_pesou_html, 1, -1);
+$infobae_pesou_obj = json_decode($infobae_pesou_str);
+
+echo 'Peso (Uruguay) variation: ' . $infobae_pesou_obj->variation;
+
+echo '<br>';
+echo '<h1>Variation</h1>';
+echo showMeTheVariJson('https://api.economico.infobae.com/financial/asset/?ids=URUPES&range=now');
+
+
 ?>
 
 
