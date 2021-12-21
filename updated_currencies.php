@@ -40,7 +40,7 @@ $cotizador_num = preg_match_all('!\d+!', $cotizador_html, $matches);
 $dollar_off_buy = $matches[0][0] . ',' . $matches[0][1];
 echo 'Dollar (Official) Buy: ' . $dollar_off_buy;
 echo '<br>';
-$dollar_off_sell = $matches[0][3] . ',' . $matches[0][4];
+$dollar_off_sell = $matches[0][2] . ',' . $matches[0][3];
 echo 'Dollar (Official) Sell: ' . $dollar_off_sell;
 echo '<br>';
 
