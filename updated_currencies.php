@@ -9,26 +9,73 @@ include('simple_html_dom.php');
 
 $pesoChileVariation = showMeTheVariation('https://www.infodolar.com/cotizacion-peso-chileno.aspx', 'td.colVariacion', 0);
 
-// '/cotizador': JSON FILE FROM 'DOLARSI.COM'
-$cotizador_url = 'https://www.dolarsi.com/api/api.php?type=cotizador';
-$cotizador_html = file_get_contents($cotizador_url);
-$cotizador_num = preg_match_all('!\d+!', $cotizador_html, $matches);
+//$dollar_off_buy = '';
+//$dollar_off_sell = '';
+//$euro_buy = '';
+//$euro_sell = '';
+//$real_buy = '';
+//$real_sell = '';
+//$peso_uruguay_buy = '';
+//$peso_uruguay_sell = '';
+//$peso_chile_buy = '';
+//$peso_chile_sell = '';
 
-$dollar_off_buy = matchVarCotization(0, 0, 1);
-$dollar_off_sell = matchVarCotization(0, 2, 3);
-$euro_buy = matchVarCotization(0, 6, 7);
-$euro_sell = matchVarCotization(0, 8, 9);
-$real_buy = matchVarCotization(0, 12, 13);
-$real_sell = matchVarCotization(0, 14, 15);
-$peso_uruguay_buy = matchVarCotization(0, 24, 25);
-$peso_uruguay_sell = matchVarCotization(0, 26, 27);
-$peso_chile_buy = matchVarCotization(0, 30, 31);
-$peso_chile_sell = matchVarCotization(0, 32, 33);
+//$dollar_off_buy = matchVarCotization(0, 0, 1);
+//$dollar_off_sell = matchVarCotization(0, 2, 3);
+//$euro_buy = matchVarCotization(0, 6, 7);
+//$euro_sell = matchVarCotization(0, 8, 9);
+//$real_buy = matchVarCotization(0, 12, 13);
+//$real_sell = matchVarCotization(0, 14, 15);
+//$peso_uruguay_buy = matchVarCotization(0, 24, 25);
+//$peso_uruguay_sell = matchVarCotization(0, 26, 27);
+//$peso_chile_buy = matchVarCotization(0, 30, 31);
+//$peso_chile_sell = matchVarCotization(0, 32, 33);
+
+$cot_url = 'https://www.dolarsi.com/api/api.php?type=cotizador';
+$cot_html = file_get_contents($cot_url);
+preg_match_all('!\d+!', $cot_html, $matches);
+$dollar_off_buy = $matches[0][0] . ',' . $matches[0][1];
+$dollar_off_sell = $matches[0][2] . ',' . $matches[0][3];
+$euro_buy = $matches[0][6] . ',' . $matches[0][7];
+$euro_sell = $matches[0][8] . ',' . $matches[0][9];
+$real_buy = $matches[0][12] . ',' . $matches[0][13];
+$real_sell = $matches[0][14] . ',' . $matches[0][15];
+$peso_uruguay_buy = $matches[0][24] . ',' . $matches[0][25];
+$peso_uruguay_sell = $matches[0][26] . ',' . $matches[0][27];
+$peso_chile_buy = $matches[0][30] . ',' . $matches[0][31];
+$peso_chile_sell = $matches[0][32] . ',' . $matches[0][33];
+
+echo $dollar_off_buy;
+echo '<br>';
+echo $dollar_off_sell;
+echo '<br>';
+echo $euro_buy;
+echo '<br>';
+echo $euro_sell;
+echo '<br>';
+echo $real_buy;
+echo '<br>';
+echo $real_sell;
+echo '<br>';
+echo $peso_uruguay_buy;
+echo '<br>';
+echo $peso_uruguay_sell;
+echo '<br>';
+echo $peso_chile_buy;
+echo '<br>';
+echo $peso_chile_sell;
+
+
 
 // '/valoresprincipales': JSON FILE FROM 'DOLARSI.COM'
-$dollar_blue_buy = matchVarMainValues(0, 8, 9);
-$dollar_blue_sell = matchVarMainValues(0, 10, 11);
+//$dollar_blue_buy = matchVarMainValues(0, 8, 9);
+//$dollar_blue_sell = matchVarMainValues(0, 10, 11);
 
+$mv_url = 'https://www.dolarsi.com/api/api.php?type=valoresprincipales';
+$mv_html = file_get_contents($mv_url);
+preg_match_all('!\d+!', $mv_html, $matches);
+$dollar_blue_buy = $matches[0][8] . ',' . $matches[0][9];
+$dollar_blue_sell = $matches[0][10] . ',' . $matches[0][11];
 
 // --------------------------------------------------------------------------- JSON VARIATIONS ---------------------------------------------------------------------------
 
@@ -78,20 +125,23 @@ function matchVarMainValues($arr, $val1, $val2): string
     return $matches[$arr][$val1] . ',' . $matches[$arr][$val2];
 }
 
+$cotizador_url = 'https://www.dolarsi.com/api/api.php?type=cotizador';
+$cotizador_html = file_get_contents($cotizador_url);
+
 function matchVarCotization($arr, $val1, $val2): string
 {
     $url = 'https://www.dolarsi.com/api/api.php?type=cotizador';
     $html = file_get_contents($url);
-    $arrNum = preg_match_all('!\d+!', $html, $matches);
+    preg_match_all('!\d+!', $html, $matches);
     $length = strlen((string)$val1);
     $content = $matches[$arr][$val1] . ',' . $matches[$arr][$val2];
 
     // If the value of 'Valores Principales' from the API is a number without decimals, the index of the array changes for a three-digit number.
     // In order to fix that but preserve the API, that wrong value is equal to '0'.
-    if(strlen($matches[$arr][$val1]) > 2){
+    if($length > 2){
         return 0 . ',' . $matches[$arr][$val2];
     }else{
-        return $matches[$arr][$val1] . ',' . $matches[$arr][$val2];
+        return $content;
     }
 }
 
