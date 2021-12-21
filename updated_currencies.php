@@ -113,6 +113,27 @@ echo '<br>';
 echo '<h1>Variation</h1>';
 echo showMeTheVariJson('https://api.economico.infobae.com/financial/asset/?ids=URUPES&range=now');
 
+function matchMeTheVariation($arr, $val1, $val2): string
+{
+    $url = 'https://www.dolarsi.com/api/api.php?type=valoresprincipales';
+    $html = file_get_contents($url);
+    $arrNum = preg_match_all('!\d+!', $html, $matches);
+    $length = strlen((string)$val1);
+    $content = $matches[$arr][$val1] . ',' . $matches[$arr][$val2];
+
+    // If the value of 'Valores Principales' from the API is a number without decimals, the index of the array changes for a three-digit number.
+    // In order to fix that but preserve the API, that wrong value is equal to '0'.
+    if(strlen($matches[$arr][$val1]) > 2){
+        return 'Else:' . 0 . ',' . $matches[$arr][$val2];
+    }else{
+        return $matches[$arr][$val1] . ',' . $matches[$arr][$val2];
+    }
+}
+
+echo '<br>';
+echo '<br>';
+echo 'New example: ' . matchMeTheVariation(0, 12, 13);
+
 
 ?>
 
