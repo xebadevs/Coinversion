@@ -32,7 +32,8 @@ $pesoChileVariation = showMeTheVariation('https://www.infodolar.com/cotizacion-p
 //$peso_chile_sell = matchVarCotization(0, 32, 33);
 
 $cot_url = 'https://www.dolarsi.com/api/api.php?type=cotizador';
-$cot_html = file_get_contents($cot_url);
+$context = stream_context_create(array('http' => array('header'=>'Connection: close\r\n')));
+$cot_html = file_get_contents($cot_url, false, $context);
 preg_match_all('!\d+!', $cot_html, $matches);
 $dollar_off_buy = $matches[0][0] . ',' . $matches[0][1];
 $dollar_off_sell = $matches[0][2] . ',' . $matches[0][3];
@@ -44,6 +45,7 @@ $peso_uruguay_buy = $matches[0][24] . ',' . $matches[0][25];
 $peso_uruguay_sell = $matches[0][26] . ',' . $matches[0][27];
 $peso_chile_buy = $matches[0][30] . ',' . $matches[0][31];
 $peso_chile_sell = $matches[0][32] . ',' . $matches[0][33];
+
 
 echo $dollar_off_buy;
 echo '<br>';
@@ -65,14 +67,12 @@ echo $peso_chile_buy;
 echo '<br>';
 echo $peso_chile_sell;
 
-
-
 // '/valoresprincipales': JSON FILE FROM 'DOLARSI.COM'
 //$dollar_blue_buy = matchVarMainValues(0, 8, 9);
 //$dollar_blue_sell = matchVarMainValues(0, 10, 11);
 
 $mv_url = 'https://www.dolarsi.com/api/api.php?type=valoresprincipales';
-$mv_html = file_get_contents($mv_url);
+$mv_html = file_get_contents($mv_url, false, $context);
 preg_match_all('!\d+!', $mv_html, $matches);
 $dollar_blue_buy = $matches[0][8] . ',' . $matches[0][9];
 $dollar_blue_sell = $matches[0][10] . ',' . $matches[0][11];
@@ -82,19 +82,19 @@ $dollar_blue_sell = $matches[0][10] . ',' . $matches[0][11];
 // The last variable gives the variation number with a positive or negative sign
 // EURO
 $infobae_euro_url = 'https://api.economico.infobae.com/financial/asset/?ids=EURPES&range=now';
-$infobae_euro_html = file_get_contents($infobae_euro_url);
+$infobae_euro_html = file_get_contents($infobae_euro_url, false, $context);
 $infobae_euro_str = substr($infobae_euro_html, 1, -1);
 $infobae_euro_obj = json_decode($infobae_euro_str);
 
 // REAL
 $infobae_real_url = 'https://api.economico.infobae.com/financial/asset/?ids=CMPES&range=now';
-$infobae_real_html = file_get_contents($infobae_real_url);
+$infobae_real_html = file_get_contents($infobae_real_url, false, $context);
 $infobae_real_str = substr($infobae_real_html, 1, -1);
 $infobae_real_obj = json_decode($infobae_real_str);
 
 // PESO URUGUAY
 $infobae_pesou_url = 'https://api.economico.infobae.com/financial/asset/?ids=URUPES&range=now';
-$infobae_pesou_html = file_get_contents($infobae_pesou_url);
+$infobae_pesou_html = file_get_contents($infobae_pesou_url, false, $context);
 $infobae_pesou_str = substr($infobae_pesou_html, 1, -1);
 $infobae_pesou_obj = json_decode($infobae_pesou_str);
 
@@ -106,43 +106,6 @@ function showMeTheVariation($url, $element, $num): array|string
     $html = file_get_html($url);
     $variation = str_replace('=', '', $html->find($element, $num));
     return str_replace(' ', '', $variation);
-}
-
-function showMeTheVariJson($url){
-    $html = file_get_contents($url);
-    $str = substr($html, 1, -1);
-    $obj = json_decode($str);
-    return $obj->variation;
-}
-
-function matchVarMainValues($arr, $val1, $val2): string
-{
-    $url = 'https://www.dolarsi.com/api/api.php?type=valoresprincipales';
-    $html = file_get_contents($url);
-    $arrNum = preg_match_all('!\d+!', $html, $matches);
-    $length = strlen((string)$val1);
-    $content = $matches[$arr][$val1] . ',' . $matches[$arr][$val2];
-    return $matches[$arr][$val1] . ',' . $matches[$arr][$val2];
-}
-
-$cotizador_url = 'https://www.dolarsi.com/api/api.php?type=cotizador';
-$cotizador_html = file_get_contents($cotizador_url);
-
-function matchVarCotization($arr, $val1, $val2): string
-{
-    $url = 'https://www.dolarsi.com/api/api.php?type=cotizador';
-    $html = file_get_contents($url);
-    preg_match_all('!\d+!', $html, $matches);
-    $length = strlen((string)$val1);
-    $content = $matches[$arr][$val1] . ',' . $matches[$arr][$val2];
-
-    // If the value of 'Valores Principales' from the API is a number without decimals, the index of the array changes for a three-digit number.
-    // In order to fix that but preserve the API, that wrong value is equal to '0'.
-    if($length > 2){
-        return 0 . ',' . $matches[$arr][$val2];
-    }else{
-        return $content;
-    }
 }
 
 ?>
