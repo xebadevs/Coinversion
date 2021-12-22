@@ -1,188 +1,164 @@
 <?php
+    // ------------------------------ cURL: Multiple Instances ------------------------------ //
+    // cURL_init
+    $ch_cotizador = curl_init();
+    $ch_valprin = curl_init();
+    $ch_euro = curl_init();
+    $ch_real = curl_init();
+    $ch_pesou = curl_init();
+    $ch_libra = curl_init();
 
-// ------------------------------ DOLARSI/COTIZADOR ------------------------------ //
-// cURL_init
-$ch_cotizador = curl_init();
-$ch_valprin = curl_init();
-$ch_euro = curl_init();
-$ch_real = curl_init();
-$ch_pesou = curl_init();
-$ch_libra = curl_init();
+    // cURL_urls
+    $url_cotizador = 'https://www.dolarsi.com/api/api.php?type=cotizador';
+    $url_valprin = 'https://www.dolarsi.com/api/api.php?type=valoresprincipales';
+    $url_euro = 'https://api.economico.infobae.com/financial/asset/?ids=EURPES&range=now';
+    $url_real = 'https://api.economico.infobae.com/financial/asset/?ids=CMPES&range=now';
+    $url_pesou = 'https://api.economico.infobae.com/financial/asset/?ids=URUPES&range=now';
+    $url_libra = 'https://api.economico.infobae.com/financial/asset/?ids=LIBPES&range=now';
 
-// cURL_urls
-$url_cotizador = 'https://www.dolarsi.com/api/api.php?type=cotizador';
-$url_valprin = 'https://www.dolarsi.com/api/api.php?type=valoresprincipales';
-$url_euro = 'https://api.economico.infobae.com/financial/asset/?ids=EURPES&range=now';
-$url_real = 'https://api.economico.infobae.com/financial/asset/?ids=CMPES&range=now';
-$url_pesou = 'https://api.economico.infobae.com/financial/asset/?ids=URUPES&range=now';
-$url_libra = 'https://api.economico.infobae.com/financial/asset/?ids=LIBPES&range=now';
+    // cURL_set_urls and config
+    curl_setopt($ch_cotizador, CURLOPT_URL, $url_cotizador);
+    curl_setopt($ch_cotizador, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch_valprin, CURLOPT_URL, $url_valprin);
+    curl_setopt($ch_valprin, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch_euro, CURLOPT_URL, $url_euro);
+    curl_setopt($ch_euro, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch_real, CURLOPT_URL, $url_real);
+    curl_setopt($ch_real, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch_pesou, CURLOPT_URL, $url_pesou);
+    curl_setopt($ch_pesou, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch_libra, CURLOPT_URL, $url_libra);
+    curl_setopt($ch_libra, CURLOPT_RETURNTRANSFER, true);
 
-// cURL_set_urls and config
-curl_setopt($ch_cotizador, CURLOPT_URL, $url_cotizador);
-curl_setopt($ch_cotizador, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch_valprin, CURLOPT_URL, $url_valprin);
-curl_setopt($ch_valprin, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch_euro, CURLOPT_URL, $url_euro);
-curl_setopt($ch_euro, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch_real, CURLOPT_URL, $url_real);
-curl_setopt($ch_real, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch_pesou, CURLOPT_URL, $url_pesou);
-curl_setopt($ch_pesou, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch_libra, CURLOPT_URL, $url_libra);
-curl_setopt($ch_libra, CURLOPT_RETURNTRANSFER, true);
+    // cURL_multiple_handle
+    $mh = curl_multi_init();
 
-// cURL_multiple_handle
-$mh = curl_multi_init();
+    // cURL_insert_handle
+    curl_multi_add_handle($mh, $ch_cotizador);
+    curl_multi_add_handle($mh, $ch_valprin);
+    curl_multi_add_handle($mh, $ch_euro);
+    curl_multi_add_handle($mh, $ch_real);
+    curl_multi_add_handle($mh, $ch_pesou);
+    curl_multi_add_handle($mh, $ch_libra);
 
-// cURL_insert_handle
-curl_multi_add_handle($mh, $ch_cotizador);
-curl_multi_add_handle($mh, $ch_valprin);
-curl_multi_add_handle($mh, $ch_euro);
-curl_multi_add_handle($mh, $ch_real);
-curl_multi_add_handle($mh, $ch_pesou);
-curl_multi_add_handle($mh, $ch_libra);
+    //cURL_do while
+    do {
+        $status = curl_multi_exec($mh, $active);
+        if($active){
+            curl_multi_select($mh);
+        }
+    }while(
+        $active && $status == CURLM_OK
+    );
 
-//cURL_do while
-do {
-    $status = curl_multi_exec($mh, $active);
-    if($active){
-        curl_multi_select($mh);
+    // cURL_close
+    curl_multi_remove_handle($mh, $ch_cotizador);
+    curl_multi_remove_handle($mh, $ch_valprin);
+    curl_multi_remove_handle($mh, $ch_euro);
+    curl_multi_remove_handle($mh, $ch_real);
+    curl_multi_remove_handle($mh, $ch_pesou);
+    curl_multi_remove_handle($mh, $ch_libra);
+
+
+    // ------------------------------ RESPONSE ../DOLARSI/COTIZADOR ------------------------------ //
+    $resp_cotizador = curl_multi_getcontent($ch_cotizador);
+
+    if($e = curl_error($ch_cotizador)){
+        echo $e;
+    }else{
+        $dec_cotizador = json_decode($resp_cotizador, true);
     }
-}while(
-    $active && $status == CURLM_OK
-);
 
-// cURL_close
-curl_multi_remove_handle($mh, $ch_cotizador);
-curl_multi_remove_handle($mh, $ch_valprin);
-curl_multi_remove_handle($mh, $ch_euro);
-curl_multi_remove_handle($mh, $ch_real);
-curl_multi_remove_handle($mh, $ch_pesou);
-curl_multi_remove_handle($mh, $ch_libra);
-
-
-// cURL_responses: ch_cotizador
-$resp_cotizador = curl_multi_getcontent($ch_cotizador);
-
-if($e = curl_error($ch_cotizador)){
-    echo $e;
-}else{
-    $dec_cotizador = json_decode($resp_cotizador, true);
-    echo '<pre>';
-    // var_dump($dec_cotizador);
-    echo '</pre>';
-}
-
-// Results
-echo '<h3>Values from Cotizador</h3>';
-echo 'Dollar (Official) Buy: ' . $dec_cotizador[0]['casa']['compra'];
-echo '<br>';
-echo 'Dollar (Official) Sell: ' . $dec_cotizador[0]['casa']['venta'];
-echo '<br>';
-echo 'Euro Buy: ' . $dec_cotizador[1]['casa']['compra'];
-echo '<br>';
-echo 'Euro Sell: ' . $dec_cotizador[1]['casa']['venta'];
-echo '<br>';
-echo 'Real Buy: ' . $dec_cotizador[2]['casa']['compra'];
-echo '<br>';
-echo 'Real Sell: ' . $dec_cotizador[2]['casa']['venta'];
-echo '<br>';
-echo 'Peso (Uruguay) Buy: ' . $dec_cotizador[4]['casa']['compra'];
-echo '<br>';
-echo 'Peso (Uruguay) Sell: ' . $dec_cotizador[4]['casa']['venta'];
-echo '<br>';
-echo 'Peso (Chile) Buy: ' . $dec_cotizador[5]['casa']['compra'];
-echo '<br>';
-echo 'Peso (Chile) Sell: ' . $dec_cotizador[5]['casa']['venta'];
-echo '<br>';
-echo '<br>';
-echo '<hr>';
+    // VARIABLES
+    $dollarOfficialBuy = $dec_cotizador[0]['casa']['compra'];
+    $dollarOfficialSell = $dec_cotizador[0]['casa']['venta'];
+    $euroBuy = $dec_cotizador[1]['casa']['compra'];
+    $euroSell = $dec_cotizador[1]['casa']['venta'];
+    $realBuy = $dec_cotizador[2]['casa']['compra'];
+    $realSell = $dec_cotizador[2]['casa']['venta'];
+    $pesoUruguayBuy = $dec_cotizador[4]['casa']['compra'];
+    $pesoUruguaySell = $dec_cotizador[4]['casa']['venta'];
 
 
-// ------------------------------ DOLARSI/VALORESPRINCIPALES ------------------------------ //
+    // ------------------------------ RESPONSE: ../DOLARSI/VALORESPRINCIPALES ------------------------------ //
 
-// cURL_responses: ch_valoresprincipales
-$resp_valprin = curl_multi_getcontent($ch_valprin);
+    // cURL_responses: ch_valoresprincipales
+    $resp_valprin = curl_multi_getcontent($ch_valprin);
 
-if($e = curl_error($ch_valprin)){
-    echo $e;
-}else{
-    $dec_valprin = json_decode($resp_valprin, true);
-}
+    if($e = curl_error($ch_valprin)){
+        echo $e;
+    }else{
+        $dec_valprin = json_decode($resp_valprin, true);
+    }
 
-// Results
-echo '<h3>Values from ValoresPrincipales</h3>';
-echo 'Dollar (Blue) Buy: ' . $dec_valprin[1]['casa']['compra'];
-echo '<br>';
-echo 'Dollar (Blue) Sell: ' . $dec_valprin[1]['casa']['venta'];
-echo '<br>';
-echo '<br>';
-
-echo 'Dollar (Blue) Variation: ' . $dec_valprin[1]['casa']['variacion'];
-echo '<br>';
-
-echo 'Dollar (Official) Variation: ' . $dec_valprin[0]['casa']['variacion'];
-echo '<br>';
+    // VARIABLES
+    $dollarBlueBuy = $dec_valprin[1]['casa']['compra'];
+    $dollarBlueSell = $dec_valprin[1]['casa']['venta'];
+    $dollarBlueVar =  $dec_valprin[1]['casa']['variacion'];
+    $dollarOfficialVar = $dec_valprin[0]['casa']['variacion'];
 
 
-// ------------------------------ INFOBAE/EURO ------------------------------ //
+    // ------------------------------ RESPONSE: ../INFOBAE/EURO ------------------------------ //
 
-// cURL_responses: ch_euro
-$resp_euro = curl_multi_getcontent($ch_euro);
+    // cURL_responses: ch_euro
+    $resp_euro = curl_multi_getcontent($ch_euro);
 
-if($e = curl_error($ch_euro)){
-    echo $e;
-}else{
-    $dec_euro = json_decode($resp_euro, true);
-}
+    if($e = curl_error($ch_euro)){
+        echo $e;
+    }else{
+        $dec_euro = json_decode($resp_euro, true);
+    }
 
-echo 'Euro Variation: ' . $dec_euro[0]['variation'];
-echo '<br>';
-
-
-// ------------------------------ INFOBAE/REAL ------------------------------ //
-
-// cURL_responses: ch_real
-$resp_real = curl_multi_getcontent($ch_real);
-
-if($e = curl_error($ch_real)){
-    echo $e;
-}else{
-    $dec_real = json_decode($resp_real, true);
-}
-
-echo 'Real Variation: ' . $dec_real[0]['variation'];
-echo '<br>';
+    // VARIABLES
+    $euroVar = $dec_euro[0]['variation'];
 
 
-// ------------------------------ INFOBAE/PESO(URUGUAY) ------------------------------ //
+    // ------------------------------ RESPONSE: INFOBAE/REAL ------------------------------ //
 
-// cURL_responses: ch_pesou
-$resp_pesou = curl_multi_getcontent($ch_pesou);
+    // cURL_responses: ch_real
+    $resp_real = curl_multi_getcontent($ch_real);
 
-if($e = curl_error($ch_pesou)){
-    echo $e;
-}else{
-    $dec_pesou = json_decode($resp_pesou, true);
-}
+    if($e = curl_error($ch_real)){
+        echo $e;
+    }else{
+        $dec_real = json_decode($resp_real, true);
+    }
 
-echo 'Peso (Uruguay) Variation: ' . $dec_pesou[0]['variation'];
-echo '<br>';
+    // VARIABLES
+    $realVar = $dec_real[0]['variation'];
 
 
-// ------------------------------ INFOBAE/LIBRA ------------------------------ //
+    // ------------------------------ RESPONSE: INFOBAE/PESO(URUGUAY) ------------------------------ //
 
-// cURL_responses: ch_libra
-$resp_libra = curl_multi_getcontent($ch_libra);
+    // cURL_responses: ch_pesou
+    $resp_pesou = curl_multi_getcontent($ch_pesou);
 
-if($e = curl_error($ch_libra)){
-    echo $e;
-}else{
-    $dec_libra = json_decode($resp_libra, true);
-}
+    if($e = curl_error($ch_pesou)){
+        echo $e;
+    }else{
+        $dec_pesou = json_decode($resp_pesou, true);
+    }
 
-echo 'Libra Variation: ' . $dec_libra[0]['variation'];
-echo '<br>';
+    // VARIABLES
+
+    $pesoUruguayVar = $dec_pesou[0]['variation'];
+
+
+    // ------------------------------ RESPONSE: INFOBAE/LIBRA ------------------------------ //
+
+    // cURL_responses: ch_libra
+    $resp_libra = curl_multi_getcontent($ch_libra);
+
+    if($e = curl_error($ch_libra)){
+        echo $e;
+    }else{
+        $dec_libra = json_decode($resp_libra, true);
+    }
+
+    // VARIABLES
+    $libraBuy = $dec_libra[0]['buy_price'];
+    $libreSell = $dec_libra[0]['sale_price'];
+    $libraVar = $dec_libra[0]['variation'];
 
 ?>
 
@@ -206,9 +182,9 @@ echo '<br>';
                         <div class="column is-4 is-inline has-text-centered">VAR</div>
                     </div>
                     <div class="columns has-background-white has-text-centered is-mobile">
-                        <div class="column is-4 is-inline has-text-centered">0,00</div>
-                        <div class="column is-4 is-inline has-text-centered">0,00</div>
-                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold">0,00</div>
+                        <div class="column is-4 is-inline has-text-centered"><?= $dollarOfficialBuy ?></div>
+                        <div class="column is-4 is-inline has-text-centered"><?= $dollarOfficialSell ?></div>
+                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold"><?= $dollarOfficialVar ?>%</div>
                     </div>
                 </div>
 
@@ -231,9 +207,9 @@ echo '<br>';
                         <div class="column is-4 is-inline has-text-centered">VAR</div>
                     </div>
                     <div class="columns has-background-white has-text-centered is-mobile">
-                        <div class="column is-4 is-inline has-text-centered">0,00</div>
-                        <div class="column is-4 is-inline has-text-centered">0,00</div>
-                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold">xxx</div>
+                        <div class="column is-4 is-inline has-text-centered"><?= $euroBuy ?></div>
+                        <div class="column is-4 is-inline has-text-centered"><?= $euroSell ?></div>
+                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold"><?= $euroVar ?>%</div>
                     </div>
                 </div>
 
@@ -256,9 +232,9 @@ echo '<br>';
                         <div class="column is-4 is-inline has-text-centered">VAR</div>
                     </div>
                     <div class="columns has-background-white has-text-centered is-mobile">
-                        <div class="column is-4 is-inline has-text-centered">101.56</div>
-                        <div class="column is-4 is-inline has-text-centered">107.56</div>
-                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold">xxx</div>
+                        <div class="column is-4 is-inline has-text-centered"><?= $realBuy ?></div>
+                        <div class="column is-4 is-inline has-text-centered"><?= $realSell ?></div>
+                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold"><?= $realVar ?>%</div>
                     </div>
                 </div>
             </div>
@@ -283,9 +259,9 @@ echo '<br>';
                         <div class="column is-4 is-inline has-text-centered">VAR</div>
                     </div>
                     <div class="columns has-background-white has-text-centered is-mobile">
-                        <div class="column is-4 is-inline has-text-centered">100.13</div>
-                        <div class="column is-4 is-inline has-text-centered">107.56</div>
-                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold">0.36%</div>
+                        <div class="column is-4 is-inline has-text-centered"><?= $dollarBlueBuy ?></div>
+                        <div class="column is-4 is-inline has-text-centered"><?= $dollarBlueSell ?></div>
+                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold"><?= $dollarBlueVar ?></div>
                     </div>
                 </div>
 
@@ -298,7 +274,7 @@ echo '<br>';
                                 <img class="is-inline mr-2 image xd-icons" src="./img/chi.png" alt="Chile flag icon">
                             </div>
                             <div class="is-inline">
-                                <p class="title is-4 is-inline has-text-white has-text-weight-bold">PESO (Chile)</p>
+                                <p class="title is-4 is-inline has-text-white has-text-weight-bold">LIBRA</p>
                             </div>
                         </div>
                     </div>
@@ -308,9 +284,9 @@ echo '<br>';
                         <div class="column is-4 is-inline has-text-centered">VAR</div>
                     </div>
                     <div class="columns has-background-white has-text-centered is-mobile">
-                        <div class="column is-4 is-inline has-text-centered">101.56</div>
-                        <div class="column is-4 is-inline has-text-centered">107.56</div>
-                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold">xxx</div>
+                        <div class="column is-4 is-inline has-text-centered"><?= $libraBuy ?></div>
+                        <div class="column is-4 is-inline has-text-centered"><?= $libreSell ?></div>
+                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold"><?= $libraVar ?></div>
                     </div>
                 </div>
 
@@ -333,9 +309,9 @@ echo '<br>';
                         <div class="column is-4 is-inline has-text-centered">VAR</div>
                     </div>
                     <div class="columns has-background-white has-text-centered is-mobile">
-                        <div class="column is-4 is-inline has-text-centered">101.56</div>
-                        <div class="column is-4 is-inline has-text-centered">107.56</div>
-                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold">xxx</div>
+                        <div class="column is-4 is-inline has-text-centered"><?= $pesoUruguayBuy ?></div>
+                        <div class="column is-4 is-inline has-text-centered"><?= $pesoUruguaySell ?></div>
+                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold"><?= $pesoUruguayVar ?></div>
                     </div>
                 </div>
             </div>
