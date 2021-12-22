@@ -24,4 +24,4 @@ Note: *Every member has an independent task number.*
 ## QA and Testing:
 - TK#4.01: Supervise the design of the Web Site and give suggestions.
 - TK#4.02: Test the responsive design features in all kind of devices.
-- TK#4.03: Write a Bugs and Errors Inform and share in `Coinversion Project`.
+- TK#4.03: Write a Bug and Error Inform and share in `Coinversion Project`.
