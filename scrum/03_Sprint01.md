@@ -17,7 +17,7 @@ Note: *Every member has an independent task number.*
 
 ## Back-End Developer
 
-- TK#3.01: Search for the APIs to use in every case (uruguayan and chilean pesos, dollars, euros, reais, cryptos, financial news).
+- TK#3.01: Search for the APIs to use in every case (uruguayan peso, pound sterling, dollar, euro, reai, cryptos, financial news).
 - TK#3.02: Define wich APIs will be included in the project.
 - TK#3.03: Creates his own branch from the `Develop Branch` of `Coinversion Project`.
 

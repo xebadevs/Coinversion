@@ -53,7 +53,7 @@ Finally, `The Client` demands that it be an *easy-to-use* website.
 \#US 1.03 - As a user, I want to see the current price of the Euro in relation to the Argentine Peso. \
 \#US 1.04 - As a user, I want to see the current price of the Reai in relation to the Argentine Peso. \
 \#US 1.05 - As a user, I want to see the current price of the Uruguayan Peso in relation to the Argentine Peso. \
-\#US 1.06 - As a user, I want to see the current price of the Pounds (UK) in relation to the Argentine Peso.
+\#US 1.06 - As a user, I want to see the current price of the Pounds Sterling in relation to the Argentine Peso.
 
 \#US 1.07 - As a regular visitor, I want an indicator that expresses whether each rate went up or down from the previous day.
 <br>

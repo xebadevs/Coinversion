@@ -274,7 +274,7 @@
                                 <img class="is-inline mr-2 image xd-icons" src="./img/uk.png" alt="United Kingdom flag icon">
                             </div>
                             <div class="is-inline">
-                                <p class="title is-4 is-inline has-text-white has-text-weight-bold">POUND (UK)</p>
+                                <p class="title is-4 is-inline has-text-white has-text-weight-bold">POUND STERLING</p>
                             </div>
                         </div>
                     </div>
