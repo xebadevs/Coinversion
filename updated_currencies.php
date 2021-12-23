@@ -261,7 +261,7 @@
                     <div class="columns has-background-white has-text-centered is-mobile">
                         <div class="column is-4 is-inline has-text-centered"><?= $dollarBlueBuy ?></div>
                         <div class="column is-4 is-inline has-text-centered"><?= $dollarBlueSell ?></div>
-                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold"><?= $dollarBlueVar ?></div>
+                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold"><?= $dollarBlueVar ?>%</div>
                     </div>
                 </div>
 
@@ -271,10 +271,10 @@
                     <div class="columns has-background-primary">
                         <div class="column has-text-centered">
                             <div class="image is-inline">
-                                <img class="is-inline mr-2 image xd-icons" src="./img/chi.png" alt="Chile flag icon">
+                                <img class="is-inline mr-2 image xd-icons" src="./img/uk.png" alt="United Kingdom flag icon">
                             </div>
                             <div class="is-inline">
-                                <p class="title is-4 is-inline has-text-white has-text-weight-bold">LIBRA</p>
+                                <p class="title is-4 is-inline has-text-white has-text-weight-bold">POUND (UK)</p>
                             </div>
                         </div>
                     </div>
@@ -311,7 +311,7 @@
                     <div class="columns has-background-white has-text-centered is-mobile">
                         <div class="column is-4 is-inline has-text-centered"><?= $pesoUruguayBuy ?></div>
                         <div class="column is-4 is-inline has-text-centered"><?= $pesoUruguaySell ?></div>
-                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold"><?= $pesoUruguayVar ?></div>
+                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold"><?= $pesoUruguayVar ?>%</div>
                     </div>
                 </div>
             </div>
