@@ -6,3 +6,6 @@
 - 2021/10/12: The `Product Backlog` is finished.
 - 2021/11/12: First `Planning`. Conformation of the `Agile Team`.
 - 2021/11/12: Creation of `Sprint 1`.
+- 2021/13/12: Start of `Sprint 1`.
+- 2021/20/12: `Revision` of `Sprint 1`.
+- 2021/21/12: Creation of `Sprint 2`.
