@@ -164,10 +164,10 @@
     // ------------------------------ STYLES: RESPONSE COLOR  ------------------------------ //
 
     function colorVar($value){
-        if(substr($value, 0, 1) === '+' or str_starts_with($value, '/[^0-9]/')){
-            echo '#00D1B2';
-        }else{
+        if(substr($value, 0, 1) === '-'){
             echo '#F14668';
+        }else{
+            echo '#00D1B2';
         }
     }
 
@@ -272,7 +272,7 @@
                     <div class="columns has-background-white has-text-centered is-mobile">
                         <div class="column is-4 is-inline has-text-centered"><?= $dollarBlueBuy ?></div>
                         <div class="column is-4 is-inline has-text-centered"><?= $dollarBlueSell ?></div>
-                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold"><?= $dollarBlueVar ?>%</div>
+                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold" style="color: <?php colorVar($dollarBlueVar) ?>"><?= $dollarBlueVar ?>%</div>
                     </div>
                 </div>
 
@@ -297,7 +297,7 @@
                     <div class="columns has-background-white has-text-centered is-mobile">
                         <div class="column is-4 is-inline has-text-centered"><?= $libraBuy ?></div>
                         <div class="column is-4 is-inline has-text-centered"><?= $libreSell ?></div>
-                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold" style="color: <?php colorVar($libraVar) ?>"><?= $libraVar ?></div>
+                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold" style="color: <?php colorVar($libraVar) ?>"><?= $libraVar ?>%</div>
                     </div>
                 </div>
 
