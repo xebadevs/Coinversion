@@ -160,6 +160,17 @@
     $libreSell = $dec_libra[0]['sale_price'];
     $libraVar = $dec_libra[0]['variation'];
 
+
+    // ------------------------------ STYLES: RESPONSE COLOR  ------------------------------ //
+
+    function colorVar($value){
+        if(substr($value, 0, 1) === '+' or str_starts_with($value, '/[^0-9]/')){
+            echo '#00D1B2';
+        }else{
+            echo '#F14668';
+        }
+    }
+
 ?>
 
 
@@ -184,7 +195,7 @@
                     <div class="columns has-background-white has-text-centered is-mobile">
                         <div class="column is-4 is-inline has-text-centered"><?= $dollarOfficialBuy ?></div>
                         <div class="column is-4 is-inline has-text-centered"><?= $dollarOfficialSell ?></div>
-                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold"><?= $dollarOfficialVar ?>%</div>
+                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold" style="color: <?php colorVar($dollarOfficialVar) ?>"><?= $dollarOfficialVar ?>%</div>
                     </div>
                 </div>
 
@@ -209,7 +220,7 @@
                     <div class="columns has-background-white has-text-centered is-mobile">
                         <div class="column is-4 is-inline has-text-centered"><?= $euroBuy ?></div>
                         <div class="column is-4 is-inline has-text-centered"><?= $euroSell ?></div>
-                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold"><?= $euroVar ?>%</div>
+                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold" style="color: <?php colorVar($euroVar) ?>"><?= $euroVar ?>%</div>
                     </div>
                 </div>
 
@@ -234,7 +245,7 @@
                     <div class="columns has-background-white has-text-centered is-mobile">
                         <div class="column is-4 is-inline has-text-centered"><?= $realBuy ?></div>
                         <div class="column is-4 is-inline has-text-centered"><?= $realSell ?></div>
-                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold"><?= $realVar ?>%</div>
+                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold" style="color: <?php colorVar($realVar) ?>"><?= $realVar ?>%</div>
                     </div>
                 </div>
             </div>
@@ -286,7 +297,7 @@
                     <div class="columns has-background-white has-text-centered is-mobile">
                         <div class="column is-4 is-inline has-text-centered"><?= $libraBuy ?></div>
                         <div class="column is-4 is-inline has-text-centered"><?= $libreSell ?></div>
-                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold"><?= $libraVar ?></div>
+                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold" style="color: <?php colorVar($libraVar) ?>"><?= $libraVar ?></div>
                     </div>
                 </div>
 
@@ -311,7 +322,7 @@
                     <div class="columns has-background-white has-text-centered is-mobile">
                         <div class="column is-4 is-inline has-text-centered"><?= $pesoUruguayBuy ?></div>
                         <div class="column is-4 is-inline has-text-centered"><?= $pesoUruguaySell ?></div>
-                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold"><?= $pesoUruguayVar ?>%</div>
+                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold" style="color: <?php colorVar($pesoUruguayVar) ?>"><?= $pesoUruguayVar ?>%</div>
                     </div>
                 </div>
             </div>
