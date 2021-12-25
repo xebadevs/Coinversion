@@ -29,7 +29,78 @@ $response = curl_exec($curl); // Send the request, save the response
 $data = json_decode($response, true); // print json decoded response
 curl_close($curl); // Close request
 
+// ------------------------------OBTAIN VALUES FOR EVERY SELECT CRYPTOCURRENCY ------------------------------ //
+for($i = 0; $i < 50; $i++){
+    if($data['data'][$i]['symbol'] == 'BTC'){
+        $first_symbol = $data['data'][$i]['symbol'] . '<br>';
+        $btc_price = $data['data'][$i]['quote']['USD']['price'] . '<br>';
+        $btc_percent_24h = $data['data'][$i]['quote']['USD']['percent_change_24h'] . '<br>';
+        $btc_percent_7d = $data['data'][$i]['quote']['USD']['percent_change_7d'] . '<br>';
+        $btc_percent_30d = $data['data'][$i]['quote']['USD']['percent_change_30d'] . '<br>';
+    }elseif($data['data'][$i]['symbol'] == 'ETH'){
+        $second_symbol = $data['data'][$i]['symbol'] . '<br>';
+        $eth_price = $data['data'][$i]['quote']['USD']['price'] . '<br>';
+        $eth_percent_24h = $data['data'][$i]['quote']['USD']['percent_change_24h'] . '<br>';
+        $eth_percent_7d = $data['data'][$i]['quote']['USD']['percent_change_7d'] . '<br>';
+        $eth_percent_30d = $data['data'][$i]['quote']['USD']['percent_change_30d'] . '<br>';
+    }elseif($data['data'][$i]['symbol'] == 'DOT'){
+        $third_symbol = $data['data'][$i]['symbol'] . '<br>';
+        $dot_price = $data['data'][$i]['quote']['USD']['price'] . '<br>';
+        $dot_percent_24h = $data['data'][$i]['quote']['USD']['percent_change_24h'] . '<br>';
+        $dot_percent_7d = $data['data'][$i]['quote']['USD']['percent_change_7d'] . '<br>';
+        $dot_percent_30d = $data['data'][$i]['quote']['USD']['percent_change_30d'] . '<br>';
+    }elseif($data['data'][$i]['symbol'] == 'ADA'){
+        $fourth_symbol = $data['data'][$i]['symbol'] . '<br>';
+        $ada_price = $data['data'][$i]['quote']['USD']['price'] . '<br>';
+        $ada_percent_24h = $data['data'][$i]['quote']['USD']['percent_change_24h'] . '<br>';
+        $ada_percent_7d = $data['data'][$i]['quote']['USD']['percent_change_7d'] . '<br>';
+        $ada_percent_30d = $data['data'][$i]['quote']['USD']['percent_change_30d'] . '<br>';
+    }elseif($data['data'][$i]['symbol'] == 'LTC'){
+        $fifth_symbol = $data['data'][$i]['symbol'] . '<br>';
+        $ltc_price = $data['data'][$i]['quote']['USD']['price'] . '<br>';
+        $ltc_percent_24h = $data['data'][$i]['quote']['USD']['percent_change_24h'] . '<br>';
+        $ltc_percent_7d = $data['data'][$i]['quote']['USD']['percent_change_7d'] . '<br>';
+        $ltc_percent_30d = $data['data'][$i]['quote']['USD']['percent_change_30d'] . '<br>';
+    }
+}
 
+echo 'Crypto Name is: ' . $first_symbol;
+echo 'BTC Price is: ' . substr($btc_price, 0, 9) . '<br>';
+echo 'BTC Percent 24 hours is: ' . substr($btc_percent_24h, 0, 5) . '<br>';
+echo 'BTC Percent 7 days is: ' . substr($btc_percent_7d, 0, 5) . '<br>';
+echo 'BTC Percent 30 days is: ' . substr($btc_percent_30d, 0, 5) . '<br>';
+
+echo '<hr>';
+
+echo 'Crypto Name is: ' . $second_symbol;
+echo 'ETH Price is: ' . substr($eth_price, 0, 9) . '<br>';
+echo 'ETH Percent 24 hours is: ' . substr($eth_percent_24h, 0, 5) . '<br>';
+echo 'ETH Percent 7 days is: ' . substr($eth_percent_7d, 0, 5) . '<br>';
+echo 'ETH Percent 30 days is: ' . substr($eth_percent_30d, 0, 5) . '<br>';
+
+echo '<hr>';
+
+echo 'Crypto Name is: ' . $third_symbol;
+echo 'DOT Price is: ' . substr($dot_price, 0, 9) . '<br>';
+echo 'DOT Percent 24 hours is: ' . substr($dot_percent_24h, 0, 5) . '<br>';
+echo 'DOT Percent 7 days is: ' . substr($dot_percent_7d, 0, 5) . '<br>';
+echo 'DOT Percent 30 days is: ' . substr($dot_percent_30d, 0, 5) . '<br>';
+
+echo '<hr>';
+
+echo 'Crypto Name is: ' . $fourth_symbol;
+echo 'ADA Price is: ' . substr($ada_price, 0, 9) . '<br>';
+echo 'ADA Percent 24 hours is: ' . substr($ada_percent_24h, 0, 5) . '<br>';
+echo 'ADA Percent 7 days is: ' . substr($ada_percent_7d, 0, 5) . '<br>';
+echo 'ADA Percent 30 days is: ' . substr($ada_percent_30d, 0, 5) . '<br>';
+
+echo '<hr>';
+
+echo 'Crypto Name is: ' . $fifth_symbol;
+echo 'LTC Price is: ' . substr($ltc_price, 0, 9) . '<br>';
+echo 'LTC Percent 24 hours is: ' . substr($ltc_percent_24h, 0, 5) . '<br>';
+echo 'LTC Percent 7 days is: ' . substr($ltc_percent_7d, 0, 5) . '<br>';
+echo 'LTC Percent 30 days is: ' . substr($ltc_percent_30d, 0, 5) . '<br>';
 
 
 ?>
