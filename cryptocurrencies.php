@@ -1,17 +1,16 @@
 <?php
 
-// CoinMarketCap PHP settings
+// CoinMarketCap PHP settings modified
 
 $url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
 $parameters = [
     'start' => '1',
-    'limit' => '1',
+    'limit' => '50',
     'convert' => 'USD'
 ];
 
 $headers = [
     'Accepts: application/json',
-//   'Accept-Encoding: deflate, gzip',
     'X-CMC_PRO_API_KEY: 5edb431f-494d-4212-8525-e42fbcd5428b'
 ];
 $qs = http_build_query($parameters); // query string encode the parameters
@@ -27,8 +26,11 @@ curl_setopt_array($curl, array(
 ));
 
 $response = curl_exec($curl); // Send the request, save the response
-print_r(json_decode($response)); // print json decoded response
+$data = json_decode($response, true); // print json decoded response
 curl_close($curl); // Close request
+
+
+
 
 ?>
 
