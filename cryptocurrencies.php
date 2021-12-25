@@ -29,79 +29,50 @@ $response = curl_exec($curl); // Send the request, save the response
 $data = json_decode($response, true); // print json decoded response
 curl_close($curl); // Close request
 
+
 // ------------------------------OBTAIN VALUES FOR EVERY SELECT CRYPTOCURRENCY ------------------------------ //
 for($i = 0; $i < 50; $i++){
     if($data['data'][$i]['symbol'] == 'BTC'){
-        $first_symbol = $data['data'][$i]['symbol'] . '<br>';
-        $btc_price = $data['data'][$i]['quote']['USD']['price'] . '<br>';
-        $btc_percent_24h = $data['data'][$i]['quote']['USD']['percent_change_24h'] . '<br>';
-        $btc_percent_7d = $data['data'][$i]['quote']['USD']['percent_change_7d'] . '<br>';
-        $btc_percent_30d = $data['data'][$i]['quote']['USD']['percent_change_30d'] . '<br>';
+        //$first_symbol = $data['data'][$i]['symbol'] . '<br>';
+        $btc_price = substr($data['data'][$i]['quote']['USD']['price'], 0, 9) . '<br>';
+        $btc_percent_24h = substr($data['data'][$i]['quote']['USD']['percent_change_24h'], 0, 5) . '<br>';
+        $btc_percent_7d = substr($data['data'][$i]['quote']['USD']['percent_change_7d'], 0, 5) . '<br>';
+        $btc_percent_30d = substr($data['data'][$i]['quote']['USD']['percent_change_30d'], 0, 5) . '<br>';
     }elseif($data['data'][$i]['symbol'] == 'ETH'){
-        $second_symbol = $data['data'][$i]['symbol'] . '<br>';
-        $eth_price = $data['data'][$i]['quote']['USD']['price'] . '<br>';
-        $eth_percent_24h = $data['data'][$i]['quote']['USD']['percent_change_24h'] . '<br>';
-        $eth_percent_7d = $data['data'][$i]['quote']['USD']['percent_change_7d'] . '<br>';
-        $eth_percent_30d = $data['data'][$i]['quote']['USD']['percent_change_30d'] . '<br>';
+        //$second_symbol = $data['data'][$i]['symbol'] . '<br>';
+        $eth_price = substr($data['data'][$i]['quote']['USD']['price'], 0, 9) . '<br>';
+        $eth_percent_24h = substr($data['data'][$i]['quote']['USD']['percent_change_24h'], 0, 5) . '<br>';
+        $eth_percent_7d = substr($data['data'][$i]['quote']['USD']['percent_change_7d'], 0, 5) . '<br>';
+        $eth_percent_30d = substr($data['data'][$i]['quote']['USD']['percent_change_30d'], 0, 5) . '<br>';
     }elseif($data['data'][$i]['symbol'] == 'DOT'){
-        $third_symbol = $data['data'][$i]['symbol'] . '<br>';
-        $dot_price = $data['data'][$i]['quote']['USD']['price'] . '<br>';
-        $dot_percent_24h = $data['data'][$i]['quote']['USD']['percent_change_24h'] . '<br>';
-        $dot_percent_7d = $data['data'][$i]['quote']['USD']['percent_change_7d'] . '<br>';
-        $dot_percent_30d = $data['data'][$i]['quote']['USD']['percent_change_30d'] . '<br>';
+        //$third_symbol = $data['data'][$i]['symbol'] . '<br>';
+        $dot_price = substr($data['data'][$i]['quote']['USD']['price'], 0, 9) . '<br>';
+        $dot_percent_24h = substr($data['data'][$i]['quote']['USD']['percent_change_24h'], 0, 5) . '<br>';
+        $dot_percent_7d = substr($data['data'][$i]['quote']['USD']['percent_change_7d'], 0, 5) . '<br>';
+        $dot_percent_30d = substr($data['data'][$i]['quote']['USD']['percent_change_30d'], 0, 5) . '<br>';
     }elseif($data['data'][$i]['symbol'] == 'ADA'){
-        $fourth_symbol = $data['data'][$i]['symbol'] . '<br>';
-        $ada_price = $data['data'][$i]['quote']['USD']['price'] . '<br>';
-        $ada_percent_24h = $data['data'][$i]['quote']['USD']['percent_change_24h'] . '<br>';
-        $ada_percent_7d = $data['data'][$i]['quote']['USD']['percent_change_7d'] . '<br>';
-        $ada_percent_30d = $data['data'][$i]['quote']['USD']['percent_change_30d'] . '<br>';
+        //$fourth_symbol = $data['data'][$i]['symbol'] . '<br>';
+        $ada_price = substr($data['data'][$i]['quote']['USD']['price'], 0, 9) . '<br>';
+        $ada_percent_24h = substr($data['data'][$i]['quote']['USD']['percent_change_24h'], 0, 5) . '<br>';
+        $ada_percent_7d = substr($data['data'][$i]['quote']['USD']['percent_change_7d'], 0, 5) . '<br>';
+        $ada_percent_30d = substr($data['data'][$i]['quote']['USD']['percent_change_30d'], 0, 5) . '<br>';
     }elseif($data['data'][$i]['symbol'] == 'LTC'){
-        $fifth_symbol = $data['data'][$i]['symbol'] . '<br>';
-        $ltc_price = $data['data'][$i]['quote']['USD']['price'] . '<br>';
-        $ltc_percent_24h = $data['data'][$i]['quote']['USD']['percent_change_24h'] . '<br>';
-        $ltc_percent_7d = $data['data'][$i]['quote']['USD']['percent_change_7d'] . '<br>';
-        $ltc_percent_30d = $data['data'][$i]['quote']['USD']['percent_change_30d'] . '<br>';
+        //$fifth_symbol = $data['data'][$i]['symbol'] . '<br>';
+        $ltc_price = substr($data['data'][$i]['quote']['USD']['price'], 0, 9) . '<br>';
+        $ltc_percent_24h = substr($data['data'][$i]['quote']['USD']['percent_change_24h'], 0, 5) . '<br>';
+        $ltc_percent_7d = substr($data['data'][$i]['quote']['USD']['percent_change_7d'], 0, 5) . '<br>';
+        $ltc_percent_30d = substr($data['data'][$i]['quote']['USD']['percent_change_30d'], 0, 5) . '<br>';
     }
 }
 
-echo 'Crypto Name is: ' . $first_symbol;
-echo 'BTC Price is: ' . substr($btc_price, 0, 9) . '<br>';
-echo 'BTC Percent 24 hours is: ' . substr($btc_percent_24h, 0, 5) . '<br>';
-echo 'BTC Percent 7 days is: ' . substr($btc_percent_7d, 0, 5) . '<br>';
-echo 'BTC Percent 30 days is: ' . substr($btc_percent_30d, 0, 5) . '<br>';
-
-echo '<hr>';
-
-echo 'Crypto Name is: ' . $second_symbol;
-echo 'ETH Price is: ' . substr($eth_price, 0, 9) . '<br>';
-echo 'ETH Percent 24 hours is: ' . substr($eth_percent_24h, 0, 5) . '<br>';
-echo 'ETH Percent 7 days is: ' . substr($eth_percent_7d, 0, 5) . '<br>';
-echo 'ETH Percent 30 days is: ' . substr($eth_percent_30d, 0, 5) . '<br>';
-
-echo '<hr>';
-
-echo 'Crypto Name is: ' . $third_symbol;
-echo 'DOT Price is: ' . substr($dot_price, 0, 9) . '<br>';
-echo 'DOT Percent 24 hours is: ' . substr($dot_percent_24h, 0, 5) . '<br>';
-echo 'DOT Percent 7 days is: ' . substr($dot_percent_7d, 0, 5) . '<br>';
-echo 'DOT Percent 30 days is: ' . substr($dot_percent_30d, 0, 5) . '<br>';
-
-echo '<hr>';
-
-echo 'Crypto Name is: ' . $fourth_symbol;
-echo 'ADA Price is: ' . substr($ada_price, 0, 9) . '<br>';
-echo 'ADA Percent 24 hours is: ' . substr($ada_percent_24h, 0, 5) . '<br>';
-echo 'ADA Percent 7 days is: ' . substr($ada_percent_7d, 0, 5) . '<br>';
-echo 'ADA Percent 30 days is: ' . substr($ada_percent_30d, 0, 5) . '<br>';
-
-echo '<hr>';
-
-echo 'Crypto Name is: ' . $fifth_symbol;
-echo 'LTC Price is: ' . substr($ltc_price, 0, 9) . '<br>';
-echo 'LTC Percent 24 hours is: ' . substr($ltc_percent_24h, 0, 5) . '<br>';
-echo 'LTC Percent 7 days is: ' . substr($ltc_percent_7d, 0, 5) . '<br>';
-echo 'LTC Percent 30 days is: ' . substr($ltc_percent_30d, 0, 5) . '<br>';
-
+// Return green in positives values and red in the negative ones
+function colorData($value){
+    if(substr($value, 0, 1) === '-'){
+        echo '#F14668';
+    }else{
+        echo '#00D1B2';
+    }
+}
 
 ?>
 
@@ -139,12 +110,12 @@ echo 'LTC Percent 30 days is: ' . substr($ltc_percent_30d, 0, 5) . '<br>';
                 <div class="columns has-background-white is-mobile">
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline">50,174.81</p>
+                            <p class="title is-6 is-inline"><?= $btc_price ?> </p>
                         </div>
                     </div>
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-weight-bold">1.45%</p>
+                            <p class="title is-6 is-inline has-text-weight-bold" style="color: <?php colorData($btc_percent_24h) ?>"> <?= $btc_percent_24h ?> </p>
                         </div>
                     </div>
                 </div>
@@ -165,12 +136,12 @@ echo 'LTC Percent 30 days is: ' . substr($ltc_percent_30d, 0, 5) . '<br>';
                 <div class="columns has-background-white is-mobile">
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-weight-bold">1.66%</p>
+                            <p class="title is-6 is-inline has-text-weight-bold" style="color: <?php colorData($btc_percent_7d) ?>"> <?= $btc_percent_7d ?> </p>
                         </div>
                     </div>
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-weight-bold">22.11%</p>
+                            <p class="title is-6 is-inline has-text-weight-bold" style="color: <?php colorData($btc_percent_30d) ?>"> <?= $btc_percent_30d ?> </p>
                         </div>
                     </div>
                 </div>
@@ -212,12 +183,12 @@ echo 'LTC Percent 30 days is: ' . substr($ltc_percent_30d, 0, 5) . '<br>';
                 <div class="columns has-background-white is-mobile">
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline">50,174.81</p>
+                            <p class="title is-6 is-inline"> <?= $eth_price ?> </p>
                         </div>
                     </div>
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-weight-bold">1.45%</p>
+                            <p class="title is-6 is-inline has-text-weight-bold" style="color: <?php colorData($eth_percent_24h) ?>"> <?= $eth_percent_24h ?> </p>
                         </div>
                     </div>
                 </div>
@@ -238,12 +209,12 @@ echo 'LTC Percent 30 days is: ' . substr($ltc_percent_30d, 0, 5) . '<br>';
                 <div class="columns has-background-white is-mobile">
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-weight-bold">1.66%</p>
+                            <p class="title is-6 is-inline has-text-weight-bold" style="color: <?php colorData($eth_percent_7d) ?>"> <?= $eth_percent_7d ?> </p>
                         </div>
                     </div>
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-weight-bold">22.11%</p>
+                            <p class="title is-6 is-inline has-text-weight-bold" style="color: <?php colorData($eth_percent_30d) ?>"> <?= $eth_percent_30d ?> </p>
                         </div>
                     </div>
                 </div>
@@ -285,12 +256,12 @@ echo 'LTC Percent 30 days is: ' . substr($ltc_percent_30d, 0, 5) . '<br>';
                 <div class="columns has-background-white is-mobile">
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline">50,174.81</p>
+                            <p class="title is-6 is-inline"> <?= $dot_price ?> </p>
                         </div>
                     </div>
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-weight-bold">1.45%</p>
+                            <p class="title is-6 is-inline has-text-weight-bold" style="color: <?php colorData($dot_percent_24h) ?>"> <?= $dot_percent_24h ?> </p>
                         </div>
                     </div>
                 </div>
@@ -311,12 +282,12 @@ echo 'LTC Percent 30 days is: ' . substr($ltc_percent_30d, 0, 5) . '<br>';
                 <div class="columns has-background-white is-mobile">
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-weight-bold">1.66%</p>
+                            <p class="title is-6 is-inline has-text-weight-bold" style="color: <?php colorData($dot_percent_7d) ?>"> <?= $dot_percent_7d ?> </p>
                         </div>
                     </div>
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-weight-bold">22.11%</p>
+                            <p class="title is-6 is-inline has-text-weight-bold" style="color: <?php colorData($dot_percent_30d) ?>"> <?= $dot_percent_30d ?> </p>
                         </div>
                     </div>
                 </div>
@@ -358,12 +329,12 @@ echo 'LTC Percent 30 days is: ' . substr($ltc_percent_30d, 0, 5) . '<br>';
                 <div class="columns has-background-white is-mobile">
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline">50,174.81</p>
+                            <p class="title is-6 is-inline"> <?= $ada_price ?> </p>
                         </div>
                     </div>
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-weight-bold">1.45%</p>
+                            <p class="title is-6 is-inline has-text-weight-bold" style="color: <?php colorData($ada_percent_24h) ?>"> <?= $ada_percent_24h ?> </p>
                         </div>
                     </div>
                 </div>
@@ -384,12 +355,12 @@ echo 'LTC Percent 30 days is: ' . substr($ltc_percent_30d, 0, 5) . '<br>';
                 <div class="columns has-background-white is-mobile">
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-weight-bold">1.66%</p>
+                            <p class="title is-6 is-inline has-text-weight-bold" style="color: <?php colorData($ada_percent_7d) ?>"> <?= $ada_percent_7d ?> </p>
                         </div>
                     </div>
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-weight-bold">22.11%</p>
+                            <p class="title is-6 is-inline has-text-weight-bold" style="color: <?php colorData($ada_percent_30d) ?>"> <?= $ada_percent_30d ?> </p>
                         </div>
                     </div>
                 </div>
@@ -431,12 +402,12 @@ echo 'LTC Percent 30 days is: ' . substr($ltc_percent_30d, 0, 5) . '<br>';
                 <div class="columns has-background-white is-mobile">
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline">50,174.81</p>
+                            <p class="title is-6 is-inline"> <?= $ltc_price ?> </p>
                         </div>
                     </div>
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-weight-bold">1.45%</p>
+                            <p class="title is-6 is-inline has-text-weight-bold" style="color: <?php colorData($ltc_percent_24h) ?>"> <?= $ltc_percent_24h ?> </p>
                         </div>
                     </div>
                 </div>
@@ -457,12 +428,12 @@ echo 'LTC Percent 30 days is: ' . substr($ltc_percent_30d, 0, 5) . '<br>';
                 <div class="columns has-background-white is-mobile">
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-weight-bold">1.66%</p>
+                            <p class="title is-6 is-inline has-text-weight-bold" style="color: <?php colorData($ltc_percent_7d) ?>"> <?= $ltc_percent_7d ?> </p>
                         </div>
                     </div>
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-weight-bold">22.11%</p>
+                            <p class="title is-6 is-inline has-text-weight-bold" style="color: <?php colorData($ltc_percent_30d) ?>"> <?= $ltc_percent_30d ?> </p>
                         </div>
                     </div>
                 </div>
