@@ -1,3 +1,41 @@
+<?php
+
+$queryString = http_build_query([
+    'api_token' => '58EXiaAuEbLbp7F4XKY4s90uKz6HFXjtwGf4z8u2',
+    'symbols' => 'CC:BTC',
+    'filter_entities' => 'true',
+    'language' => 'en'
+]);
+
+$ch = curl_init(sprintf('%s?%s', 'https://api.marketaux.com/v1/news/all', $queryString));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+$json = curl_exec($ch);
+
+curl_close($ch);
+
+$apiResult = json_decode($json, true);
+
+
+echo '<h1>Results:</h1>';
+echo '<h3>' . $apiResult['data'][0]['title'] . '</h3>';
+echo '<img src="' . $apiResult['data'][0]['image_url'] . '">';
+echo '<br>';
+
+$arr = $apiResult['data'][0]['entities'][0]['highlights'];
+$arr_length = sizeof($apiResult['data'][0]['entities'][0]['highlights']);
+$arr_data = $apiResult['data'][0]['entities'][0]['highlights'];
+$news_data_1 = [];
+
+for($i = 0; $i < $arr_length; $i++){
+    array_push($news_data_1, $apiResult['data'][0]['entities'][0]['highlights'][$i]['highlight']);
+}
+
+print_r($news_data_1);
+
+?>
+
+
 <section class="section">
     <div class="columns is-centered">
         <div class="column is-3 xd-lightshadow has-background-white">
