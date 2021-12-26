@@ -1,5 +1,6 @@
 <?php
 
+// cURL Query
 $queryString = http_build_query([
     'api_token' => '58EXiaAuEbLbp7F4XKY4s90uKz6HFXjtwGf4z8u2',
     'symbols' => 'CC:BTC',
@@ -7,31 +8,32 @@ $queryString = http_build_query([
     'language' => 'en'
 ]);
 
+// cURL Settings
 $ch = curl_init(sprintf('%s?%s', 'https://api.marketaux.com/v1/news/all', $queryString));
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
 $json = curl_exec($ch);
-
 curl_close($ch);
 
+// cURL Results
 $apiResult = json_decode($json, true);
 
-
-echo '<h1> Source: ' . ucfirst($apiResult['data'][0]['source']) . '</h1>';
-echo '<h3> Content: ' . $apiResult['data'][0]['description'] . '</h3>';
+// Curl -> Variables
+echo '<h1> <b>Source:</b> ' . ucfirst($apiResult['data'][0]['source']) . '</h1>';
+echo '<h3> <b>Content:</b> ' . $apiResult['data'][0]['description'] . '</h3>';
 echo '<h3><a href="' . $apiResult['data'][0]['url'] . '">The link to the New</a></h3>';
-echo '<h3> URL: ' . $apiResult['data'][0]['url'] . '</h3>';
-echo '<img src="' . $apiResult['data'][0]['image_url'] . '">';
+
 echo '<br>';
 
-$arr = $apiResult['data'][0]['entities'][0]['highlights'];
-$arr_length = sizeof($apiResult['data'][0]['entities'][0]['highlights']);
-$arr_data = $apiResult['data'][0]['entities'][0]['highlights'];
-$news_data_1 = [];
+echo '<h1> <b>Source:</b> ' . ucfirst($apiResult['data'][1]['source']) . '</h1>';
+echo '<h3> <b>Content:</b> ' . $apiResult['data'][1]['description'] . '</h3>';
+echo '<h3><a href="' . $apiResult['data'][1]['url'] . '">The link to the New</a></h3>';
 
-//for($i = 0; $i < ($arr_length - 1); $i++){
-//    array_push($news_data_1, $apiResult['data'][0]['entities'][0]['highlights'][$i]['highlight']);
-//}
+echo '<br>';
+
+echo '<h1> <b>Source:</b> ' . ucfirst($apiResult['data'][2]['source']) . '</h1>';
+echo '<h3> <b>Content:</b> ' . $apiResult['data'][2]['description'] . '</h3>';
+echo '<h3><a href="' . $apiResult['data'][2]['url'] . '">The link to the New</a></h3>';
+
 
 ?>
 
