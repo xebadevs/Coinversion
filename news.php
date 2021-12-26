@@ -64,55 +64,27 @@ if($e = curl_error($ch_new)){
 }
 
 
-// ------------------------------ DOM TEST ------------------------------ //
+// ------------------------------ VARIABLES ------------------------------ //
 
-echo '<h1> <b>Source:</b> ' . ucfirst($dec_aux['data'][0]['source']) . '</h1>';
-echo '<h3> <b>Content:</b> ' . $dec_aux['data'][0]['description'] . '</h3>';
-echo '<h3><a href="' . $dec_aux['data'][0]['url'] . '">The link to the New</a></h3>';
+$aux_source0 = ucfirst($dec_aux['data'][0]['source']);
+$aux_desc0 = $dec_aux['data'][0]['description'];
+$aux_link0 = $dec_aux['data'][0]['url'];
+$aux_source1 = ucfirst($dec_aux['data'][1]['source']);
+$aux_desc1 = $dec_aux['data'][1]['description'];
+$aux_link1 = $dec_aux['data'][1]['url'];
+$aux_source2 = ucfirst($dec_aux['data'][2]['source']);
+$aux_desc2 = $dec_aux['data'][2]['description'];
+$aux_link2 = $dec_aux['data'][2]['url'];
 
-echo '<br>';
-
-echo '<h1> <b>Source:</b> ' . ucfirst($dec_aux['data'][1]['source']) . '</h1>';
-echo '<h3> <b>Content:</b> ' . $dec_aux['data'][1]['description'] . '</h3>';
-echo '<h3><a href="' . $dec_aux['data'][1]['url'] . '">The link to the New</a></h3>';
-
-echo '<br>';
-
-echo '<h1> <b>Source:</b> ' . ucfirst($dec_aux['data'][2]['source']) . '</h1>';
-echo '<h3> <b>Content:</b> ' . $dec_aux['data'][2]['description'] . '</h3>';
-echo '<h3><a href="' . $dec_aux['data'][2]['url'] . '">The link to the New</a></h3>';
-
-echo '<br>';
-echo '<hr>';
-echo '<br>';
-
-echo '<h1>Results 1:</h1>';
-echo 'Source: ' . $dec_new['articles'][0]['source']['name'];
-echo '<br>';
-echo 'URL: ' . $dec_new['articles'][0]['url'];
-echo '<br>';
-echo 'Description: ' . $dec_new['articles'][0]['description'];
-
-echo '<br>';
-echo '<br>';
-
-
-echo '<h1>Results 2:</h1>';
-echo 'Source: ' . $dec_new['articles'][1]['source']['name'];
-echo '<br>';
-echo 'URL: ' . $dec_new['articles'][1]['url'];
-echo '<br>';
-echo 'Description: ' . $dec_new['articles'][1]['description'];
-
-echo '<br>';
-echo '<br>';
-
-echo '<h1>Results 3:</h1>';
-echo 'Source: ' . $dec_new['articles'][2]['source']['name'];
-echo '<br>';
-echo 'URL: ' . $dec_new['articles'][2]['url'];
-echo '<br>';
-echo 'Description: ' . $dec_new['articles'][2]['description'];
+$new_source0 = $dec_new['articles'][0]['source']['name'];
+$new_link0 = $dec_new['articles'][0]['url'];
+$new_desc0 = $dec_new['articles'][0]['description'];
+$new_source1 = $dec_new['articles'][1]['source']['name'];
+$new_link1 = $dec_new['articles'][1]['url'];
+$new_desc1 = $dec_new['articles'][1]['description'];
+$new_source2 = $dec_new['articles'][2]['source']['name'];
+$new_link2 = $dec_new['articles'][2]['url'];
+$new_desc2 = $dec_new['articles'][2]['description'];
 
 ?>
 
