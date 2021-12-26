@@ -46,6 +46,23 @@
     curl_multi_remove_handle($mh, $ch_new);
 
 
+// ------------------------------ RESULTS ------------------------------ //
+
+$resp_aux = curl_multi_getcontent($ch_aux);
+$resp_new = curl_multi_getcontent($ch_new);
+
+if($e = curl_error($ch_aux)){
+    echo $e;
+}else{
+    $dec_aux = json_decode($resp_aux, true);
+}
+
+if($e = curl_error($ch_new)){
+    echo $e;
+}else{
+    $dec_new = json_decode($resp_new, true);
+}
+
 ?>
 
 <h3><a href=""></a></h3>
