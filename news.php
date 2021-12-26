@@ -161,8 +161,8 @@ $new_desc2 = $dec_new['articles'][2]['description'];
                 </div>
             </div>
             <div class="columns has-background-white has-text-centered is-mobile">
-                <div class="column is-6 is-inline has-text-centered has-text-info xd-bright"><a href="#" target="_blank">Source</a></div>
-                <div class="column is-6 is-inline has-text-centered has-text-info"><a href=" <?= $aux_link1 ?> ">Read Here</a></div>
+                <div class="column is-6 is-inline has-text-centered has-text-info xd-bright"><a href=" <?= $aux_link1 ?> " target="_blank">Source</a></div>
+                <div class="column is-6 is-inline has-text-centered has-text-info"><a href="#">Read Here</a></div>
             </div>
         </div>
     </div>
@@ -209,8 +209,8 @@ $new_desc2 = $dec_new['articles'][2]['description'];
                 </div>
             </div>
             <div class="columns has-background-white has-text-centered is-mobile">
-                <div class="column is-6 is-inline has-text-centered has-text-info xd-bright"><a href="#" target="_blank">Source</a></div>
-                <div class="column is-6 is-inline has-text-centered has-text-info"><a href=" <?= $aux_link2 ?> ">Read Here</a></div>
+                <div class="column is-6 is-inline has-text-centered has-text-info xd-bright"><a href=" <?= $aux_link2 ?> " target="_blank">Source</a></div>
+                <div class="column is-6 is-inline has-text-centered has-text-info"><a href="#">Read Here</a></div>
             </div>
         </div>
 
@@ -233,8 +233,8 @@ $new_desc2 = $dec_new['articles'][2]['description'];
                 </div>
             </div>
             <div class="columns has-background-white has-text-centered is-mobile">
-                <div class="column is-6 is-inline has-text-centered has-text-info xd-bright"><a href="#" target="_blank">Source</a></div>
-                <div class="column is-6 is-inline has-text-centered has-text-info"><a href=" <?= $new_link2 ?> ">Read Here</a></div>
+                <div class="column is-6 is-inline has-text-centered has-text-info xd-bright"><a href=" <?= $new_link2 ?> " target="_blank">Source</a></div>
+                <div class="column is-6 is-inline has-text-centered has-text-info"><a href="#">Read Here</a></div>
             </div>
         </div>
     </div>
