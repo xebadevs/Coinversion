@@ -1,38 +1,49 @@
 <?php
 
-// cURL Query
-$queryString = http_build_query([
-    'api_token' => '58EXiaAuEbLbp7F4XKY4s90uKz6HFXjtwGf4z8u2',
-    'symbols' => 'CC:BTC',
-    'filter_entities' => 'true',
-    'language' => 'en'
-]);
+// ------------------------------ cURL: Multiple Instances ------------------------------ //
+    // cURL_init
+    $ch_aux = curl_init();
+    $ch_new = curl_init();
 
-// cURL Settings
-$ch = curl_init(sprintf('%s?%s', 'https://api.marketaux.com/v1/news/all', $queryString));
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-$json = curl_exec($ch);
-curl_close($ch);
+    // cURL Queries and Keys
+    $queryString_aux = http_build_query([
+        'api_token' => '58EXiaAuEbLbp7F4XKY4s90uKz6HFXjtwGf4z8u2',
+        'symbols' => 'CC:BTC',
+        'filter_entities' => 'true',
+        'language' => 'en'
+    ]);
+    $queryString_new = 'apiKey=ae1fa2e325e04d0c9e1a93c6988517e0';
 
-// cURL Results
-$apiResult = json_decode($json, true);
+    // cURL_urls
+    $url_aux = sprintf('%s?%s', 'https://api.marketaux.com/v1/news/all', $queryString_aux);
+    $url_new = 'https://newsapi.org/v2/everything?domains=wsj.com&' . $queryString_new;
 
-// Curl -> Variables
-echo '<h1> <b>Source:</b> ' . ucfirst($apiResult['data'][0]['source']) . '</h1>';
-echo '<h3> <b>Content:</b> ' . $apiResult['data'][0]['description'] . '</h3>';
-echo '<h3><a href="' . $apiResult['data'][0]['url'] . '">The link to the New</a></h3>';
+    // cURL_set_urls and config
+    curl_setopt($ch_aux, CURLOPT_URL, $url_aux);
+    curl_setopt($ch_aux, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch_new, CURLOPT_URL, $url_new);
+    curl_setopt($ch_new, CURLOPT_RETURNTRANSFER, true);
 
-echo '<br>';
+    // cURL_multiple_handle
+    $mh = curl_multi_init();
 
-echo '<h1> <b>Source:</b> ' . ucfirst($apiResult['data'][1]['source']) . '</h1>';
-echo '<h3> <b>Content:</b> ' . $apiResult['data'][1]['description'] . '</h3>';
-echo '<h3><a href="' . $apiResult['data'][1]['url'] . '">The link to the New</a></h3>';
+    // cURL_insert_handle
+    curl_multi_add_handle($mh, $ch_aux);
+    curl_multi_add_handle($mh, $ch_new);
 
-echo '<br>';
+    // cURL_do while
+    do {
+        $status = curl_multi_exec($mh, $active);
+        if($active){
+            curl_multi_select($mh);
+        }
+    }while(
+        $active && $status == CURLM_OK
+    );
 
-echo '<h1> <b>Source:</b> ' . ucfirst($apiResult['data'][2]['source']) . '</h1>';
-echo '<h3> <b>Content:</b> ' . $apiResult['data'][2]['description'] . '</h3>';
-echo '<h3><a href="' . $apiResult['data'][2]['url'] . '">The link to the New</a></h3>';
+    // cURL_close
+    curl_multi_remove_handle($mh, $ch_aux);
+    curl_multi_remove_handle($mh, $ch_new);
 
 
 ?>
