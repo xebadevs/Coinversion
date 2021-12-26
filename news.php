@@ -63,6 +63,57 @@ if($e = curl_error($ch_new)){
     $dec_new = json_decode($resp_new, true);
 }
 
+
+// ------------------------------ DOM TEST ------------------------------ //
+
+echo '<h1> <b>Source:</b> ' . ucfirst($dec_aux['data'][0]['source']) . '</h1>';
+echo '<h3> <b>Content:</b> ' . $dec_aux['data'][0]['description'] . '</h3>';
+echo '<h3><a href="' . $dec_aux['data'][0]['url'] . '">The link to the New</a></h3>';
+
+echo '<br>';
+
+echo '<h1> <b>Source:</b> ' . ucfirst($dec_aux['data'][1]['source']) . '</h1>';
+echo '<h3> <b>Content:</b> ' . $dec_aux['data'][1]['description'] . '</h3>';
+echo '<h3><a href="' . $dec_aux['data'][1]['url'] . '">The link to the New</a></h3>';
+
+echo '<br>';
+
+echo '<h1> <b>Source:</b> ' . ucfirst($dec_aux['data'][2]['source']) . '</h1>';
+echo '<h3> <b>Content:</b> ' . $dec_aux['data'][2]['description'] . '</h3>';
+echo '<h3><a href="' . $dec_aux['data'][2]['url'] . '">The link to the New</a></h3>';
+
+echo '<br>';
+echo '<hr>';
+echo '<br>';
+
+echo '<h1>Results 1:</h1>';
+echo 'Source: ' . $dec_new['articles'][0]['source']['name'];
+echo '<br>';
+echo 'URL: ' . $dec_new['articles'][0]['url'];
+echo '<br>';
+echo 'Description: ' . $dec_new['articles'][0]['description'];
+
+echo '<br>';
+echo '<br>';
+
+
+echo '<h1>Results 2:</h1>';
+echo 'Source: ' . $dec_new['articles'][1]['source']['name'];
+echo '<br>';
+echo 'URL: ' . $dec_new['articles'][1]['url'];
+echo '<br>';
+echo 'Description: ' . $dec_new['articles'][1]['description'];
+
+echo '<br>';
+echo '<br>';
+
+echo '<h1>Results 3:</h1>';
+echo 'Source: ' . $dec_new['articles'][2]['source']['name'];
+echo '<br>';
+echo 'URL: ' . $dec_new['articles'][2]['url'];
+echo '<br>';
+echo 'Description: ' . $dec_new['articles'][2]['description'];
+
 ?>
 
 <h3><a href=""></a></h3>
