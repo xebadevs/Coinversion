@@ -17,8 +17,10 @@ curl_close($ch);
 $apiResult = json_decode($json, true);
 
 
-echo '<h1>' . ucfirst($apiResult['data'][0]['source']) . '</h1>';
-echo '<h3>' . $apiResult['data'][0]['description'] . '</h3>';
+echo '<h1> Source: ' . ucfirst($apiResult['data'][0]['source']) . '</h1>';
+echo '<h3> Content: ' . $apiResult['data'][0]['description'] . '</h3>';
+echo '<h3><a href="' . $apiResult['data'][0]['url'] . '">The link to the New</a></h3>';
+echo '<h3> URL: ' . $apiResult['data'][0]['url'] . '</h3>';
 echo '<img src="' . $apiResult['data'][0]['image_url'] . '">';
 echo '<br>';
 
@@ -27,14 +29,13 @@ $arr_length = sizeof($apiResult['data'][0]['entities'][0]['highlights']);
 $arr_data = $apiResult['data'][0]['entities'][0]['highlights'];
 $news_data_1 = [];
 
-for($i = 0; $i < ($arr_length - 1); $i++){
-    array_push($news_data_1, $apiResult['data'][0]['entities'][0]['highlights'][$i]['highlight']);
-}
-
-print_r($news_data_1);
+//for($i = 0; $i < ($arr_length - 1); $i++){
+//    array_push($news_data_1, $apiResult['data'][0]['entities'][0]['highlights'][$i]['highlight']);
+//}
 
 ?>
 
+<h3><a href=""></a></h3>
 
 <section class="section">
     <div class="columns is-centered">
