@@ -85,8 +85,15 @@ $new_desc1 = $dec_new['articles'][1]['description'];
 $new_source2 = $dec_new['articles'][2]['source']['name'];
 $new_link2 = $dec_new['articles'][2]['url'];
 $new_desc2 = $dec_new['articles'][2]['description'];
-
 ?>
+
+
+
+
+
+<!-- ---------------------------- HTML DOM ---------------------------- -->
+
+<!-- ---------- First box ---------- -->
 
 <h3><a href=""></a></h3>
 
@@ -96,125 +103,138 @@ $new_desc2 = $dec_new['articles'][2]['description'];
             <div class="columns has-background-info">
                 <div class="column has-text-centered">
                     <div class="is-inline">
-                        <p class="title is-4 is-inline has-text-white has-text-weight-bold">Daily News</p>
+                        <p class="title is-4 is-inline has-text-white has-text-weight-bold"> <?= $aux_source0 ?> </p>
                     </div>
                 </div>
             </div>
             <div class="columns has-background-white has-text-centered xd-nborder is-mobile">
                 <div class="content has-text-centered m-4 xd-height">
-                    <p class="is-size-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium repudiandae itaque delectus aperiam nihil, repellendus accusamus natus debitis accusantium! Consectetur consequatur magni!</p>
+                    <p class="is-size-4"> <?= $aux_desc0 ?> </p>
                 </div>
             </div>
             <div class="columns has-background-white has-text-centered is-mobile">
-                <div class="column is-6 is-inline has-text-centered has-text-info xd-bright"><a href="https://www.dnj.com" target="_blank">Source</a></div>
+                <div class="column is-6 is-inline has-text-centered has-text-info xd-bright"><a href=" <?= $aux_link0 ?> " target="_blank">Source</a></div>
                 <div class="column is-6 is-inline has-text-centered has-text-info"><a href="#">Read Here</a></div>
             </div>
         </div>
 
         <div class="column is-1"></div>
 
+
+<!-- ---------- Second box ---------- -->
+
         <div class="column is-3 xd-lightshadow has-background-white">
             <div class="columns has-background-info">
                 <div class="column has-text-centered">
                     <div class="is-inline">
-                        <p class="title is-4 is-inline has-text-white has-text-weight-bold">Financial Post</p>
+                        <p class="title is-4 is-inline has-text-white has-text-weight-bold"> <?= $new_source0 ?> </p>
                     </div>
                 </div>
             </div>
             <div class="columns has-background-white has-text-centered xd-nborder is-mobile">
                 <div class="content has-text-centered m-4 xd-height">
-                    <p class="is-size-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium repudiandae itaque delectus aperiam nihil, repellendus accusamus natus debitis accusantium!</p>
+                    <p class="is-size-4"> <?= $new_desc0 ?> </p>
                 </div>
             </div>
             <div class="columns has-background-white has-text-centered is-mobile">
-                <div class="column is-6 is-inline has-text-centered has-text-info xd-bright"><a href="#" target="_blank">Source</a></div>
+                <div class="column is-6 is-inline has-text-centered has-text-info xd-bright"><a href=" <?= $new_link0 ?> " target="_blank">Source</a></div>
                 <div class="column is-6 is-inline has-text-centered has-text-info"><a href="#">Read Here</a></div>
             </div>
         </div>
 
         <div class="column is-1"></div>
 
+
+<!-- ---------- Third box ---------- -->
+
         <div class="column is-3 xd-lightshadow has-background-white">
             <div class="columns has-background-info">
                 <div class="column has-text-centered">
                     <div class="is-inline">
-                        <p class="title is-4 is-inline has-text-white has-text-weight-bold">New York Times</p>
+                        <p class="title is-4 is-inline has-text-white has-text-weight-bold"> <?= $aux_source1 ?> </p>
                     </div>
                 </div>
             </div>
             <div class="columns has-background-white has-text-centered xd-nborder is-mobile">
                 <div class="content has-text-centered m-4 xd-height">
-                    <p class="is-size-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium repudiandae itaque delectus aperiam nihil.</p>
+                    <p class="is-size-4"> <?= $aux_desc1 ?> </p>
                 </div>
             </div>
             <div class="columns has-background-white has-text-centered is-mobile">
                 <div class="column is-6 is-inline has-text-centered has-text-info xd-bright"><a href="#" target="_blank">Source</a></div>
-                <div class="column is-6 is-inline has-text-centered has-text-info"><a href="#">Read Here</a></div>
+                <div class="column is-6 is-inline has-text-centered has-text-info"><a href=" <?= $aux_link1 ?> ">Read Here</a></div>
             </div>
         </div>
     </div>
 
     <br><br>
 
+<!-- ---------- Fourth box ---------- -->
+
     <div class="columns is-centered">
         <div class="column is-3 xd-lightshadow has-background-white">
             <div class="columns has-background-info">
                 <div class="column has-text-centered">
                     <div class="is-inline">
-                        <p class="title is-4 is-inline has-text-white has-text-weight-bold">Daily News</p>
+                        <p class="title is-4 is-inline has-text-white has-text-weight-bold"> <?= $new_source1 ?> </p>
                     </div>
                 </div>
             </div>
             <div class="columns has-background-white has-text-centered xd-nborder is-mobile">
                 <div class="content has-text-centered m-4 xd-height">
-                    <p class="is-size-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium repudiandae itaque delectus aperiam nihil, repellendus accusamus natus debitis accusantium! Consectetur consequatur magni!</p>
+                    <p class="is-size-4"> <?= $new_desc1 ?> </p>
                 </div>
             </div>
             <div class="columns has-background-white has-text-centered is-mobile">
-                <div class="column is-6 is-inline has-text-centered has-text-info xd-bright"><a href="#" target="_blank">Source</a></div>
+                <div class="column is-6 is-inline has-text-centered has-text-info xd-bright"><a href=" <?= $new_link1 ?> " target="_blank">Source</a></div>
                 <div class="column is-6 is-inline has-text-centered has-text-info"><a href="#">Read Here</a></div>
             </div>
         </div>
 
         <div class="column is-1"></div>
 
+
+<!-- ---------- Fifth box ---------- -->
         <div class="column is-3 xd-lightshadow has-background-white">
             <div class="columns has-background-info">
                 <div class="column has-text-centered">
                     <div class="is-inline">
-                        <p class="title is-4 is-inline has-text-white has-text-weight-bold">Financial Post</p>
+                        <p class="title is-4 is-inline has-text-white has-text-weight-bold"> <?= $aux_source2 ?> </p>
                     </div>
                 </div>
             </div>
             <div class="columns has-background-white has-text-centered xd-nborder is-mobile">
                 <div class="content has-text-centered m-4 xd-height">
-                    <p class="is-size-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium repudiandae itaque delectus aperiam nihil, repellendus accusamus natus debitis accusantium!</p>
+                    <p class="is-size-4"> <?= $aux_desc2 ?> </p>
                 </div>
             </div>
             <div class="columns has-background-white has-text-centered is-mobile">
                 <div class="column is-6 is-inline has-text-centered has-text-info xd-bright"><a href="#" target="_blank">Source</a></div>
-                <div class="column is-6 is-inline has-text-centered has-text-info"><a href="#">Read Here</a></div>
+                <div class="column is-6 is-inline has-text-centered has-text-info"><a href=" <?= $aux_link2 ?> ">Read Here</a></div>
             </div>
         </div>
 
         <div class="column is-1"></div>
 
+
+<!-- ---------- Sixth box ---------- -->
+
         <div class="column is-3 xd-lightshadow has-background-white">
             <div class="columns has-background-info">
                 <div class="column has-text-centered">
                     <div class="is-inline">
-                        <p class="title is-4 is-inline has-text-white has-text-weight-bold">New York Times</p>
+                        <p class="title is-4 is-inline has-text-white has-text-weight-bold"> <?= $new_source2 ?> </p>
                     </div>
                 </div>
             </div>
             <div class="columns has-background-white has-text-centered xd-nborder is-mobile">
                 <div class="content has-text-centered m-4 xd-height">
-                    <p class="is-size-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium repudiandae itaque delectus aperiam nihil.</p>
+                    <p class="is-size-4"> <?= $new_desc2 ?> </p>
                 </div>
             </div>
             <div class="columns has-background-white has-text-centered is-mobile">
                 <div class="column is-6 is-inline has-text-centered has-text-info xd-bright"><a href="#" target="_blank">Source</a></div>
-                <div class="column is-6 is-inline has-text-centered has-text-info"><a href="#">Read Here</a></div>
+                <div class="column is-6 is-inline has-text-centered has-text-info"><a href=" <?= $new_link2 ?> ">Read Here</a></div>
             </div>
         </div>
     </div>
