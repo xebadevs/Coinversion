@@ -25,7 +25,7 @@
                     </div>
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Diary%</p>
+                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Day%</p>
                         </div>
                     </div>
                 </div>
@@ -46,12 +46,12 @@
                 <div class="columns has-background-primary is-mobile">
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Weekly%</p>
+                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Week%</p>
                         </div>
                     </div>
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Monthly%</p>
+                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Month%</p>
                         </div>
                     </div>
                 </div>
@@ -98,7 +98,7 @@
                     </div>
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Diary%</p>
+                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Day%</p>
                         </div>
                     </div>
                 </div>
@@ -119,12 +119,12 @@
                 <div class="columns has-background-primary is-mobile">
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Weekly%</p>
+                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Week%</p>
                         </div>
                     </div>
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Monthly%</p>
+                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Month%</p>
                         </div>
                     </div>
                 </div>
@@ -171,7 +171,7 @@
                     </div>
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Diary%</p>
+                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Day%</p>
                         </div>
                     </div>
                 </div>
@@ -190,14 +190,14 @@
             </div>
             <div class="column is-2 xd-bshadow">
                 <div class="columns has-background-primary is-mobile">
-                    <div class="column has-text-centered">
+                    <div class="column has-text-centered px-0">
                         <div>
-                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Weekly%</p>
+                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Week%</p>
                         </div>
                     </div>
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Monthly%</p>
+                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Month%</p>
                         </div>
                     </div>
                 </div>
@@ -244,7 +244,7 @@
                     </div>
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Diary%</p>
+                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Day%</p>
                         </div>
                     </div>
                 </div>
@@ -265,12 +265,12 @@
                 <div class="columns has-background-primary is-mobile">
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Weekly%</p>
+                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Week%</p>
                         </div>
                     </div>
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Monthly%</p>
+                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Month%</p>
                         </div>
                     </div>
                 </div>
@@ -317,7 +317,7 @@
                     </div>
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Diary%</p>
+                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Day%</p>
                         </div>
                     </div>
                 </div>
@@ -338,12 +338,12 @@
                 <div class="columns has-background-primary is-mobile">
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Weekly%</p>
+                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Week%</p>
                         </div>
                     </div>
                     <div class="column has-text-centered">
                         <div>
-                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Monthly%</p>
+                            <p class="title is-6 is-inline has-text-white has-text-weight-bold">Month%</p>
                         </div>
                     </div>
                 </div>
