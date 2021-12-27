@@ -1,6 +1,6 @@
 <section class="section">
         <div class="columns is-centered">
-            <div class="column is-2 xd-bshadow">
+            <div class="column is-2 is-3-tablet xd-bshadow">
                 <div class="columns has-background-primary">
                     <div class="column has-text-centered">
                         <div>
@@ -13,10 +13,10 @@
                     <div class="image column is-3 is-inline has-text-centered">
                         <img class="m-auto xd-crypto" src="./img/btc.png" alt="">
                     </div>
-                    <div class="column is-6 is-inline has-text-centered">Bitcoin</div>
+                    <div class="column is-6 is-inline has-text-centered has-text-weight-bold">Bitcoin</div>
                 </div>
             </div>
-            <div class="column is-2 xd-bshadow">
+            <div class="column is-2 is-3-tablet xd-bshadow">
                 <div class="columns has-background-primary is-mobile">
                     <div class="column has-text-centered">
                         <div>
@@ -42,7 +42,7 @@
                     </div>
                 </div>
             </div>
-            <div class="column is-2 xd-bshadow">
+            <div class="column is-2 is-3-tablet xd-bshadow">
                 <div class="columns has-background-primary is-mobile">
                     <div class="column has-text-centered">
                         <div>
@@ -73,7 +73,7 @@
         <br><br>
         
         <div class="columns is-centered">
-            <div class="column is-2 xd-bshadow">
+            <div class="column is-2 is-3-tablet xd-bshadow">
                 <div class="columns has-background-primary">
                     <div class="column has-text-centered">
                         <div>
@@ -86,10 +86,10 @@
                     <div class="image column is-3 is-inline has-text-centered">
                         <img class="m-auto xd-crypto" src="./img/eth.png" alt="">
                     </div>
-                    <div class="column is-6 is-inline has-text-centered">Ethereum</div>
+                    <div class="column is-6 is-inline has-text-centered has-text-weight-bold">Ethereum</div>
                 </div>
             </div>
-            <div class="column is-2 xd-bshadow">
+            <div class="column is-2 is-3-tablet xd-bshadow">
                 <div class="columns has-background-primary is-mobile">
                     <div class="column has-text-centered">
                         <div>
@@ -115,7 +115,7 @@
                     </div>
                 </div>
             </div>
-            <div class="column is-2 xd-bshadow">
+            <div class="column is-2 is-3-tablet xd-bshadow">
                 <div class="columns has-background-primary is-mobile">
                     <div class="column has-text-centered">
                         <div>
@@ -146,7 +146,7 @@
         <br><br>
         
         <div class="columns is-centered">
-            <div class="column is-2 xd-bshadow">
+            <div class="column is-2 is-3-tablet xd-bshadow">
                 <div class="columns has-background-primary">
                     <div class="column has-text-centered">
                         <div>
@@ -159,10 +159,10 @@
                     <div class="image column is-3 is-inline has-text-centered">
                         <img class="m-auto xd-crypto" src="./img/dot.png" alt="">
                     </div>
-                    <div class="column is-6 is-inline has-text-centered">Polkadot</div>
+                    <div class="column is-6 is-inline has-text-centered has-text-weight-bold">Polkadot</div>
                 </div>
             </div>
-            <div class="column is-2 xd-bshadow">
+            <div class="column is-2 is-3-tablet xd-bshadow">
                 <div class="columns has-background-primary is-mobile">
                     <div class="column has-text-centered">
                         <div>
@@ -188,7 +188,7 @@
                     </div>
                 </div>
             </div>
-            <div class="column is-2 xd-bshadow">
+            <div class="column is-2 is-3-tablet xd-bshadow">
                 <div class="columns has-background-primary is-mobile">
                     <div class="column has-text-centered px-0">
                         <div>
@@ -219,7 +219,7 @@
         <br><br>
         
         <div class="columns is-centered">
-            <div class="column is-2 xd-bshadow">
+            <div class="column is-2 is-3-tablet xd-bshadow">
                 <div class="columns has-background-primary">
                     <div class="column has-text-centered">
                         <div>
@@ -232,10 +232,10 @@
                     <div class="image column is-3 is-inline has-text-centered">
                         <img class="m-auto xd-crypto" src="./img/ada.png" alt="">
                     </div>
-                    <div class="column is-6 is-inline has-text-centered">Cardano</div>
+                    <div class="column is-6 is-inline has-text-centered has-text-weight-bold">Cardano</div>
                 </div>
             </div>
-            <div class="column is-2 xd-bshadow">
+            <div class="column is-2 is-3-tablet xd-bshadow">
                 <div class="columns has-background-primary is-mobile">
                     <div class="column has-text-centered">
                         <div>
@@ -261,7 +261,7 @@
                     </div>
                 </div>
             </div>
-            <div class="column is-2 xd-bshadow">
+            <div class="column is-2 is-3-tablet xd-bshadow">
                 <div class="columns has-background-primary is-mobile">
                     <div class="column has-text-centered">
                         <div>
@@ -292,7 +292,7 @@
         <br><br>
         
         <div class="columns is-centered">
-            <div class="column is-2 xd-bshadow">
+            <div class="column is-2 is-3-tablet xd-bshadow">
                 <div class="columns has-background-primary">
                     <div class="column has-text-centered">
                         <div>
@@ -305,10 +305,10 @@
                     <div class="image column is-3 is-inline has-text-centered">
                         <img class="m-auto xd-crypto" src="./img/ltc.png" alt="">
                     </div>
-                    <div class="column is-6 is-inline has-text-centered">Litecoin</div>
+                    <div class="column is-6 is-inline has-text-centered has-text-weight-bold">Litecoin</div>
                 </div>
             </div>
-            <div class="column is-2 xd-bshadow">
+            <div class="column is-2 is-3-tablet xd-bshadow">
                 <div class="columns has-background-primary is-mobile">
                     <div class="column has-text-centered">
                         <div>
@@ -334,7 +334,7 @@
                     </div>
                 </div>
             </div>
-            <div class="column is-2 xd-bshadow">
+            <div class="column is-2 is-3-tablet xd-bshadow">
                 <div class="columns has-background-primary is-mobile">
                     <div class="column has-text-centered">
                         <div>
