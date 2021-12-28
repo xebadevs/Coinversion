@@ -183,7 +183,7 @@
                                 <img class="is-inline mr-2 image xd-icons" src="./img/eeuu.png" alt="EEUU flag icon">
                             </div>
                             <div class="is-inline">
-                                <p class="title is-4 is-inline has-text-white has-text-weight-bold">DOLLAR (Off)</p>
+                                <p class="title is-4 is-inline has-text-white has-text-weight-bold">DOLLAR</p>
                             </div>
                         </div>
                     </div>
@@ -233,7 +233,7 @@
                                 <img class="is-inline mr-2 image xd-icons" src="./img/bra.png" alt="Brasil flag icon">
                             </div>
                             <div class="is-inline">
-                                <p class="title is-4 is-inline has-text-white has-text-weight-bold">REAI(Brasil)</p>
+                                <p class="title is-4 is-inline has-text-white has-text-weight-bold">REAI</p>
                             </div>
                         </div>
                     </div>
@@ -310,7 +310,7 @@
                                 <img class="is-inline mr-2 image xd-icons" src="./img/uru.png" alt="Uruguay flag icon">
                             </div>
                             <div class="is-inline">
-                                <p class="title is-4 is-inline has-text-white has-text-weight-bold">PESO (Uruguay)</p>
+                                <p class="title is-4 is-inline has-text-white has-text-weight-bold">PESO</p>
                             </div>
                         </div>
                     </div>
