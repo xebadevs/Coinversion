@@ -99,7 +99,7 @@ $new_desc2 = $dec_new['articles'][2]['description'];
 
 <section class="section">
     <div class="columns is-centered">
-        <div class="column is-3 xd-lightshadow has-background-white">
+        <div class="column is-3 xd-lightshadow has-background-white is-size-4">
             <div class="columns has-background-info">
                 <div class="column has-text-centered">
                     <div class="is-inline">
@@ -107,14 +107,13 @@ $new_desc2 = $dec_new['articles'][2]['description'];
                     </div>
                 </div>
             </div>
-            <div class="columns has-background-white has-text-centered xd-nborder is-mobile">
+            <div class="column has-background-white has-text-centered xd-nborder is-mobile">
                 <div class="content has-text-centered m-4 xd-height">
                     <p class="is-size-4"> <?= $aux_desc0 ?> </p>
                 </div>
             </div>
             <div class="columns has-background-white has-text-centered is-mobile">
-                <div class="column is-6 is-inline has-text-centered has-text-info xd-bright"><a href=" <?= $aux_link0 ?> " target="_blank">Source</a></div>
-                <div class="column is-6 is-inline has-text-centered has-text-info"><a href="#" id="news1-click" onclick="works()">Read Here</a></div>
+                <div class="column is-12 is-inline has-text-centered has-text-info xd-bright"><a href=" <?= $aux_link0 ?> " target="_blank">Go to Source</a></div>
             </div>
         </div>
 
@@ -123,7 +122,7 @@ $new_desc2 = $dec_new['articles'][2]['description'];
 
 <!-- ---------- Second box ---------- -->
 
-        <div class="column is-3 xd-lightshadow has-background-white">
+        <div class="column is-3 xd-lightshadow has-background-white is-size-4">
             <div class="columns has-background-info">
                 <div class="column has-text-centered">
                     <div class="is-inline">
@@ -131,14 +130,13 @@ $new_desc2 = $dec_new['articles'][2]['description'];
                     </div>
                 </div>
             </div>
-            <div class="columns has-background-white has-text-centered xd-nborder is-mobile">
+            <div class="column has-background-white has-text-centered xd-nborder is-mobile">
                 <div class="content has-text-centered m-4 xd-height">
                     <p class="is-size-4"> <?= $new_desc0 ?> </p>
                 </div>
             </div>
             <div class="columns has-background-white has-text-centered is-mobile">
-                <div class="column is-6 is-inline has-text-centered has-text-info xd-bright"><a href=" <?= $new_link0 ?> " target="_blank">Source</a></div>
-                <div class="column is-6 is-inline has-text-centered has-text-info"><a href="#">Read Here</a></div>
+                <div class="column is-12 is-inline has-text-centered has-text-info xd-bright"><a href=" <?= $new_link0 ?> " target="_blank">Go to Source</a></div>
             </div>
         </div>
 
@@ -147,7 +145,7 @@ $new_desc2 = $dec_new['articles'][2]['description'];
 
 <!-- ---------- Third box ---------- -->
 
-        <div class="column is-3 xd-lightshadow has-background-white">
+        <div class="column is-3 xd-lightshadow has-background-white is-size-4">
             <div class="columns has-background-info">
                 <div class="column has-text-centered">
                     <div class="is-inline">
@@ -155,14 +153,13 @@ $new_desc2 = $dec_new['articles'][2]['description'];
                     </div>
                 </div>
             </div>
-            <div class="columns has-background-white has-text-centered xd-nborder is-mobile">
+            <div class="column has-background-white has-text-centered xd-nborder is-mobile">
                 <div class="content has-text-centered m-4 xd-height">
                     <p class="is-size-4"> <?= $aux_desc1 ?> </p>
                 </div>
             </div>
             <div class="columns has-background-white has-text-centered is-mobile">
-                <div class="column is-6 is-inline has-text-centered has-text-info xd-bright"><a href=" <?= $aux_link1 ?> " target="_blank">Source</a></div>
-                <div class="column is-6 is-inline has-text-centered has-text-info"><a href="#">Read Here</a></div>
+                <div class="column is-12 is-inline has-text-centered has-text-info xd-bright"><a href=" <?= $aux_link1 ?> " target="_blank">Go to Source</a></div>
             </div>
         </div>
     </div>
@@ -172,7 +169,7 @@ $new_desc2 = $dec_new['articles'][2]['description'];
 <!-- ---------- Fourth box ---------- -->
 
     <div class="columns is-centered">
-        <div class="column is-3 xd-lightshadow has-background-white">
+        <div class="column is-3 xd-lightshadow has-background-white is-size-4">
             <div class="columns has-background-info">
                 <div class="column has-text-centered">
                     <div class="is-inline">
@@ -180,14 +177,13 @@ $new_desc2 = $dec_new['articles'][2]['description'];
                     </div>
                 </div>
             </div>
-            <div class="columns has-background-white has-text-centered xd-nborder is-mobile">
+            <div class="column has-background-white has-text-centered xd-nborder is-mobile">
                 <div class="content has-text-centered m-4 xd-height">
                     <p class="is-size-4"> <?= $new_desc1 ?> </p>
                 </div>
             </div>
             <div class="columns has-background-white has-text-centered is-mobile">
-                <div class="column is-6 is-inline has-text-centered has-text-info xd-bright"><a href=" <?= $new_link1 ?> " target="_blank">Source</a></div>
-                <div class="column is-6 is-inline has-text-centered has-text-info"><a href="#">Read Here</a></div>
+                <div class="column is-12 is-inline has-text-centered has-text-info xd-bright"><a href=" <?= $new_link1 ?> " target="_blank">Go to Source</a></div>
             </div>
         </div>
 
@@ -195,7 +191,7 @@ $new_desc2 = $dec_new['articles'][2]['description'];
 
 
 <!-- ---------- Fifth box ---------- -->
-        <div class="column is-3 xd-lightshadow has-background-white">
+        <div class="column is-3 xd-lightshadow has-background-white is-size-4">
             <div class="columns has-background-info">
                 <div class="column has-text-centered">
                     <div class="is-inline">
@@ -203,14 +199,13 @@ $new_desc2 = $dec_new['articles'][2]['description'];
                     </div>
                 </div>
             </div>
-            <div class="columns has-background-white has-text-centered xd-nborder is-mobile">
+            <div class="column has-background-white has-text-centered xd-nborder is-mobile">
                 <div class="content has-text-centered m-4 xd-height">
                     <p class="is-size-4"> <?= $aux_desc2 ?> </p>
                 </div>
             </div>
             <div class="columns has-background-white has-text-centered is-mobile">
-                <div class="column is-6 is-inline has-text-centered has-text-info xd-bright"><a href=" <?= $aux_link2 ?> " target="_blank">Source</a></div>
-                <div class="column is-6 is-inline has-text-centered has-text-info"><a href="#">Read Here</a></div>
+                <div class="column is-12 is-inline has-text-centered has-text-info xd-bright"><a href=" <?= $aux_link2 ?> " target="_blank">Go to Source</a></div>
             </div>
         </div>
 
@@ -219,7 +214,7 @@ $new_desc2 = $dec_new['articles'][2]['description'];
 
 <!-- ---------- Sixth box ---------- -->
 
-        <div class="column is-3 xd-lightshadow has-background-white">
+        <div class="column is-3 xd-lightshadow has-background-white is-size-4">
             <div class="columns has-background-info">
                 <div class="column has-text-centered">
                     <div class="is-inline">
@@ -227,14 +222,13 @@ $new_desc2 = $dec_new['articles'][2]['description'];
                     </div>
                 </div>
             </div>
-            <div class="columns has-background-white has-text-centered xd-nborder is-mobile">
+            <div class="column has-background-white has-text-centered xd-nborder is-mobile">
                 <div class="content has-text-centered m-4 xd-height">
                     <p class="is-size-4"> <?= $new_desc2 ?> </p>
                 </div>
             </div>
             <div class="columns has-background-white has-text-centered is-mobile">
-                <div class="column is-6 is-inline has-text-centered has-text-info xd-bright"><a href=" <?= $new_link2 ?> " target="_blank">Source</a></div>
-                <div class="column is-6 is-inline has-text-centered has-text-info"><a href="#">Read Here</a></div>
+                <div class="column is-12 is-inline has-text-centered has-text-info xd-bright"><a href=" <?= $new_link2 ?> " target="_blank">Go to Source</a></div>
             </div>
         </div>
     </div>
