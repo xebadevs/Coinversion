@@ -114,7 +114,7 @@ $new_desc2 = $dec_new['articles'][2]['description'];
             </div>
             <div class="columns has-background-white has-text-centered is-mobile">
                 <div class="column is-6 is-inline has-text-centered has-text-info xd-bright"><a href=" <?= $aux_link0 ?> " target="_blank">Source</a></div>
-                <div class="column is-6 is-inline has-text-centered has-text-info"><a href="#">Read Here</a></div>
+                <div class="column is-6 is-inline has-text-centered has-text-info"><a href="#" id="news1-click" onclick="works()">Read Here</a></div>
             </div>
         </div>
 
