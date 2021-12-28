@@ -176,14 +176,14 @@
 
 <section class="section">
             <div class="columns is-centered">
-                <div class="column is-3 xd-lightshadow">
+                <div class="column is-3 xd-lightshadow has-background-white">
                     <div class="columns has-background-primary">
                         <div class="column has-text-centered">
                             <div class="image is-inline">
                                 <img class="is-inline mr-2 image xd-icons" src="./img/eeuu.png" alt="EEUU flag icon">
                             </div>
                             <div class="is-inline">
-                                <p class="title is-4 is-inline has-text-white has-text-weight-bold">DOLLAR (Official)</p>
+                                <p class="title is-4 is-inline has-text-white has-text-weight-bold">DOLLAR (Off)</p>
                             </div>
                         </div>
                     </div>
@@ -201,14 +201,14 @@
 
                 <div class="column is-1"></div>
 
-                <div class="column is-3 xd-lightshadow">
+                <div class="column is-3 xd-lightshadow has-background-white">
                     <div class="columns has-background-primary">
                         <div class="column has-text-centered">
                             <div class="image is-inline">
                                 <img class="is-inline mr-2 image xd-icons" src="./img/eu.png" alt="Europe Union flag icon">
                             </div>
                             <div class="is-inline">
-                                <p class="title is-4 is-inline has-text-white has-text-weight-bold">EURO (Official)</p>
+                                <p class="title is-4 is-inline has-text-white has-text-weight-bold">EURO</p>
                             </div>
                         </div>
                     </div>
@@ -226,7 +226,7 @@
 
                 <div class="column is-1"></div>
 
-                <div class="column is-3 xd-lightshadow">
+                <div class="column is-3 xd-lightshadow has-background-white">
                     <div class="columns has-background-primary">
                         <div class="column has-text-centered">
                             <div class="image is-inline">
@@ -253,7 +253,7 @@
             <br><br>
 
             <div class="columns is-centered">
-                <div class="column is-3 xd-lightshadow">
+                <div class="column is-3 xd-lightshadow has-background-white">
                     <div class="columns has-background-primary">
                         <div class="column has-text-centered">
                             <div class="image is-inline">
@@ -278,14 +278,14 @@
 
                 <div class="column is-1"></div>
 
-                <div class="column is-3 xd-lightshadow">
+                <div class="column is-3 xd-lightshadow has-background-white">
                     <div class="columns has-background-primary">
                         <div class="column has-text-centered">
                             <div class="image is-inline">
                                 <img class="is-inline mr-2 image xd-icons" src="./img/uk.png" alt="United Kingdom flag icon">
                             </div>
                             <div class="is-inline">
-                                <p class="title is-4 is-inline has-text-white has-text-weight-bold">POUND STERLING</p>
+                                <p class="title is-4 is-inline has-text-white has-text-weight-bold">POUND ST</p>
                             </div>
                         </div>
                     </div>
@@ -303,7 +303,7 @@
 
                 <div class="column is-1"></div>
 
-                <div class="column is-3 xd-lightshadow">
+                <div class="column is-3 xd-lightshadow has-background-white">
                     <div class="columns has-background-primary">
                         <div class="column has-text-centered">
                             <div class="image is-inline">
