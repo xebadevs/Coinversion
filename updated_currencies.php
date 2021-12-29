@@ -97,6 +97,13 @@
     $dollarBlueVar =  $dec_valprin[1]['casa']['variacion'];
     $dollarOfficialVar = $dec_valprin[0]['casa']['variacion'];
 
+    function addSign($val){
+        if(substr($val, 0, 1) == '-'){
+            return $val;
+        }else{
+            return "+" . $val;
+        }
+    }
 
     // ------------------------------ RESPONSE: ../INFOBAE/EURO ------------------------------ //
 
@@ -192,10 +199,10 @@
                         <div class="column is-4 is-inline has-text-centered">SELL</div>
                         <div class="column is-4 is-inline has-text-centered">VAR</div>
                     </div>
-                    <div class="columns has-background-white has-text-centered is-mobile">
-                        <div class="column is-4 is-inline has-text-centered"><?= $dollarOfficialBuy ?></div>
-                        <div class="column is-4 is-inline has-text-centered"><?= $dollarOfficialSell ?></div>
-                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold" style="color: <?php colorVar($dollarOfficialVar) ?>"><?= $dollarOfficialVar ?>%</div>
+                    <div class="columns has-background-white has-text-centered xd-bborder is-mobile">
+                        <div class="column is-4 is-inline has-text-centered "><?= $dollarOfficialBuy ?></div>
+                        <div class="column is-4 is-inline has-text-centered "><?= $dollarOfficialSell ?></div>
+                        <div class="column is-4 is-inline has-text-centered  has-text-weight-bold" style="color: <?php colorVar($dollarOfficialVar) ?>"><?= addSign($dollarOfficialVar); ?>%</div>
                     </div>
                 </div>
 
@@ -272,7 +279,7 @@
                     <div class="columns has-background-white has-text-centered is-mobile">
                         <div class="column is-4 is-inline has-text-centered"><?= $dollarBlueBuy ?></div>
                         <div class="column is-4 is-inline has-text-centered"><?= $dollarBlueSell ?></div>
-                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold" style="color: <?php colorVar($dollarBlueVar) ?>"><?= $dollarBlueVar ?>%</div>
+                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold" style="color: <?php colorVar($dollarBlueVar) ?>"><?= addSign($dollarBlueVar); ?>%</div>
                     </div>
                 </div>
 
