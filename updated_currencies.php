@@ -192,10 +192,10 @@
                         <div class="column is-4 is-inline has-text-centered">SELL</div>
                         <div class="column is-4 is-inline has-text-centered">VAR</div>
                     </div>
-                    <div class="columns has-background-white has-text-centered is-mobile">
-                        <div class="column is-4 is-inline has-text-centered"><?= $dollarOfficialBuy ?></div>
-                        <div class="column is-4 is-inline has-text-centered"><?= $dollarOfficialSell ?></div>
-                        <div class="column is-4 is-inline has-text-centered has-text-weight-bold" style="color: <?php colorVar($dollarOfficialVar) ?>"><?= $dollarOfficialVar ?>%</div>
+                    <div class="columns has-background-white has-text-centered xd-bborder is-mobile">
+                        <div class="column is-4 is-inline has-text-centered "><?= $dollarOfficialBuy ?></div>
+                        <div class="column is-4 is-inline has-text-centered "><?= $dollarOfficialSell ?></div>
+                        <div class="column is-4 is-inline has-text-centered  has-text-weight-bold" style="color: <?php colorVar($dollarOfficialVar) ?>"><?= $dollarOfficialVar ?>%</div>
                     </div>
                 </div>
 
