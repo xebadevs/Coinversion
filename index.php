@@ -47,8 +47,5 @@
             </div>
         </footer>
 
-    <?php
-        require_once('modals.php');
-    ?>
 </body>
 </html>

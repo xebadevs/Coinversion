@@ -9,6 +9,11 @@ body {
 
 /* Note: xd is for XebaDevs + the element/s */
 
+.xd-box {
+    height: 350px;
+    overflow: auto;
+}
+
 /* ---------------------- Icons size ---------------------- */
 .image .xd-icons {
     width: 20px;
@@ -19,25 +24,6 @@ body {
     width: 24px;
     height: 24px;
 }
-
-
-/* ---------------------- Borders ---------------------- */
-.xd-bborder {
-    border-bottom: 1px solid #00D1B2;
-}
-
-.xd-nborder {
-    border-bottom: 1px solid #3e8ed042;
-}
-
-.xd-bright {
-    border-right: 1px solid #3e8ed042;
-}
-
-.xd-height {
-    min-height: 300px;
-}
-
 
 /* ---------------------- Shadows ---------------------- */
 .xd-shadow {
