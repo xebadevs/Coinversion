@@ -107,13 +107,19 @@ $new_desc2 = $dec_new['articles'][2]['description'];
                     </div>
                 </div>
             </div>
-            <div class="column has-background-white has-text-centered xd-nborder is-mobile">
+            <div class="column has-background-white has-text-centered xd-nborder is-mobile xd-box">
                 <div class="content has-text-centered m-4 xd-height">
                     <p class="is-size-4"> <?= $aux_desc0 ?> </p>
                 </div>
             </div>
             <div class="columns has-background-white has-text-centered is-mobile">
-                <div class="column is-12 is-inline has-text-centered has-text-info xd-bright"><a href=" <?= $aux_link0 ?> " target="_blank">Go to Source</a></div>
+                <div class="column is-12 is-inline has-text-centered has-text-info xd-bright">
+                    <a href=" <?= $aux_link0 ?> " target="_blank">
+                        <button class="button is-info is-fullwidth">
+                            Go to Source
+                        </button>
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -130,7 +136,7 @@ $new_desc2 = $dec_new['articles'][2]['description'];
                     </div>
                 </div>
             </div>
-            <div class="column has-background-white has-text-centered xd-nborder is-mobile">
+            <div class="column has-background-white has-text-centered xd-nborder is-mobile xd-box">
                 <div class="content has-text-centered m-4 xd-height">
                     <p class="is-size-4"> <?= $new_desc0 ?> </p>
                 </div>
@@ -153,7 +159,7 @@ $new_desc2 = $dec_new['articles'][2]['description'];
                     </div>
                 </div>
             </div>
-            <div class="column has-background-white has-text-centered xd-nborder is-mobile">
+            <div class="column has-background-white has-text-centered xd-nborder is-mobile xd-box">
                 <div class="content has-text-centered m-4 xd-height">
                     <p class="is-size-4"> <?= $aux_desc1 ?> </p>
                 </div>
