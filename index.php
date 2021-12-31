@@ -7,6 +7,7 @@
     <title>Coinversion</title>
     <link rel="stylesheet" href="./css/bulma.min.css">
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="icon" href="./img/coin.ico" sizes="32x32" type="image/vnd.microsoft.icon">
 </head>
 <body>
     <header>
