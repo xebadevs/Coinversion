@@ -100,8 +100,8 @@
     function addSign($val){
         if(substr($val, 0, 1) == '-'){
             return $val;
-        }elseif($val == 0){
-            return $val . ",0";
+        }elseif($val === "0"){
+            return "+ " . $val . ",0";
         }else{
             return "+" . $val;
         }
