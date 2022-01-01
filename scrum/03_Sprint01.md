@@ -2,6 +2,11 @@
 
 Note: *Every member has an independent task number.*
 
+## Scrum Master
+- TK#0.01: Define the name of the project. \
+- TK#0.02: Monitor the start of the project. \
+- TK#0.03: Help and guide with the major inconveniences.
+
 ## Graphic Designer
 
 - TK#1.01: Meets with `The Client` and define the web design specifications.
