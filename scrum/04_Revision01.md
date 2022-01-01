@@ -1,5 +1,14 @@
 # Revision 01
 
+## Scrum Master
+✔️ TK#0.01: Define the name of the project. \
+✔️ TK#0.02: Monitor the start of the project. \
+✔️ TK#0.03: Help and guide with the major inconveniences.
+
+Comments:
+> We have to develop a Web Project about the conversion of different c... \
+> Wait a minute, I think I have the name for it.
+
 ## Graphic Designer
 
 ✔️ TK#1.01: Meets with `The Client` and define the web design specifications. \
@@ -26,8 +35,8 @@ Comments:
 ✔️ TK#3.03: Creates his own branch from the `Develop Branch` of `Coinversion Project`.
 
 Comments:
-> I took the challenge of using different tools to obtain the information: not only APIs but also Web Crapping.
-> A long wime went into it; consequently, the second task is incomplete.
+> I took the challenge of using different tools to obtain the information: not only APIs but also Web Scrapping.
+> A long time went into it; consequently, the second task is incomplete.
 
 ## QA and Testing:
 ✔️ TK#4.01: Supervise the design of the Web Site and give suggestions. \
