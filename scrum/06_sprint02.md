@@ -23,3 +23,8 @@
 - TK#3.06: Get updated data for each cryptocurrency.
 - TK#3.07: Get updated data for business and financial news.
 - TK#3.08: Deploy the project to the hosting selected.
+
+## QA and Testing:
+
+- TK#4.03: Write a Bug and Error Report and share in `Coinversion Project`.
+- TK#4.05: Search bugs in hosted project and inform them.
