@@ -9,14 +9,24 @@
 ✔️ TK#0.07: Check the deploy at the hosting and confirm if it's ready according the client requirements. \
 ✔️ TK#0.08: Present the project to the `Product Owner`.
 
+Comments:
+> Project send to the Product Owner. \
+> Agile Team notified and congratulated: Another successful project.
+
 ## Graphic Designer
 
 ✔️ TK#1.05: Choose a gradient variant for the background color. \
-✔️ TK#1.06: Create mockups to present the project to `The Client`.
+✔️ TK#1.06: Create mockups to show the project into the company's social networks.
+
+Comments:
+> A clean and clear edition for a clear and clean project.
 
 ## Front-End Developer
 
 ✔️ TK#2.04: Solve the issues listed in the QA's Report.
+
+Comments:
+> Bulma's Framework: mission accomplished.
 
 ## Back-End Developer
 
@@ -29,7 +39,15 @@
 ✔️ TK#3.09: Configure **FileZilla** with the selected hosting service. \
 ✔️ TK#3.10: Deploy the project to the hosting selected.
 
+Comments:
+> I went from 'file_get_html' to 'file_get_contents' to 'curl' to 'multiple curl'.
+> It was a headache but I finally solved the loading time problems.
+> The APIs sometimes return content that sometimes does not match the expected value, but more accurate APIs require paid methods.
+
 ## QA and Testing:
 
 ✔️ TK#4.03: Write a Bug and Error Report and share in `Coinversion Project`. \
 ✔️ TK#4.05: Search bugs in hosted project and inform them.
+
+Comments:
+> A precise and fast response for the team to each issue.
