@@ -13,6 +13,8 @@ Comments:
 > Project send to the Product Owner. \
 > Agile Team notified and congratulated: Another successful project.
 
+<br>
+
 ## Graphic Designer
 
 ✔️ TK#1.05: Choose a gradient variant for the background color. \
@@ -21,12 +23,16 @@ Comments:
 Comments:
 > A clean and clear edition for a clear and clean project.
 
+<br>
+
 ## Front-End Developer
 
 ✔️ TK#2.04: Solve the issues listed in the QA's Report.
 
 Comments:
 > Bulma's Framework: mission accomplished.
+
+<br>
 
 ## Back-End Developer
 
@@ -40,9 +46,11 @@ Comments:
 ✔️ TK#3.10: Deploy the project to the hosting selected.
 
 Comments:
-> I went from 'file_get_html' to 'file_get_contents' to 'curl' to 'multiple curl'.
-> It was a headache but I finally solved the loading time problems.
+> I went from 'file_get_html' to 'file_get_contents' to 'curl' to 'multiple curl'. \
+> It was a headache but I finally solved the loading time problems. \
 > The APIs sometimes return content that sometimes does not match the expected value, but more accurate APIs require paid methods.
+
+<br>
 
 ## QA and Testing:
 
