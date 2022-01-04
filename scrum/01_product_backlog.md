@@ -71,6 +71,6 @@ Finally, `The Client` demands that it be an *easy-to-use* website.
 
 ### Epic 3
 
-\#US 3.01 - As a user, I hope to have access to the most relevant news in the financial sector. \
+\#US 3.01 - As a user, I hope to have access to relevant news in the financial sector. \
 \#US 3.02 - As a user, I prefer to see such news on the same and only web page. \
 \#US 3.03 - As a user, I want the option to read more about a particular news item.

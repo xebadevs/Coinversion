@@ -1,6 +1,6 @@
 # Planning 01
 
-The `Product Owner` mets with the workers of *XevaDevs Company* to determine the members of the `Agile Team`.
+The `Product Owner` mets with the workers of *XebaDevs Company* to determine the members of the `Agile Team`.
 
 Once conformed: 
 
