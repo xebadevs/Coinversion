@@ -9,6 +9,8 @@ Comments:
 > We have to develop a Web Project about the conversion of different c... \
 > Wait a minute, I think I have the name for it.
 
+<br>
+
 ## Graphic Designer
 
 ✔️ TK#1.01: Meets with `The Client` and define the web design specifications. \
@@ -19,6 +21,8 @@ Comments:
 Comments:
 > It was a smart decission to meet with the `Front-End Developer` to agree on the color palette according to the possible CSS Frameworks.
 
+<br>
+
 ## Front-End Developer
 
 ✔️ TK#2.01: Choose a *CSS Framework* according to the Graphic Design of the Web Site: **Bulma**. \
@@ -27,6 +31,8 @@ Comments:
 
 Comments:
 > First time applying a CSS Framework. It takes time but it works fine.
+
+<br>
 
 ## Back-End Developer
 
@@ -37,6 +43,8 @@ Comments:
 Comments:
 > I took the challenge of using different tools to obtain the information: not only APIs but also Web Scrapping.
 > A long time went into it; consequently, the second task is incomplete.
+
+<br>
 
 ## QA and Testing:
 ✔️ TK#4.01: Supervise the design of the Web Site and give suggestions. \
