@@ -26,4 +26,14 @@ You could find the complete SCRUM Documentation in the following link:
 
 It's extensive to be included in this section.
 
-Includes: `Design mockup`, `QA's reports`, `Travel Log`, `Product Backlog`, `Plannings`, `Sprints` and `Revisions`.
+Comprehend: `Design mockup`, `QA's reports`, `Travel Log`, `Product Backlog`, `Plannings`, `Sprints` and `Revisions`.
+
+<br>
+
+## Justification
+
+This methodology is one of the most used in technology development.
+
+It seemed relevant to me to be able to diagram a project from it, fulfilling the different roles and leaving a written record about it.
+
+I have to admit that it was really useful at the time to organize and materialize this project.
