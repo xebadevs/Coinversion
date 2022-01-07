@@ -66,8 +66,8 @@ I have to admit that it was really useful at the time to organize and materializ
 - `Bulma` as CSS Framework.
 
 Extra Tools:
-- `Figma`.
-- `Photoshop`.
+- `Figma` for mockup's design.
+- `Photoshop` for the portfolio images edition.
 
 <br>
 
@@ -85,9 +85,18 @@ The Business & Financial New's API allows only 100 calls per day. After that ret
 
 ## Try it on InfinityFree (Free Hosting Service)
 
-- http://coinversion.epizy.com/
+> http://coinversion.epizy.com/
+
+<br>
 
 ## Local Use
 
-I recommend to use **XAMPP* (Windows / MacOS) or **LAMP** (Linux) as an Apache distribution to host a server locally.
+I recommend to use `XAMPP` (Windows / MacOS) or `LAMP` (Linux) as an Apache distribution to host a server locally.
+
 Download the project o merge it in `htdocs` folder inside the installation path of your **XAMPP** / **LAMP**.
+
+<br>
+
+## License
+
+Distributed under Creative Commons Legal Code. See `LICENSE.txt` for more information.
