@@ -65,6 +65,10 @@ I have to admit that it was really useful at the time to organize and materializ
 - `PHP` 7+.
 - `Bulma` as CSS Framework.
 
+Extra Tools:
+- `Figma`.
+- `Photoshop`.
+
 <br>
 
 ## Technical Comments
@@ -74,3 +78,11 @@ First portfolio project with a back-end side.
 Use of `APIs` and `Web Scrapping`.
 
 An incessant search for the best methods in these tools to achieve the best `Performance`.
+
+<br>
+
+## Try it on InfinityFree (Free Hosting Service)
+
+- http://coinversion.epizy.com/
+
+
