@@ -58,3 +58,19 @@ I have to admit that it was really useful at the time to organize and materializ
 
 ![project-c](https://user-images.githubusercontent.com/91569646/148473120-88405c40-5d43-4129-a40e-0374e2a7b939.jpg)
 
+<br>
+
+## Build With
+
+- `PHP` 7+.
+- `Bulma` as CSS Framework.
+
+<br>
+
+## Technical Comments
+
+First portfolio project with a back-end side.
+
+Use of `APIs` and `Web Scrapping`.
+
+An incessant search for the best methods in these tools to achieve the best `Performance`.
