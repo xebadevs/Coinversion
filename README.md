@@ -37,3 +37,24 @@ This methodology is one of the most used in technology development.
 It seemed relevant to me to be able to diagram a project from it, fulfilling the different roles and leaving a written record about it.
 
 I have to admit that it was really useful at the time to organize and materialize this project.
+
+<br>
+
+## Preview
+
+*Main Section*
+
+![project-m](https://user-images.githubusercontent.com/91569646/148473132-a3ae2f18-9444-42f2-9c4b-32cddf48cc26.jpg)
+
+<br>
+
+*Business & Financial News Section, Cryptocurrencies Section and Main Section*
+
+![project-mni](https://user-images.githubusercontent.com/91569646/148473141-8ce93234-f848-452a-b03d-27c68e19c6a6.jpg)
+
+<br>
+
+*Main Section*
+
+![project-c](https://user-images.githubusercontent.com/91569646/148473120-88405c40-5d43-4129-a40e-0374e2a7b939.jpg)
+
