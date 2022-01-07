@@ -79,10 +79,15 @@ Use of `APIs` and `Web Scrapping`.
 
 An incessant search for the best methods in these tools to achieve the best `Performance`.
 
+The Business & Financial New's API allows only 100 calls per day. After that returns *Lorem Ipsum* text.
+
 <br>
 
 ## Try it on InfinityFree (Free Hosting Service)
 
 - http://coinversion.epizy.com/
 
+## Local Use
 
+I recommend to use **XAMPP* (Windows / MacOS) or **LAMP** (Linux) as an Apache distribution to host a server locally.
+Download the project o merge it in `htdocs` folder inside the installation path of your **XAMPP** / **LAMP**.
