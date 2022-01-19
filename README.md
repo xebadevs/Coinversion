@@ -1,5 +1,15 @@
 # Coinversion :coin:
 
+## Try it on InfinityFree (Free Hosting Service)
+
+> http://coinversion.epizy.com/
+
+<br>
+
+
+
+# About Coinversion :coin:
+
 ## A SCRUM Framework Simulation
 
 ### Context
@@ -18,6 +28,8 @@ For the `PO` it is a reasonable request, so he accepts it. Soon he meets with th
 
 <br>
 
+
+
 ## SCRUM Documentation
 
 You could find the complete SCRUM Documentation in the following link:
@@ -29,6 +41,8 @@ It's extensive to be included in this section.
 Comprehend: `Design mockup`, `QA's reports`, `Travel Log`, `Product Backlog`, `Plannings`, `Sprints` and `Revisions`.
 
 <br>
+
+
 
 ## Justification
 
@@ -60,6 +74,8 @@ I have to admit that it was really useful at the time to organize and materializ
 
 <br>
 
+
+
 ## Build With
 
 - `PHP` 7+.
@@ -70,6 +86,8 @@ Extra Tools:
 - `Photoshop` for the portfolio images edition.
 
 <br>
+
+
 
 ## Technical Comments
 
@@ -83,11 +101,8 @@ The Business & Financial New's API allows only 100 calls per day. After that ret
 
 <br>
 
-## Try it on InfinityFree (Free Hosting Service)
 
-> http://coinversion.epizy.com/
 
-<br>
 
 ## Local Use
 
@@ -96,6 +111,8 @@ I recommend to use `XAMPP` (Windows / MacOS) or `LAMP` (Linux) as an Apache dist
 Download the project o merge it in `htdocs` folder inside the installation path of your **XAMPP** / **LAMP**.
 
 <br>
+
+
 
 ## License
 
