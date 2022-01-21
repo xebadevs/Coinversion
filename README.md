@@ -78,7 +78,7 @@ I have to admit that it was really useful at the time to organize and materializ
 
 ## Build With
 
-- `PHP` 7+.
+- `PHP 7+`.
 - `Bulma` as CSS Framework.
 
 Extra Tools:
