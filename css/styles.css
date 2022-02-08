@@ -57,8 +57,9 @@ footer {
     margin-top: auto;
 }
 
-.xxx {
-    border: 1px solid black;
+.footer-name {
+    color: whitesmoke;
+    text-decoration: none;
 }
 
 

@@ -44,7 +44,11 @@
 
         <footer>
             <div class="content has-background-primary xd-shadowtop">
-                <h1 class="title is-6 has-text-centered has-text-white p-4">©SEBASTIÁN LONDERO 2021</h1>
+                <h1 class="title is-6 has-text-centered has-text-white p-4">
+                    <a href="" class="has-text-white">
+                        ©SEBASTIÁN LONDERO 2021
+                    </a>
+                </h1>
             </div>
         </footer>
 
