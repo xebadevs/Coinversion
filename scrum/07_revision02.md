@@ -46,9 +46,9 @@ Comments:
 ✔️ TK#3.10: Deploy the project to the hosting selected.
 
 Comments:
-> I went from 'file_get_html' to 'file_get_contents' to 'curl' to 'multiple curl'. \
+> I went from `file_get_html` to `Simple HTML DOM Library` to `file_get_contents` to `curl` to `multiple curl`. \
 > It was a headache but I finally solved the loading time problems. \
-> The APIs sometimes return content that sometimes does not match the expected value, but more accurate APIs require paid methods.
+> The APIs sometimes return content that does not match the expected value, but more accurate APIs require paid methods.
 
 <br>
 
