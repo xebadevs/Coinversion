@@ -1,49 +1,49 @@
 <?php
 
 // ------------------------------ cURL: Multiple Instances ------------------------------ //
-    // cURL_init
-    $ch_aux = curl_init();
-    $ch_new = curl_init();
+// cURL_init
+$ch_aux = curl_init();
+$ch_new = curl_init();
 
-    // cURL Queries and Keys
-    $queryString_aux = http_build_query([
-        'api_token' => '58EXiaAuEbLbp7F4XKY4s90uKz6HFXjtwGf4z8u2',
-        'symbols' => 'CC:BTC',
-        'filter_entities' => 'true',
-        'language' => 'en'
-    ]);
-    $queryString_new = 'apiKey=ae1fa2e325e04d0c9e1a93c6988517e0';
+// cURL Queries and Keys
+$apiKeyAux = http_build_query([
+    'api_token' => '58EXiaAuEbLbp7F4XKY4s90uKz6HFXjtwGf4z8u2',
+    'symbols' => 'CC:BTC',
+    'filter_entities' => 'true',
+    'language' => 'en'
+]);
+$apiKeyNew = 'apiKey=ae1fa2e325e04d0c9e1a93c6988517e0';
 
-    // cURL_urls
-    $url_aux = sprintf('%s?%s', 'https://api.marketaux.com/v1/news/all', $queryString_aux);
-    $url_new = 'https://newsapi.org/v2/everything?domains=wsj.com&' . $queryString_new;
+// cURL_urls
+$url_aux = sprintf('%s?%s', 'https://api.marketaux.com/v1/news/all', $apiKeyAux);
+$url_new = 'https://newsapi.org/v2/everything?domains=wsj.com&' . $apiKeyNew;
 
-    // cURL_set_urls and config
-    curl_setopt($ch_aux, CURLOPT_URL, $url_aux);
-    curl_setopt($ch_aux, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch_new, CURLOPT_URL, $url_new);
-    curl_setopt($ch_new, CURLOPT_RETURNTRANSFER, true);
+// cURL_set_urls and config
+curl_setopt($ch_aux, CURLOPT_URL, $url_aux);
+curl_setopt($ch_aux, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch_new, CURLOPT_URL, $url_new);
+curl_setopt($ch_new, CURLOPT_RETURNTRANSFER, true);
 
-    // cURL_multiple_handle
-    $mh = curl_multi_init();
+// cURL_multiple_handle
+$mh = curl_multi_init();
 
-    // cURL_insert_handle
-    curl_multi_add_handle($mh, $ch_aux);
-    curl_multi_add_handle($mh, $ch_new);
+// cURL_insert_handle
+curl_multi_add_handle($mh, $ch_aux);
+curl_multi_add_handle($mh, $ch_new);
 
-    // cURL_do while
-    do {
-        $status = curl_multi_exec($mh, $active);
-        if($active){
-            curl_multi_select($mh);
-        }
-    }while(
-        $active && $status == CURLM_OK
-    );
+// cURL_do while
+do {
+    $status = curl_multi_exec($mh, $active);
+    if ($active) {
+        curl_multi_select($mh);
+    }
+} while (
+    $active && $status == CURLM_OK
+);
 
-    // cURL_close
-    curl_multi_remove_handle($mh, $ch_aux);
-    curl_multi_remove_handle($mh, $ch_new);
+// cURL_close
+curl_multi_remove_handle($mh, $ch_aux);
+curl_multi_remove_handle($mh, $ch_new);
 
 
 // ------------------------------ RESULTS ------------------------------ //
@@ -51,15 +51,15 @@
 $resp_aux = curl_multi_getcontent($ch_aux);
 $resp_new = curl_multi_getcontent($ch_new);
 
-if($e = curl_error($ch_aux)){
+if ($e = curl_error($ch_aux)) {
     echo $e;
-}else{
+} else {
     $dec_aux = json_decode($resp_aux, true);
 }
 
-if($e = curl_error($ch_new)){
+if ($e = curl_error($ch_new)) {
     echo $e;
-}else{
+} else {
     $dec_new = json_decode($resp_new, true);
 }
 
@@ -85,8 +85,8 @@ $new_desc1 = $dec_new['articles'][1]['description'];
 $new_source2 = $dec_new['articles'][2]['source']['name'];
 $new_link2 = $dec_new['articles'][2]['url'];
 $new_desc2 = $dec_new['articles'][2]['description'];
-?>
 
+?>
 
 
 
@@ -126,7 +126,7 @@ $new_desc2 = $dec_new['articles'][2]['description'];
         <div class="column is-1"></div>
 
 
-<!-- ---------- Second box ---------- -->
+        <!-- ---------- Second box ---------- -->
 
         <div class="column is-3 xd-lightshadow has-background-white is-size-4">
             <div class="columns has-background-info">
@@ -155,7 +155,7 @@ $new_desc2 = $dec_new['articles'][2]['description'];
         <div class="column is-1"></div>
 
 
-<!-- ---------- Third box ---------- -->
+        <!-- ---------- Third box ---------- -->
 
         <div class="column is-3 xd-lightshadow has-background-white is-size-4">
             <div class="columns has-background-info">
@@ -184,7 +184,7 @@ $new_desc2 = $dec_new['articles'][2]['description'];
 
     <br><br>
 
-<!-- ---------- Fourth box ---------- -->
+    <!-- ---------- Fourth box ---------- -->
 
     <div class="columns is-centered">
         <div class="column is-3 xd-lightshadow has-background-white is-size-4">
@@ -214,7 +214,7 @@ $new_desc2 = $dec_new['articles'][2]['description'];
         <div class="column is-1"></div>
 
 
-<!-- ---------- Fifth box ---------- -->
+        <!-- ---------- Fifth box ---------- -->
         <div class="column is-3 xd-lightshadow has-background-white is-size-4">
             <div class="columns has-background-info">
                 <div class="column has-text-centered">
@@ -242,7 +242,7 @@ $new_desc2 = $dec_new['articles'][2]['description'];
         <div class="column is-1"></div>
 
 
-<!-- ---------- Sixth box ---------- -->
+        <!-- ---------- Sixth box ---------- -->
 
         <div class="column is-3 xd-lightshadow has-background-white is-size-4">
             <div class="columns has-background-info">
@@ -258,8 +258,7 @@ $new_desc2 = $dec_new['articles'][2]['description'];
                 </div>
             </div>
             <div class="columns has-background-white has-text-centered is-mobile">
-                <div class="column is-12 is-inline has-text-centered has-text-info"
-                    ><a href=" <?= $new_link2 ?> " target="_blank">
+                <div class="column is-12 is-inline has-text-centered has-text-info"><a href=" <?= $new_link2 ?> " target="_blank">
                         <button class="button is-info is-fullwidth">
                             Go to Source
                         </button>
