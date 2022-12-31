@@ -13,11 +13,13 @@ $headers = [
     'Accepts: application/json',
     'X-CMC_PRO_API_KEY: 5edb431f-494d-4212-8525-e42fbcd5428b'
 ];
-$qs = http_build_query($parameters); // query string encode the parameters
-$request = "{$url}?{$qs}"; // create the request URL
+$qs = http_build_query($parameters);    // query string encode the parameters
+$request = "{$url}?{$qs}";              // create the request URL
 
 
-$curl = curl_init(); // Get cURL resource
+// Get cURL resource
+$curl = curl_init();
+
 // Set cURL options
 curl_setopt_array($curl, array(
     CURLOPT_URL => $request,            // set the request URL
@@ -25,39 +27,40 @@ curl_setopt_array($curl, array(
     CURLOPT_RETURNTRANSFER => 1         // ask for raw response instead of bool
 ));
 
-$response = curl_exec($curl); // Send the request, save the response
-$data = json_decode($response, true); // print json decoded response
-curl_close($curl); // Close request
+$response = curl_exec($curl);           // Send the request, save the response
+$data = json_decode($response, true);   // print json decoded response
+curl_close($curl);                      // Close request
 
 
 // ------------------------------OBTAIN VALUES FOR EVERY SELECT CRYPTOCURRENCY ------------------------------ //
 for($i = 0; $i < 50; $i++){
+    
     if($data['data'][$i]['symbol'] == 'BTC'){
-        //$first_symbol = $data['data'][$i]['symbol'] . '<br>';
+
         $btc_price = substr($data['data'][$i]['quote']['USD']['price'], 0, 9) . '<br>';
         $btc_percent_24h = substr($data['data'][$i]['quote']['USD']['percent_change_24h'], 0, 5) . '<br>';
         $btc_percent_7d = substr($data['data'][$i]['quote']['USD']['percent_change_7d'], 0, 5) . '<br>';
         $btc_percent_30d = substr($data['data'][$i]['quote']['USD']['percent_change_30d'], 0, 5) . '<br>';
     }elseif($data['data'][$i]['symbol'] == 'ETH'){
-        //$second_symbol = $data['data'][$i]['symbol'] . '<br>';
+
         $eth_price = substr($data['data'][$i]['quote']['USD']['price'], 0, 9) . '<br>';
         $eth_percent_24h = substr($data['data'][$i]['quote']['USD']['percent_change_24h'], 0, 5) . '<br>';
         $eth_percent_7d = substr($data['data'][$i]['quote']['USD']['percent_change_7d'], 0, 5) . '<br>';
         $eth_percent_30d = substr($data['data'][$i]['quote']['USD']['percent_change_30d'], 0, 5) . '<br>';
     }elseif($data['data'][$i]['symbol'] == 'DOT'){
-        //$third_symbol = $data['data'][$i]['symbol'] . '<br>';
+
         $dot_price = substr($data['data'][$i]['quote']['USD']['price'], 0, 9) . '<br>';
         $dot_percent_24h = substr($data['data'][$i]['quote']['USD']['percent_change_24h'], 0, 5) . '<br>';
         $dot_percent_7d = substr($data['data'][$i]['quote']['USD']['percent_change_7d'], 0, 5) . '<br>';
         $dot_percent_30d = substr($data['data'][$i]['quote']['USD']['percent_change_30d'], 0, 5) . '<br>';
     }elseif($data['data'][$i]['symbol'] == 'ADA'){
-        //$fourth_symbol = $data['data'][$i]['symbol'] . '<br>';
+
         $ada_price = substr($data['data'][$i]['quote']['USD']['price'], 0, 9) . '<br>';
         $ada_percent_24h = substr($data['data'][$i]['quote']['USD']['percent_change_24h'], 0, 5) . '<br>';
         $ada_percent_7d = substr($data['data'][$i]['quote']['USD']['percent_change_7d'], 0, 5) . '<br>';
         $ada_percent_30d = substr($data['data'][$i]['quote']['USD']['percent_change_30d'], 0, 5) . '<br>';
     }elseif($data['data'][$i]['symbol'] == 'LTC'){
-        //$fifth_symbol = $data['data'][$i]['symbol'] . '<br>';
+
         $ltc_price = substr($data['data'][$i]['quote']['USD']['price'], 0, 9) . '<br>';
         $ltc_percent_24h = substr($data['data'][$i]['quote']['USD']['percent_change_24h'], 0, 5) . '<br>';
         $ltc_percent_7d = substr($data['data'][$i]['quote']['USD']['percent_change_7d'], 0, 5) . '<br>';
@@ -75,6 +78,7 @@ function colorData($value){
 }
 
 ?>
+
 
 <section class="section">
         <div class="columns is-centered">
