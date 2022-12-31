@@ -103,6 +103,15 @@ The Business & Financial New's API allows only 100 calls per day. After that ret
 
 
 
+## Deployment
+
+InfinityFree Web Hosting
+
+> https://www.infinityfree.net
+
+<br>
+
+
 
 ## Local Use
 
