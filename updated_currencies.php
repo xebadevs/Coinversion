@@ -95,7 +95,7 @@ if ($e = curl_error($ch_valprin)) {
 $dollarBlueBuy = $dec_valprin[1]['casa']['compra'];
 $dollarBlueSell = $dec_valprin[1]['casa']['venta'];
 $dollarBlueVar =  $dec_valprin[1]['casa']['variacion'];
-$dollarOfficialVar = $dec_valprin[0]['casa']['variacion'] == "Array" ?: 'empty';
+$dollarOfficialVar = $dec_valprin[0]['casa']['variacion'] == "Array" ?: "empty";
 
 $numbers = [];
 for ($i = 0; $i < 10; $i++) {
@@ -108,7 +108,7 @@ function addSign($val)
 
     if (in_array($val, $numbers)) {
 
-        if (substr($val, 0, 1) == '-') {
+        if (substr($val, 0, 1) == "-") {
             return $val . "%";
         } elseif ($val === "0") {
             return $val . ",0" . "%";
@@ -116,7 +116,7 @@ function addSign($val)
             return "+" . $val . "%";
         }
     } else {
-        return 'NO DATA';
+        return "NO DATA";
     }
 }
 

@@ -2,6 +2,9 @@
 
 // ------------------------------ cURL: Multiple Instances ------------------------------ //
 // cURL_init
+
+use function PHPSTORM_META\type;
+
 $ch_aux = curl_init();
 $ch_new = curl_init();
 
@@ -85,6 +88,15 @@ $new_desc1 = $dec_new['articles'][1]['description'];
 $new_source2 = $dec_new['articles'][2]['source']['name'];
 $new_link2 = $dec_new['articles'][2]['url'];
 $new_desc2 = $dec_new['articles'][2]['description'];
+
+
+// ------------------------------ RESULTS FALLBACK ------------------------------ //
+
+if (str_contains($resp_aux, "usage_limit_reached") || str_contains($resp_new, "rateLimited")) {
+    $aux_source0 = $aux_source1 = $aux_source2 = $new_source0 = $new_source1 = $new_source2 = "API exceeded";
+    $aux_desc0 = $aux_desc1 = $aux_desc2 = $new_desc0 = $new_desc1 = $new_desc2 = "The usage limit for this account has been reached. This site have made too many requests recently. Developer accounts are limited to 100 requests over a 24 hour period (50 requests available every 12 hours).";
+    $aux_link0 = $aux_link1 = $aux_link2 = $new_link0 = $new_link1 = $new_link2 = "#";
+}
 
 ?>
 
