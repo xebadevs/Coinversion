@@ -81,15 +81,6 @@ if ($e = curl_error($ch_dolar)) {
     $dec_dolar = json_decode($resp_dolar, true);
 }
 
-// VARIABLES
-
-var_dump($dec_dolar['oficial']['value_avg']);
-
-$dollarOfficialVar = $dec_dolar['oficial']['value_avg'];
-$dollarOfficialBuy = $dec_dolar['oficial']['value_buy'];
-$dollarOfficialSell = $dec_dolar['oficial']['value_sell'];
-
-
 
 // ------------------------------ RESPONSE: ../DOLARSI/VALORESPRINCIPALES ------------------------------ //
 
@@ -101,11 +92,6 @@ if ($e = curl_error($ch_dolar_blue)) {
 } else {
     $dec_dolar_blue = json_decode($resp_dolar_blue, true);
 }
-
-// VARIABLES
-$dollarBlueBuy = $dec_dolar_blue[1]['casa']['compra'];
-$dollarBlueSell = $dec_dolar_blue[1]['casa']['venta'];
-$dollarBlueVar =  $dec_dolar_blue[1]['casa']['variacion'];
 
 $numbers = [];
 for ($i = 0; $i < 10; $i++) {
@@ -211,9 +197,9 @@ function colorVar($value)
                 <div class="column is-4 is-inline has-text-centered">VAR</div>
             </div>
             <div class="columns has-background-white has-text-centered xd-bborder is-mobile">
-                <div class="column is-4 is-inline has-text-centered "><?= $dollarOfficialBuy ?></div>
-                <div class="column is-4 is-inline has-text-centered "><?= $dollarOfficialSell ?></div>
-                <div class="column is-4 is-inline has-text-centered  has-text-weight-bold" style="color: <?php colorVar($dollarOfficialVar) ?>"><?= addSign($dollarOfficialVar); ?></div>
+                <div class="column is-4 is-inline has-text-centered "><?= $dec_dolar['oficial']['value_buy']; ?></div>
+                <div class="column is-4 is-inline has-text-centered "><?= $dec_dolar['oficial']['value_sell']; ?></div>
+                <div class="column is-4 is-inline has-text-centered  has-text-weight-bold" style="color: <?php colorVar($dec_dolar['oficial']['value_avg']) ?>"><?= addSign($dec_dolar['oficial']['value_avg']); ?></div>
             </div>
         </div>
 
@@ -288,9 +274,9 @@ function colorVar($value)
                 <div class="column is-4 is-inline has-text-centered">VAR</div>
             </div>
             <div class="columns has-background-white has-text-centered is-mobile">
-                <div class="column is-4 is-inline has-text-centered"><?= $dollarBlueBuy ?></div>
-                <div class="column is-4 is-inline has-text-centered"><?= $dollarBlueSell ?></div>
-                <div class="column is-4 is-inline has-text-centered has-text-weight-bold" style="color: <?php colorVar($dollarBlueVar) ?>"><?= addSign($dollarBlueVar); ?></div>
+                <div class="column is-4 is-inline has-text-centered"><?= $dec_dolar_blue['blue']['value_buy'] ?></div>
+                <div class="column is-4 is-inline has-text-centered"><?= $dec_dolar_blue['blue']['value_sell'] ?></div>
+                <div class="column is-4 is-inline has-text-centered has-text-weight-bold" style="color: <?php colorVar($dec_dolar_blue['blue']['value_avg']) ?>"><?= addSign($dec_dolar_blue['blue']['value_avg']); ?></div>
             </div>
         </div>
 
