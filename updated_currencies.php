@@ -160,7 +160,7 @@ if ($e = curl_error($ch_libra)) {
 }
 
 
-// ------------------------------ STYLES: RESPONSE COLOR  ------------------------------ //
+// ------------------------------ HELPERS ------------------------------ //
 
 function colorVar($value)
 {
@@ -171,52 +171,57 @@ function colorVar($value)
     }
 }
 
+function drawChartTitles()
+{
+    return '
+        <div class="columns has-background-white has-text-centered xd-bborder is-mobile">
+            <div class="column is-4 is-inline has-text-centered">BUY</div>
+            <div class="column is-4 is-inline has-text-centered">SELL</div>
+            <div class="column is-4 is-inline has-text-centered">VAR</div>
+        </div>
+    ';
+}
+
+function drawChartHeader($imageSrc, $altText, $titleText)
+{
+    return "
+        <div class='columns has-background-primary'>
+            <div class='column has-text-centered'>
+                <div class='image is-inline'>
+                    <img class='is-inline mr-2 image xd-icons' src='$imageSrc' alt='$altText'>
+                </div>
+                <div class='is-inline'>
+                    <p class='title is-4 is-inline has-text-white has-text-weight-bold'>$titleText</p>
+                </div>
+            </div>
+        </div>
+    ";
+}
+
 ?>
 
 
 <section class="section">
     <div class="columns is-centered">
         <div class="column is-3 xd-lightshadow has-background-white">
-            <div class="columns has-background-primary">
-                <div class="column has-text-centered">
-                    <div class="image is-inline">
-                        <img class="is-inline mr-2 image xd-icons" src="./img/eeuu.png" alt="EEUU flag icon">
-                    </div>
-                    <div class="is-inline">
-                        <p class="title is-4 is-inline has-text-white has-text-weight-bold">DOLLAR</p>
-                    </div>
-                </div>
-            </div>
+
+            <?php echo drawChartHeader("./img/eeuu.png", "EEUU flag icon", "DOLLAR") ?>
+            <?php echo drawChartTitles() ?>
+
             <div class="columns has-background-white has-text-centered xd-bborder is-mobile">
-                <div class="column is-4 is-inline has-text-centered">BUY</div>
-                <div class="column is-4 is-inline has-text-centered">SELL</div>
-                <div class="column is-4 is-inline has-text-centered">VAR</div>
-            </div>
-            <div class="columns has-background-white has-text-centered xd-bborder is-mobile">
-                <div class="column is-4 is-inline has-text-centered "><?= $dec_dolar['oficial']['value_buy']; ?></div>
-                <div class="column is-4 is-inline has-text-centered "><?= $dec_dolar['oficial']['value_sell']; ?></div>
-                <div class="column is-4 is-inline has-text-centered  has-text-weight-bold" style="color: <?php colorVar($dec_dolar['oficial']['value_avg'] * 0.001) ?>"><?= addSign(sprintf("%.1f", $dec_dolar['oficial']['value_avg'] * 0.001)); ?></div>
+                <div class="column is-4 is-inline has-text-centered"><?= $dec_dolar['oficial']['value_buy']; ?></div>
+                <div class="column is-4 is-inline has-text-centered"><?= $dec_dolar['oficial']['value_sell']; ?></div>
+                <div class="column is-4 is-inline has-text-centered has-text-weight-bold" style="color: <?php colorVar($dec_dolar['oficial']['value_avg'] * 0.001) ?>"><?= addSign(sprintf("%.1f", $dec_dolar['oficial']['value_avg'] * 0.001)); ?></div>
             </div>
         </div>
 
         <div class="column is-1"></div>
 
         <div class="column is-3 xd-lightshadow has-background-white">
-            <div class="columns has-background-primary">
-                <div class="column has-text-centered">
-                    <div class="image is-inline">
-                        <img class="is-inline mr-2 image xd-icons" src="./img/eu.png" alt="Europe Union flag icon">
-                    </div>
-                    <div class="is-inline">
-                        <p class="title is-4 is-inline has-text-white has-text-weight-bold">EURO</p>
-                    </div>
-                </div>
-            </div>
-            <div class="columns has-background-white has-text-centered xd-bborder is-mobile">
-                <div class="column is-4 is-inline has-text-centered">BUY</div>
-                <div class="column is-4 is-inline has-text-centered">SELL</div>
-                <div class="column is-4 is-inline has-text-centered">VAR</div>
-            </div>
+
+            <?php echo drawChartHeader("./img/eu.png", "Europe Union flag icon", "EURO") ?>
+            <?php echo drawChartTitles() ?>
+
             <div class="columns has-background-white has-text-centered is-mobile">
                 <div class="column is-4 is-inline has-text-centered"><?= $dec_euro[0]['buy_price'] ?></div>
                 <div class="column is-4 is-inline has-text-centered"><?= $dec_euro[0]['sale_price'] ?></div>
@@ -227,21 +232,10 @@ function colorVar($value)
         <div class="column is-1"></div>
 
         <div class="column is-3 xd-lightshadow has-background-white">
-            <div class="columns has-background-primary">
-                <div class="column has-text-centered">
-                    <div class="image is-inline">
-                        <img class="is-inline mr-2 image xd-icons" src="./img/bra.png" alt="Brasil flag icon">
-                    </div>
-                    <div class="is-inline">
-                        <p class="title is-4 is-inline has-text-white has-text-weight-bold">REAI</p>
-                    </div>
-                </div>
-            </div>
-            <div class="columns has-background-white has-text-centered xd-bborder is-mobile">
-                <div class="column is-4 is-inline has-text-centered">BUY</div>
-                <div class="column is-4 is-inline has-text-centered">SELL</div>
-                <div class="column is-4 is-inline has-text-centered">VAR</div>
-            </div>
+
+            <?php echo drawChartHeader("./img/bra.png", "Brasil flag icon", "REAI") ?>
+            <?php echo drawChartTitles() ?>
+
             <div class="columns has-background-white has-text-centered is-mobile">
                 <div class="column is-4 is-inline has-text-centered"><?= $dec_real[0]['buy_price'] ?></div>
                 <div class="column is-4 is-inline has-text-centered"><?= $dec_real[0]['sale_price'] ?></div>
@@ -254,21 +248,10 @@ function colorVar($value)
 
     <div class="columns is-centered">
         <div class="column is-3 xd-lightshadow has-background-white">
-            <div class="columns has-background-primary">
-                <div class="column has-text-centered">
-                    <div class="image is-inline">
-                        <img class="is-inline mr-2 image xd-icons" src="./img/eeuu.png" alt="EEUU flag icon">
-                    </div>
-                    <div class="is-inline">
-                        <p class="title is-4 is-inline has-text-white has-text-weight-bold">DOLLAR (Blue)</p>
-                    </div>
-                </div>
-            </div>
-            <div class="columns has-background-white has-text-centered xd-bborder is-mobile">
-                <div class="column is-4 is-inline has-text-centered">BUY</div>
-                <div class="column is-4 is-inline has-text-centered">SELL</div>
-                <div class="column is-4 is-inline has-text-centered">VAR</div>
-            </div>
+
+            <?php echo drawChartHeader("./img/eeuu.png", "EEUU flag icon", "DOLLAR (Blue)") ?>
+            <?php echo drawChartTitles() ?>
+
             <div class="columns has-background-white has-text-centered is-mobile">
                 <div class="column is-4 is-inline has-text-centered"><?= $dec_dolar_blue['blue']['value_buy'] ?></div>
                 <div class="column is-4 is-inline has-text-centered"><?= $dec_dolar_blue['blue']['value_sell'] ?></div>
@@ -279,21 +262,10 @@ function colorVar($value)
         <div class="column is-1"></div>
 
         <div class="column is-3 xd-lightshadow has-background-white">
-            <div class="columns has-background-primary">
-                <div class="column has-text-centered">
-                    <div class="image is-inline">
-                        <img class="is-inline mr-2 image xd-icons" src="./img/uk.png" alt="United Kingdom flag icon">
-                    </div>
-                    <div class="is-inline">
-                        <p class="title is-4 is-inline has-text-white has-text-weight-bold">POUND ST</p>
-                    </div>
-                </div>
-            </div>
-            <div class="columns has-background-white has-text-centered xd-bborder is-mobile">
-                <div class="column is-4 is-inline has-text-centered">BUY</div>
-                <div class="column is-4 is-inline has-text-centered">SELL</div>
-                <div class="column is-4 is-inline has-text-centered">VAR</div>
-            </div>
+
+            <?php echo drawChartHeader("./img/uk.png", "United Kingdom flag icon", "POUND ST") ?>
+            <?php echo drawChartTitles() ?>
+
             <div class="columns has-background-white has-text-centered is-mobile">
                 <div class="column is-4 is-inline has-text-centered"><?= $dec_libra[0]['buy_price'] ?></div>
                 <div class="column is-4 is-inline has-text-centered"><?= $dec_libra[0]['sale_price'] ?></div>
@@ -304,21 +276,10 @@ function colorVar($value)
         <div class="column is-1"></div>
 
         <div class="column is-3 xd-lightshadow has-background-white">
-            <div class="columns has-background-primary">
-                <div class="column has-text-centered">
-                    <div class="image is-inline">
-                        <img class="is-inline mr-2 image xd-icons" src="./img/uru.png" alt="Uruguay flag icon">
-                    </div>
-                    <div class="is-inline">
-                        <p class="title is-4 is-inline has-text-white has-text-weight-bold">PESO</p>
-                    </div>
-                </div>
-            </div>
-            <div class="columns has-background-white has-text-centered xd-bborder is-mobile">
-                <div class="column is-4 is-inline has-text-centered">BUY</div>
-                <div class="column is-4 is-inline has-text-centered">SELL</div>
-                <div class="column is-4 is-inline has-text-centered">VAR</div>
-            </div>
+
+            <?php echo drawChartHeader("./img/uru.png", "Uruguay flag icon", "PESO") ?>
+            <?php echo drawChartTitles() ?>
+
             <div class="columns has-background-white has-text-centered is-mobile">
                 <div class="column is-4 is-inline has-text-centered"><?= $dec_pesou[0]['buy_price']; ?></div>
                 <div class="column is-4 is-inline has-text-centered"><?= $dec_pesou[0]['sale_price']; ?></div>
