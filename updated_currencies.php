@@ -72,8 +72,10 @@ curl_multi_remove_handle($mh, $ch_real);
 curl_multi_remove_handle($mh, $ch_pesou);
 curl_multi_remove_handle($mh, $ch_libra);
 
-
-
+$numbers = [];
+for ($i = 0; $i < 10; $i++) {
+    $numbers[] = $i;
+};
 
 function addSign($val)
 {
@@ -97,67 +99,27 @@ function addSign($val)
 
 // cURL_responses: dolar
 $resp_dolar = curl_multi_getcontent($ch_dolar);
-
-if ($e = curl_error($ch_dolar)) {
-    echo $e;
-} else {
-    $dec_dolar = json_decode($resp_dolar, true);
-}
-
+$dec_dolar = ($e = curl_error($ch_dolar)) ? $e : json_decode($resp_dolar, true);
 
 // cURL_responses: dolar_blue
 $resp_dolar_blue = curl_multi_getcontent($ch_dolar_blue);
-
-if ($e = curl_error($ch_dolar_blue)) {
-    echo $e;
-} else {
-    $dec_dolar_blue = json_decode($resp_dolar_blue, true);
-}
-
-$numbers = [];
-for ($i = 0; $i < 10; $i++) {
-    $numbers[] = $i;
-};
-
+$dec_dolar_blue = ($e = curl_error($ch_dolar_blue)) ? $e : json_decode($resp_dolar_blue, true);
 
 // cURL_responses: ch_euro
 $resp_euro = curl_multi_getcontent($ch_euro);
-
-if ($e = curl_error($ch_euro)) {
-    echo $e;
-} else {
-    $dec_euro = json_decode($resp_euro, true);
-}
-
+$dec_euro = ($e = curl_error($ch_euro)) ? $e : json_decode(curl_multi_getcontent($ch_euro), true);
 
 // cURL_responses: ch_real
 $resp_real = curl_multi_getcontent($ch_real);
-
-if ($e = curl_error($ch_real)) {
-    echo $e;
-} else {
-    $dec_real = json_decode($resp_real, true);
-}
-
+$dec_real = ($e = curl_error($ch_real)) ? $e : json_decode(curl_multi_getcontent($ch_real), true);
 
 // cURL_responses: ch_pesou
 $resp_pesou = curl_multi_getcontent($ch_pesou);
-
-if ($e = curl_error($ch_pesou)) {
-    echo $e;
-} else {
-    $dec_pesou = json_decode($resp_pesou, true);
-}
-
+$dec_pesou = ($e = curl_error($ch_pesou)) ? $e : json_decode(curl_multi_getcontent($ch_pesou), true);
 
 // cURL_responses: ch_libra
 $resp_libra = curl_multi_getcontent($ch_libra);
-
-if ($e = curl_error($ch_libra)) {
-    echo $e;
-} else {
-    $dec_libra = json_decode($resp_libra, true);
-}
+$dec_libra = ($e = curl_error($ch_libra)) ? $e : json_decode(curl_multi_getcontent($ch_libra), true);
 
 
 // ------------------------------ HELPERS ------------------------------ //
@@ -200,11 +162,11 @@ function drawChartHeader($imageSrc, $altText, $titleText)
 
 ?>
 
+<!-- ---------------------------- HTML DOM ---------------------------- -->
 
 <section class="section">
     <div class="columns is-centered">
         <div class="column is-3 xd-lightshadow has-background-white">
-
             <?php echo drawChartHeader("./img/eeuu.png", "EEUU flag icon", "DOLLAR") ?>
             <?php echo drawChartTitles() ?>
 
@@ -218,7 +180,6 @@ function drawChartHeader($imageSrc, $altText, $titleText)
         <div class="column is-1"></div>
 
         <div class="column is-3 xd-lightshadow has-background-white">
-
             <?php echo drawChartHeader("./img/eu.png", "Europe Union flag icon", "EURO") ?>
             <?php echo drawChartTitles() ?>
 
@@ -232,7 +193,6 @@ function drawChartHeader($imageSrc, $altText, $titleText)
         <div class="column is-1"></div>
 
         <div class="column is-3 xd-lightshadow has-background-white">
-
             <?php echo drawChartHeader("./img/bra.png", "Brasil flag icon", "REAI") ?>
             <?php echo drawChartTitles() ?>
 
@@ -248,7 +208,6 @@ function drawChartHeader($imageSrc, $altText, $titleText)
 
     <div class="columns is-centered">
         <div class="column is-3 xd-lightshadow has-background-white">
-
             <?php echo drawChartHeader("./img/eeuu.png", "EEUU flag icon", "DOLLAR (Blue)") ?>
             <?php echo drawChartTitles() ?>
 
@@ -262,7 +221,6 @@ function drawChartHeader($imageSrc, $altText, $titleText)
         <div class="column is-1"></div>
 
         <div class="column is-3 xd-lightshadow has-background-white">
-
             <?php echo drawChartHeader("./img/uk.png", "United Kingdom flag icon", "POUND ST") ?>
             <?php echo drawChartTitles() ?>
 
@@ -276,7 +234,6 @@ function drawChartHeader($imageSrc, $altText, $titleText)
         <div class="column is-1"></div>
 
         <div class="column is-3 xd-lightshadow has-background-white">
-
             <?php echo drawChartHeader("./img/uru.png", "Uruguay flag icon", "PESO") ?>
             <?php echo drawChartTitles() ?>
 
