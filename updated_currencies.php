@@ -17,25 +17,37 @@ $url_pesou = 'https://api.economico.infobae.com/financial/asset/?ids=URUPES&rang
 $url_libra = 'https://api.economico.infobae.com/financial/asset/?ids=LIBPES&range=now';
 
 // cURL_set_urls and config
-curl_setopt($ch_cotizador, CURLOPT_URL, $url_cotizador);
-curl_setopt($ch_cotizador, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch_valprin, CURLOPT_URL, $url_valprin);
-curl_setopt($ch_valprin, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch_euro, CURLOPT_URL, $url_euro);
-curl_setopt($ch_euro, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch_real, CURLOPT_URL, $url_real);
-curl_setopt($ch_real, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch_pesou, CURLOPT_URL, $url_pesou);
-curl_setopt($ch_pesou, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch_libra, CURLOPT_URL, $url_libra);
-curl_setopt($ch_libra, CURLOPT_RETURNTRANSFER, true);
+curl_setopt_array($ch_cotizador, [
+    CURLOPT_URL => $url_cotizador,
+    CURLOPT_RETURNTRANSFER => true
+]);
+curl_setopt_array($ch_valprin, [
+    CURLOPT_URL => $url_valprin,
+    CURLOPT_RETURNTRANSFER => true
+]);
+curl_setopt_array($ch_euro, [
+    CURLOPT_URL => $url_euro,
+    CURLOPT_RETURNTRANSFER => true
+]);
+curl_setopt_array($ch_real, [
+    CURLOPT_URL => $url_real,
+    CURLOPT_RETURNTRANSFER => true
+]);
+curl_setopt_array($ch_pesou, [
+    CURLOPT_URL => $url_pesou,
+    CURLOPT_RETURNTRANSFER => true
+]);
+curl_setopt_array($ch_libra, [
+    CURLOPT_URL => $url_libra,
+    CURLOPT_RETURNTRANSFER => true
+]);
 
 // cURL_multiple_handle
 $mh = curl_multi_init();
 
 // cURL_insert_handle
 curl_multi_add_handle($mh, $ch_cotizador);
-curl_multi_add_handle($mh, $ch_valprin);
+// curl_multi_add_handle($mh, $ch_valprin);
 curl_multi_add_handle($mh, $ch_euro);
 curl_multi_add_handle($mh, $ch_real);
 curl_multi_add_handle($mh, $ch_pesou);
@@ -53,7 +65,7 @@ do {
 
 // cURL_close
 curl_multi_remove_handle($mh, $ch_cotizador);
-curl_multi_remove_handle($mh, $ch_valprin);
+// curl_multi_remove_handle($mh, $ch_valprin);
 curl_multi_remove_handle($mh, $ch_euro);
 curl_multi_remove_handle($mh, $ch_real);
 curl_multi_remove_handle($mh, $ch_pesou);
@@ -72,12 +84,7 @@ if ($e = curl_error($ch_cotizador)) {
 // VARIABLES
 $dollarOfficialBuy = $dec_cotizador[0]['casa']['compra'];
 $dollarOfficialSell = $dec_cotizador[0]['casa']['venta'];
-$euroBuy = $dec_cotizador[1]['casa']['compra'];
-$euroSell = $dec_cotizador[1]['casa']['venta'];
-$realBuy = $dec_cotizador[2]['casa']['compra'];
-$realSell = $dec_cotizador[2]['casa']['venta'];
-$pesoUruguayBuy = $dec_cotizador[4]['casa']['compra'];
-$pesoUruguaySell = $dec_cotizador[4]['casa']['venta'];
+
 
 
 // ------------------------------ RESPONSE: ../DOLARSI/VALORESPRINCIPALES ------------------------------ //
@@ -131,9 +138,6 @@ if ($e = curl_error($ch_euro)) {
     $dec_euro = json_decode($resp_euro, true);
 }
 
-// VARIABLES
-$euroVar = $dec_euro[0]['variation'];
-
 
 // ------------------------------ RESPONSE: INFOBAE/REAL ------------------------------ //
 
@@ -145,9 +149,6 @@ if ($e = curl_error($ch_real)) {
 } else {
     $dec_real = json_decode($resp_real, true);
 }
-
-// VARIABLES
-$realVar = $dec_real[0]['variation'];
 
 
 // ------------------------------ RESPONSE: INFOBAE/PESO(URUGUAY) ------------------------------ //
@@ -161,10 +162,6 @@ if ($e = curl_error($ch_pesou)) {
     $dec_pesou = json_decode($resp_pesou, true);
 }
 
-// VARIABLES
-
-$pesoUruguayVar = $dec_pesou[0]['variation'];
-
 
 // ------------------------------ RESPONSE: INFOBAE/LIBRA ------------------------------ //
 
@@ -176,11 +173,6 @@ if ($e = curl_error($ch_libra)) {
 } else {
     $dec_libra = json_decode($resp_libra, true);
 }
-
-// VARIABLES
-$libraBuy = $dec_libra[0]['buy_price'];
-$libreSell = $dec_libra[0]['sale_price'];
-$libraVar = $dec_libra[0]['variation'];
 
 
 // ------------------------------ STYLES: RESPONSE COLOR  ------------------------------ //
@@ -241,9 +233,9 @@ function colorVar($value)
                 <div class="column is-4 is-inline has-text-centered">VAR</div>
             </div>
             <div class="columns has-background-white has-text-centered is-mobile">
-                <div class="column is-4 is-inline has-text-centered"><?= $euroBuy ?></div>
-                <div class="column is-4 is-inline has-text-centered"><?= $euroSell ?></div>
-                <div class="column is-4 is-inline has-text-centered has-text-weight-bold" style="color: <?php colorVar($euroVar) ?>"><?= $euroVar ?>%</div>
+                <div class="column is-4 is-inline has-text-centered"><?= $dec_euro[0]['buy_price'] ?></div>
+                <div class="column is-4 is-inline has-text-centered"><?= $dec_euro[0]['sale_price'] ?></div>
+                <div class="column is-4 is-inline has-text-centered has-text-weight-bold" style="color: <?php colorVar($dec_euro[0]['variation']) ?>"><?= $dec_euro[0]['variation'] ?>%</div>
             </div>
         </div>
 
@@ -266,9 +258,9 @@ function colorVar($value)
                 <div class="column is-4 is-inline has-text-centered">VAR</div>
             </div>
             <div class="columns has-background-white has-text-centered is-mobile">
-                <div class="column is-4 is-inline has-text-centered"><?= $realBuy ?></div>
-                <div class="column is-4 is-inline has-text-centered"><?= $realSell ?></div>
-                <div class="column is-4 is-inline has-text-centered has-text-weight-bold" style="color: <?php colorVar($realVar) ?>"><?= $realVar ?>%</div>
+                <div class="column is-4 is-inline has-text-centered"><?= $dec_real[0]['buy_price'] ?></div>
+                <div class="column is-4 is-inline has-text-centered"><?= $dec_real[0]['sale_price'] ?></div>
+                <div class="column is-4 is-inline has-text-centered has-text-weight-bold" style="color: <?php colorVar($dec_real[0]['variation']) ?>"><?= $dec_real[0]['variation'] ?>%</div>
             </div>
         </div>
     </div>
@@ -318,9 +310,9 @@ function colorVar($value)
                 <div class="column is-4 is-inline has-text-centered">VAR</div>
             </div>
             <div class="columns has-background-white has-text-centered is-mobile">
-                <div class="column is-4 is-inline has-text-centered"><?= $libraBuy ?></div>
-                <div class="column is-4 is-inline has-text-centered"><?= $libreSell ?></div>
-                <div class="column is-4 is-inline has-text-centered has-text-weight-bold" style="color: <?php colorVar($libraVar) ?>"><?= $libraVar ?>%</div>
+                <div class="column is-4 is-inline has-text-centered"><?= $dec_libra[0]['buy_price'] ?></div>
+                <div class="column is-4 is-inline has-text-centered"><?= $dec_libra[0]['sale_price'] ?></div>
+                <div class="column is-4 is-inline has-text-centered has-text-weight-bold" style="color: <?php colorVar($dec_libra[0]['variation']) ?>"><?= $dec_libra[0]['variation'] ?>%</div>
             </div>
         </div>
 
@@ -343,9 +335,9 @@ function colorVar($value)
                 <div class="column is-4 is-inline has-text-centered">VAR</div>
             </div>
             <div class="columns has-background-white has-text-centered is-mobile">
-                <div class="column is-4 is-inline has-text-centered"><?= $pesoUruguayBuy ?></div>
-                <div class="column is-4 is-inline has-text-centered"><?= $pesoUruguaySell ?></div>
-                <div class="column is-4 is-inline has-text-centered has-text-weight-bold" style="color: <?php colorVar($pesoUruguayVar) ?>"><?= $pesoUruguayVar ?>%</div>
+                <div class="column is-4 is-inline has-text-centered"><?= $dec_pesou[0]['buy_price']; ?></div>
+                <div class="column is-4 is-inline has-text-centered"><?= $dec_pesou[0]['sale_price']; ?></div>
+                <div class="column is-4 is-inline has-text-centered has-text-weight-bold" style="color: <?php colorVar($dec_pesou[0]['variation']) ?>"><?= $dec_pesou[0]['variation'] ?>%</div>
             </div>
         </div>
     </div>
