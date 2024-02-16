@@ -199,7 +199,7 @@ function colorVar($value)
             <div class="columns has-background-white has-text-centered xd-bborder is-mobile">
                 <div class="column is-4 is-inline has-text-centered "><?= $dec_dolar['oficial']['value_buy']; ?></div>
                 <div class="column is-4 is-inline has-text-centered "><?= $dec_dolar['oficial']['value_sell']; ?></div>
-                <div class="column is-4 is-inline has-text-centered  has-text-weight-bold" style="color: <?php colorVar($dec_dolar['oficial']['value_avg']) ?>"><?= addSign($dec_dolar['oficial']['value_avg']); ?></div>
+                <div class="column is-4 is-inline has-text-centered  has-text-weight-bold" style="color: <?php colorVar($dec_dolar['oficial']['value_avg'] * 0.001) ?>"><?= addSign(sprintf("%.1f", $dec_dolar['oficial']['value_avg'] * 0.001)); ?></div>
             </div>
         </div>
 
@@ -276,7 +276,7 @@ function colorVar($value)
             <div class="columns has-background-white has-text-centered is-mobile">
                 <div class="column is-4 is-inline has-text-centered"><?= $dec_dolar_blue['blue']['value_buy'] ?></div>
                 <div class="column is-4 is-inline has-text-centered"><?= $dec_dolar_blue['blue']['value_sell'] ?></div>
-                <div class="column is-4 is-inline has-text-centered has-text-weight-bold" style="color: <?php colorVar($dec_dolar_blue['blue']['value_avg']) ?>"><?= addSign($dec_dolar_blue['blue']['value_avg']); ?></div>
+                <div class="column is-4 is-inline has-text-centered has-text-weight-bold" style="color: <?php colorVar($dec_dolar_blue['blue']['value_avg']) ?>"><?= addSign(sprintf("%.1f", $dec_dolar_blue['blue']['value_avg'] * 0.001)); ?></div>
             </div>
         </div>
 
