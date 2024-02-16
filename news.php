@@ -25,6 +25,7 @@ $url_new = 'https://newsapi.org/v2/everything?domains=wsj.com&' . $apiKeyNew;
 curl_setopt($ch_aux, CURLOPT_URL, $url_aux);
 curl_setopt($ch_aux, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch_new, CURLOPT_URL, $url_new);
+curl_setopt($ch_new, CURLOPT_USERAGENT, 'Coinversion/1.0');
 curl_setopt($ch_new, CURLOPT_RETURNTRANSFER, true);
 
 // cURL_multiple_handle
@@ -80,14 +81,14 @@ $aux_desc2 = $dec_aux['data'][2]['description'];
 $aux_link2 = $dec_aux['data'][2]['url'];
 
 $new_source0 = $dec_new['articles'][0]['source']['name'];
-$new_link0 = $dec_new['articles'][0]['url'];
-$new_desc0 = $dec_new['articles'][0]['description'];
+$new_link0 = !empty($dec_new['articles'][0]['description']) ? $dec_new['articles'][0]['url'] : $dec_new['articles'][3]['url'];
+$new_desc0 = $dec_new['articles'][0]['description'] ?? $dec_new['articles'][3]['description'];
 $new_source1 = $dec_new['articles'][1]['source']['name'];
-$new_link1 = $dec_new['articles'][1]['url'];
-$new_desc1 = $dec_new['articles'][1]['description'];
+$new_link1 = !empty($dec_new['articles'][1]['description']) ? $dec_new['articles'][1]['url'] : $dec_new['articles'][4]['url'];
+$new_desc1 = $dec_new['articles'][1]['description'] ?? $dec_new['articles'][4]['description'];
 $new_source2 = $dec_new['articles'][2]['source']['name'];
-$new_link2 = $dec_new['articles'][2]['url'];
-$new_desc2 = $dec_new['articles'][2]['description'];
+$new_link2 = !empty($dec_new['articles'][2]['description']) ? $dec_new['articles'][2]['url'] : $dec_new['articles'][5]['url'];
+$new_desc2 = $dec_new['articles'][2]['description'] ?? $dec_new['articles'][5]['description'];
 
 
 // ------------------------------ RESULTS FALLBACK ------------------------------ //
