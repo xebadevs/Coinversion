@@ -56,6 +56,7 @@ curl_multi_add_handle($mh, $ch_libra);
 //cURL_do while
 do {
     $status = curl_multi_exec($mh, $active);
+
     if ($active) {
         curl_multi_select($mh);
     }
@@ -72,31 +73,7 @@ curl_multi_remove_handle($mh, $ch_pesou);
 curl_multi_remove_handle($mh, $ch_libra);
 
 
-// ------------------------------ RESPONSE ../DOLARSI/COTIZADOR ------------------------------ //
-$resp_dolar = curl_multi_getcontent($ch_dolar);
 
-if ($e = curl_error($ch_dolar)) {
-    echo $e;
-} else {
-    $dec_dolar = json_decode($resp_dolar, true);
-}
-
-
-// ------------------------------ RESPONSE: ../DOLARSI/VALORESPRINCIPALES ------------------------------ //
-
-// cURL_responses: ch_valoresprincipales
-$resp_dolar_blue = curl_multi_getcontent($ch_dolar_blue);
-
-if ($e = curl_error($ch_dolar_blue)) {
-    echo $e;
-} else {
-    $dec_dolar_blue = json_decode($resp_dolar_blue, true);
-}
-
-$numbers = [];
-for ($i = 0; $i < 10; $i++) {
-    $numbers[] = $i;
-};
 
 function addSign($val)
 {
@@ -116,7 +93,32 @@ function addSign($val)
     }
 }
 
-// ------------------------------ RESPONSE: ../INFOBAE/EURO ------------------------------ //
+// ------------------------------ CURRENCY RESPONSES ------------------------------ //
+
+// cURL_responses: dolar
+$resp_dolar = curl_multi_getcontent($ch_dolar);
+
+if ($e = curl_error($ch_dolar)) {
+    echo $e;
+} else {
+    $dec_dolar = json_decode($resp_dolar, true);
+}
+
+
+// cURL_responses: dolar_blue
+$resp_dolar_blue = curl_multi_getcontent($ch_dolar_blue);
+
+if ($e = curl_error($ch_dolar_blue)) {
+    echo $e;
+} else {
+    $dec_dolar_blue = json_decode($resp_dolar_blue, true);
+}
+
+$numbers = [];
+for ($i = 0; $i < 10; $i++) {
+    $numbers[] = $i;
+};
+
 
 // cURL_responses: ch_euro
 $resp_euro = curl_multi_getcontent($ch_euro);
@@ -128,8 +130,6 @@ if ($e = curl_error($ch_euro)) {
 }
 
 
-// ------------------------------ RESPONSE: INFOBAE/REAL ------------------------------ //
-
 // cURL_responses: ch_real
 $resp_real = curl_multi_getcontent($ch_real);
 
@@ -140,8 +140,6 @@ if ($e = curl_error($ch_real)) {
 }
 
 
-// ------------------------------ RESPONSE: INFOBAE/PESO(URUGUAY) ------------------------------ //
-
 // cURL_responses: ch_pesou
 $resp_pesou = curl_multi_getcontent($ch_pesou);
 
@@ -151,8 +149,6 @@ if ($e = curl_error($ch_pesou)) {
     $dec_pesou = json_decode($resp_pesou, true);
 }
 
-
-// ------------------------------ RESPONSE: INFOBAE/LIBRA ------------------------------ //
 
 // cURL_responses: ch_libra
 $resp_libra = curl_multi_getcontent($ch_libra);
