@@ -1,28 +1,28 @@
 <?php
 // ------------------------------ cURL: Multiple Instances ------------------------------ //
 // cURL_init
-$ch_cotizador = curl_init();
-$ch_valprin = curl_init();
+$ch_dolar = curl_init();
+$ch_dolar_blue = curl_init();
 $ch_euro = curl_init();
 $ch_real = curl_init();
 $ch_pesou = curl_init();
 $ch_libra = curl_init();
 
 // cURL_urls
-$url_cotizador = 'https://www.dolarsi.com/api/api.php?type=cotizador';
-$url_valprin = 'https://www.dolarsi.com/api/api.php?type=valoresprincipales';
+$url_dolar = 'https://api.bluelytics.com.ar/v2/latest';
+$url_dolar_blue = 'https://api.bluelytics.com.ar/v2/latest';
 $url_euro = 'https://api.economico.infobae.com/financial/asset/?ids=EURPES&range=now';
 $url_real = 'https://api.economico.infobae.com/financial/asset/?ids=CMPES&range=now';
 $url_pesou = 'https://api.economico.infobae.com/financial/asset/?ids=URUPES&range=now';
 $url_libra = 'https://api.economico.infobae.com/financial/asset/?ids=LIBPES&range=now';
 
 // cURL_set_urls and config
-curl_setopt_array($ch_cotizador, [
-    CURLOPT_URL => $url_cotizador,
+curl_setopt_array($ch_dolar, [
+    CURLOPT_URL => $url_dolar,
     CURLOPT_RETURNTRANSFER => true
 ]);
-curl_setopt_array($ch_valprin, [
-    CURLOPT_URL => $url_valprin,
+curl_setopt_array($ch_dolar_blue, [
+    CURLOPT_URL => $url_dolar_blue,
     CURLOPT_RETURNTRANSFER => true
 ]);
 curl_setopt_array($ch_euro, [
@@ -46,8 +46,8 @@ curl_setopt_array($ch_libra, [
 $mh = curl_multi_init();
 
 // cURL_insert_handle
-curl_multi_add_handle($mh, $ch_cotizador);
-// curl_multi_add_handle($mh, $ch_valprin);
+curl_multi_add_handle($mh, $ch_dolar);
+curl_multi_add_handle($mh, $ch_dolar_blue);
 curl_multi_add_handle($mh, $ch_euro);
 curl_multi_add_handle($mh, $ch_real);
 curl_multi_add_handle($mh, $ch_pesou);
@@ -64,8 +64,8 @@ do {
 );
 
 // cURL_close
-curl_multi_remove_handle($mh, $ch_cotizador);
-// curl_multi_remove_handle($mh, $ch_valprin);
+curl_multi_remove_handle($mh, $ch_dolar);
+curl_multi_remove_handle($mh, $ch_dolar_blue);
 curl_multi_remove_handle($mh, $ch_euro);
 curl_multi_remove_handle($mh, $ch_real);
 curl_multi_remove_handle($mh, $ch_pesou);
@@ -73,36 +73,39 @@ curl_multi_remove_handle($mh, $ch_libra);
 
 
 // ------------------------------ RESPONSE ../DOLARSI/COTIZADOR ------------------------------ //
-$resp_cotizador = curl_multi_getcontent($ch_cotizador);
+$resp_dolar = curl_multi_getcontent($ch_dolar);
 
-if ($e = curl_error($ch_cotizador)) {
+if ($e = curl_error($ch_dolar)) {
     echo $e;
 } else {
-    $dec_cotizador = json_decode($resp_cotizador, true);
+    $dec_dolar = json_decode($resp_dolar, true);
 }
 
 // VARIABLES
-$dollarOfficialBuy = $dec_cotizador[0]['casa']['compra'];
-$dollarOfficialSell = $dec_cotizador[0]['casa']['venta'];
+
+var_dump($dec_dolar['oficial']['value_avg']);
+
+$dollarOfficialVar = $dec_dolar['oficial']['value_avg'];
+$dollarOfficialBuy = $dec_dolar['oficial']['value_buy'];
+$dollarOfficialSell = $dec_dolar['oficial']['value_sell'];
 
 
 
 // ------------------------------ RESPONSE: ../DOLARSI/VALORESPRINCIPALES ------------------------------ //
 
 // cURL_responses: ch_valoresprincipales
-$resp_valprin = curl_multi_getcontent($ch_valprin);
+$resp_dolar_blue = curl_multi_getcontent($ch_dolar_blue);
 
-if ($e = curl_error($ch_valprin)) {
+if ($e = curl_error($ch_dolar_blue)) {
     echo $e;
 } else {
-    $dec_valprin = json_decode($resp_valprin, true);
+    $dec_dolar_blue = json_decode($resp_dolar_blue, true);
 }
 
 // VARIABLES
-$dollarBlueBuy = $dec_valprin[1]['casa']['compra'];
-$dollarBlueSell = $dec_valprin[1]['casa']['venta'];
-$dollarBlueVar =  $dec_valprin[1]['casa']['variacion'];
-$dollarOfficialVar = $dec_valprin[0]['casa']['variacion'] == "Array" ?: "empty";
+$dollarBlueBuy = $dec_dolar_blue[1]['casa']['compra'];
+$dollarBlueSell = $dec_dolar_blue[1]['casa']['venta'];
+$dollarBlueVar =  $dec_dolar_blue[1]['casa']['variacion'];
 
 $numbers = [];
 for ($i = 0; $i < 10; $i++) {
@@ -123,7 +126,7 @@ function addSign($val)
             return "+" . $val . "%";
         }
     } else {
-        return "NO DATA";
+        return ($val > 0 ? '+' . $val : '-' . $val) . '%';
     }
 }
 
