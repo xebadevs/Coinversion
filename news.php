@@ -81,14 +81,14 @@ $aux_desc2 = $dec_aux['data'][2]['description'];
 $aux_link2 = $dec_aux['data'][2]['url'];
 
 $new_source0 = $dec_new['articles'][0]['source']['name'];
-$new_link0 = !empty($dec_new['articles'][0]['description']) ? $dec_new['articles'][0]['url'] : $dec_new['articles'][3]['url'];
-$new_desc0 = $dec_new['articles'][0]['description'] ?? $dec_new['articles'][3]['description'];
+$new_link0 = !empty($dec_new['articles'][0]['title']) ? $dec_new['articles'][0]['url'] : $dec_new['articles'][3]['url'];
+$new_desc0 = $dec_new['articles'][0]['title'] ?? $dec_new['articles'][5]['title'];
 $new_source1 = $dec_new['articles'][1]['source']['name'];
-$new_link1 = !empty($dec_new['articles'][1]['description']) ? $dec_new['articles'][1]['url'] : $dec_new['articles'][4]['url'];
-$new_desc1 = $dec_new['articles'][1]['description'] ?? $dec_new['articles'][4]['description'];
+$new_link1 = !empty($dec_new['articles'][1]['title']) ? $dec_new['articles'][1]['url'] : $dec_new['articles'][4]['url'];
+$new_desc1 = $dec_new['articles'][1]['title'] ?? $dec_new['articles'][4]['title'];
 $new_source2 = $dec_new['articles'][2]['source']['name'];
-$new_link2 = !empty($dec_new['articles'][2]['description']) ? $dec_new['articles'][2]['url'] : $dec_new['articles'][5]['url'];
-$new_desc2 = $dec_new['articles'][2]['description'] ?? $dec_new['articles'][5]['description'];
+$new_link2 = !empty($dec_new['articles'][2]['title']) ? $dec_new['articles'][2]['url'] : $dec_new['articles'][5]['url'];
+$new_desc2 = $dec_new['articles'][2]['title'] ?? $dec_new['articles'][5]['title'];
 
 
 // ------------------------------ RESULTS FALLBACK ------------------------------ //
