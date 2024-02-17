@@ -70,25 +70,14 @@ if ($e = curl_error($ch_new)) {
 
 // ------------------------------ VARIABLES ------------------------------ //
 
-$aux_source0 = ucfirst($dec_aux['data'][0]['source']);
-$aux_desc0 = $dec_aux['data'][0]['description'];
-$aux_link0 = $dec_aux['data'][0]['url'];
-$aux_source1 = ucfirst($dec_aux['data'][1]['source']);
-$aux_desc1 = $dec_aux['data'][1]['description'];
-$aux_link1 = $dec_aux['data'][1]['url'];
-$aux_source2 = ucfirst($dec_aux['data'][2]['source']);
-$aux_desc2 = $dec_aux['data'][2]['description'];
-$aux_link2 = $dec_aux['data'][2]['url'];
-
-$new_source0 = $dec_new['articles'][0]['source']['name'];
-$new_link0 = $dec_new['articles'][0]['url'];
-$new_desc0 = $dec_new['articles'][0]['description'] ?? $dec_new['articles'][0]['title'];
-$new_source1 = $dec_new['articles'][1]['source']['name'];
-$new_link1 = $dec_new['articles'][1]['title'];
-$new_desc1 = $dec_new['articles'][1]['description'] ?? $dec_new['articles'][1]['title'];
-$new_source2 = $dec_new['articles'][2]['source']['name'];
-$new_link2 = $dec_new['articles'][2]['url'];
-$new_desc2 = $dec_new['articles'][2]['desscription'] ?? $dec_new['articles'][2]['title'];
+for ($i = 0; $i < 3; $i++) {
+    ${"aux_source$i"} = ucfirst($dec_aux['data'][$i]['source']);
+    ${"aux_desc$i"} = $dec_aux['data'][$i]['description'];
+    ${"aux_link$i"} = $dec_aux['data'][$i]['url'];
+    ${"new_source$i"} = $dec_new['articles'][$i]['source']['name'];
+    ${"new_link$i"} = $dec_new['articles'][$i]['url'];
+    ${"new_desc$i"} = $dec_new['articles'][$i]['description'] ?? $dec_new['articles'][$i]['title'];
+}
 
 
 // ------------------------------ RESULTS FALLBACK ------------------------------ //
@@ -99,185 +88,63 @@ if (str_contains($resp_aux, "usage_limit_reached") || str_contains($resp_new, "r
     $aux_link0 = $aux_link1 = $aux_link2 = $new_link0 = $new_link1 = $new_link2 = "#";
 }
 
+
+// ------------------------------ DOM HELPER ------------------------------ //
+
+function generateBox($source, $desc, $link)
+{
+    return <<<HTML
+        <div class="column is-3 xd-lightshadow has-background-white is-size-4">
+            <div class="columns has-background-info">
+                <div class="column has-text-centered">
+                    <div class="is-inline">
+                        <p class="title is-4 is-inline has-text-white has-text-weight-bold">$source</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column has-background-white has-text-centered is-mobile xd-box">
+                <div class="content has-text-centered m-4 xd-height">
+                    <p class="is-size-4">$desc</p>
+                </div>
+            </div>
+            <div class="columns has-background-white has-text-centered is-mobile">
+                <div class="column is-12 is-inline has-text-centered has-text-info">
+                    <a href="$link" target="_blank">
+                        <button class="button is-info is-fullwidth">
+                            Go to Source
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    HTML;
+}
+
 ?>
-
-
-
 
 <!-- ---------------------------- HTML DOM ---------------------------- -->
 
-<!-- ---------- First box ---------- -->
-
-<h3><a href=""></a></h3>
+<!-- ---------- BOXES 1 TO 6 ---------- -->
 
 <section class="section">
     <div class="columns is-centered">
-        <div class="column is-3 xd-lightshadow has-background-white is-size-4">
-            <div class="columns has-background-info">
-                <div class="column has-text-centered">
-                    <div class="is-inline">
-                        <p class="title is-4 is-inline has-text-white has-text-weight-bold"> <?= $aux_source0 ?> </p>
-                    </div>
-                </div>
-            </div>
-            <div class="column has-background-white has-text-centered is-mobile xd-box">
-                <div class="content has-text-centered m-4 xd-height">
-                    <p class="is-size-4"> <?= $aux_desc0 ?> </p>
-                </div>
-            </div>
-            <div class="columns has-background-white has-text-centered is-mobile">
-                <div class="column is-12 is-inline has-text-centered has-text-info">
-                    <a href=" <?= $aux_link0 ?> " target="_blank">
-                        <button class="button is-info is-fullwidth">
-                            Go to Source
-                        </button>
-                    </a>
-                </div>
-            </div>
-        </div>
+        <?php
+        echo generateBox($aux_source0, $aux_desc0, $aux_link0);
 
-        <div class="column is-1"></div>
+        echo '<div class="column is-1"></div>';
+        echo generateBox($new_source0, $new_desc0, $new_link0);
 
+        echo '<div class="column is-1"></div>';
+        echo generateBox($aux_source1, $aux_desc1, $aux_link1);
 
-        <!-- ---------- Second box ---------- -->
+        echo '</div><br><br><div class="columns is-centered">';
+        echo generateBox($new_source1, $new_desc1, $new_link1);
 
-        <div class="column is-3 xd-lightshadow has-background-white is-size-4">
-            <div class="columns has-background-info">
-                <div class="column has-text-centered">
-                    <div class="is-inline">
-                        <p class="title is-4 is-inline has-text-white has-text-weight-bold"> <?= $new_source0 ?> </p>
-                    </div>
-                </div>
-            </div>
-            <div class="column has-background-white has-text-centered is-mobile xd-box">
-                <div class="content has-text-centered m-4 xd-height">
-                    <p class="is-size-4"> <?= $new_desc0 ?> </p>
-                </div>
-            </div>
-            <div class="columns has-background-white has-text-centered is-mobile">
-                <div class="column is-12 is-inline has-text-centered has-text-info">
-                    <a href=" <?= $new_link0 ?> " target="_blank">
-                        <button class="button is-info is-fullwidth">
-                            Go to Source
-                        </button>
-                    </a>
-                </div>
-            </div>
-        </div>
+        echo '<div class="column is-1"></div>';
+        echo generateBox($aux_source2, $aux_desc2, $aux_link2);
 
-        <div class="column is-1"></div>
-
-
-        <!-- ---------- Third box ---------- -->
-
-        <div class="column is-3 xd-lightshadow has-background-white is-size-4">
-            <div class="columns has-background-info">
-                <div class="column has-text-centered">
-                    <div class="is-inline">
-                        <p class="title is-4 is-inline has-text-white has-text-weight-bold"> <?= $aux_source1 ?> </p>
-                    </div>
-                </div>
-            </div>
-            <div class="column has-background-white has-text-centered is-mobile xd-box">
-                <div class="content has-text-centered m-4 xd-height">
-                    <p class="is-size-4"> <?= $aux_desc1 ?> </p>
-                </div>
-            </div>
-            <div class="columns has-background-white has-text-centered is-mobile">
-                <div class="column is-12 is-inline has-text-centered has-text-info">
-                    <a href=" <?= $aux_link1 ?> " target="_blank">
-                        <button class="button is-info is-fullwidth">
-                            Go to Source
-                        </button>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <br><br>
-
-    <!-- ---------- Fourth box ---------- -->
-
-    <div class="columns is-centered">
-        <div class="column is-3 xd-lightshadow has-background-white is-size-4">
-            <div class="columns has-background-info">
-                <div class="column has-text-centered">
-                    <div class="is-inline">
-                        <p class="title is-4 is-inline has-text-white has-text-weight-bold"> <?= $new_source1 ?> </p>
-                    </div>
-                </div>
-            </div>
-            <div class="column has-background-white has-text-centered is-mobile xd-box">
-                <div class="content has-text-centered m-4 xd-height">
-                    <p class="is-size-4"> <?= $new_desc1 ?> </p>
-                </div>
-            </div>
-            <div class="columns has-background-white has-text-centered is-mobile">
-                <div class="column is-12 is-inline has-text-centered has-text-info">
-                    <a href=" <?= $new_link1 ?> " target="_blank">
-                        <button class="button is-info is-fullwidth">
-                            Go to Source
-                        </button>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="column is-1"></div>
-
-
-        <!-- ---------- Fifth box ---------- -->
-        <div class="column is-3 xd-lightshadow has-background-white is-size-4">
-            <div class="columns has-background-info">
-                <div class="column has-text-centered">
-                    <div class="is-inline">
-                        <p class="title is-4 is-inline has-text-white has-text-weight-bold"> <?= $aux_source2 ?> </p>
-                    </div>
-                </div>
-            </div>
-            <div class="column has-background-white has-text-centered is-mobile xd-box">
-                <div class="content has-text-centered m-4 xd-height">
-                    <p class="is-size-4"> <?= $aux_desc2 ?> </p>
-                </div>
-            </div>
-            <div class="columns has-background-white has-text-centered is-mobile">
-                <div class="column is-12 is-inline has-text-centered has-text-info">
-                    <a href=" <?= $aux_link2 ?> " target="_blank">
-                        <button class="button is-info is-fullwidth">
-                            Go to Source
-                        </button>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="column is-1"></div>
-
-
-        <!-- ---------- Sixth box ---------- -->
-
-        <div class="column is-3 xd-lightshadow has-background-white is-size-4">
-            <div class="columns has-background-info">
-                <div class="column has-text-centered">
-                    <div class="is-inline">
-                        <p class="title is-4 is-inline has-text-white has-text-weight-bold"> <?= $new_source2 ?> </p>
-                    </div>
-                </div>
-            </div>
-            <div class="column has-background-white has-text-centered is-mobile xd-box">
-                <div class="content has-text-centered m-4 xd-height">
-                    <p class="is-size-4"> <?= $new_desc2 ?> </p>
-                </div>
-            </div>
-            <div class="columns has-background-white has-text-centered is-mobile">
-                <div class="column is-12 is-inline has-text-centered has-text-info"><a href=" <?= $new_link2 ?> " target="_blank">
-                        <button class="button is-info is-fullwidth">
-                            Go to Source
-                        </button>
-                    </a>
-                </div>
-            </div>
-        </div>
+        echo '<div class="column is-1"></div>';
+        echo generateBox($new_source2, $new_desc2, $new_link2);
+        ?>
     </div>
 </section>
