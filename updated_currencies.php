@@ -97,27 +97,21 @@ function addSign($val)
 
 // ------------------------------ CURRENCY RESPONSES ------------------------------ //
 
-// cURL_responses: dolar
 $resp_dolar = curl_multi_getcontent($ch_dolar);
 $dec_dolar = ($e = curl_error($ch_dolar)) ? $e : json_decode($resp_dolar, true);
 
-// cURL_responses: dolar_blue
 $resp_dolar_blue = curl_multi_getcontent($ch_dolar_blue);
 $dec_dolar_blue = ($e = curl_error($ch_dolar_blue)) ? $e : json_decode($resp_dolar_blue, true);
 
-// cURL_responses: ch_euro
 $resp_euro = curl_multi_getcontent($ch_euro);
 $dec_euro = ($e = curl_error($ch_euro)) ? $e : json_decode(curl_multi_getcontent($ch_euro), true);
 
-// cURL_responses: ch_real
 $resp_real = curl_multi_getcontent($ch_real);
 $dec_real = ($e = curl_error($ch_real)) ? $e : json_decode(curl_multi_getcontent($ch_real), true);
 
-// cURL_responses: ch_pesou
 $resp_pesou = curl_multi_getcontent($ch_pesou);
 $dec_pesou = ($e = curl_error($ch_pesou)) ? $e : json_decode(curl_multi_getcontent($ch_pesou), true);
 
-// cURL_responses: ch_libra
 $resp_libra = curl_multi_getcontent($ch_libra);
 $dec_libra = ($e = curl_error($ch_libra)) ? $e : json_decode(curl_multi_getcontent($ch_libra), true);
 
@@ -135,18 +129,18 @@ function colorVar($value)
 
 function drawChartTitles()
 {
-    return '
+    return <<<HTML
         <div class="columns has-background-white has-text-centered xd-bborder is-mobile">
             <div class="column is-4 is-inline has-text-centered">BUY</div>
             <div class="column is-4 is-inline has-text-centered">SELL</div>
             <div class="column is-4 is-inline has-text-centered">VAR</div>
         </div>
-    ';
+    HTML;
 }
 
 function drawChartHeader($imageSrc, $altText, $titleText)
 {
-    return "
+    return <<<HTML
         <div class='columns has-background-primary'>
             <div class='column has-text-centered'>
                 <div class='image is-inline'>
@@ -157,7 +151,7 @@ function drawChartHeader($imageSrc, $altText, $titleText)
                 </div>
             </div>
         </div>
-    ";
+    HTML;
 }
 
 ?>
