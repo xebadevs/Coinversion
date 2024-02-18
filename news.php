@@ -122,9 +122,7 @@ function generateBox($source, $desc, $link)
 
 ?>
 
-<!-- ---------------------------- HTML DOM ---------------------------- -->
-
-<!-- ---------- BOXES 1 TO 6 ---------- -->
+<!-- ---------------------------- HTML DOM, CARDS 1 TO 6 ---------------------------- -->
 
 <section class="section">
     <div class="columns is-centered">

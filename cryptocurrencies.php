@@ -68,8 +68,6 @@ for ($i = 0; $i < 50; $i++) {
     }
 }
 
-
-// Define an array of cryptocurrencies with their respective data
 $cryptocurrencies = [
     ['name' => 'Bitcoin', 'symbol' => 'BTC', 'img' => 'btc.png', 'price' => $btc_price, 'percent_24h' => $btc_percent_24h, 'percent_7d' => $btc_percent_7d, 'percent_30d' => $btc_percent_30d],
     ['name' => 'Ethereum', 'symbol' => 'ETH', 'img' => 'eth.png', 'price' => $eth_price, 'percent_24h' => $eth_percent_24h, 'percent_7d' => $eth_percent_7d, 'percent_30d' => $eth_percent_30d],
