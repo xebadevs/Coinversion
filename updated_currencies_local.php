@@ -1,17 +1,22 @@
 <?php
 
-// Function to make a cURL request and return response
-function curl_get_contents($url)
-{
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $response = curl_exec($ch);
-    curl_close($ch);
-    return $response;
-}
+// -------------------------------------------------------------------------------------- //
+//                                                                                        //
+//                   PRODUCTION SERVER DOESN'T ALLOW THIS VERSION OF CURL                 //
+//                                                                                        //
+// -------------------------------------------------------------------------------------- //
 
-// URLs for different currencies
+
+// ------------------------------ cURL: Multiple Instances ------------------------------ //
+// cURL_init
+$ch_dolar = curl_init();
+$ch_dolar_blue = curl_init();
+$ch_euro = curl_init();
+$ch_real = curl_init();
+$ch_pesou = curl_init();
+$ch_libra = curl_init();
+
+// cURL_urls
 $url_dolar = 'https://api.bluelytics.com.ar/v2/latest';
 $url_dolar_blue = 'https://api.bluelytics.com.ar/v2/latest';
 $url_euro = 'https://api.economico.infobae.com/financial/asset/?ids=EURPES&range=now';
@@ -19,37 +24,117 @@ $url_real = 'https://api.economico.infobae.com/financial/asset/?ids=CMPES&range=
 $url_pesou = 'https://api.economico.infobae.com/financial/asset/?ids=URUPES&range=now';
 $url_libra = 'https://api.economico.infobae.com/financial/asset/?ids=LIBPES&range=now';
 
-// Fetching currency data sequentially
-$dec_dolar = json_decode(curl_get_contents($url_dolar), true);
-$dec_dolar_blue = json_decode(curl_get_contents($url_dolar_blue), true);
-$dec_euro = json_decode(curl_get_contents($url_euro), true);
-$dec_real = json_decode(curl_get_contents($url_real), true);
-$dec_pesou = json_decode(curl_get_contents($url_pesou), true);
-$dec_libra = json_decode(curl_get_contents($url_libra), true);
+// cURL_set_urls and config
+curl_setopt_array($ch_dolar, [
+    CURLOPT_URL => $url_dolar,
+    CURLOPT_RETURNTRANSFER => true
+]);
+curl_setopt_array($ch_dolar_blue, [
+    CURLOPT_URL => $url_dolar_blue,
+    CURLOPT_RETURNTRANSFER => true
+]);
+curl_setopt_array($ch_euro, [
+    CURLOPT_URL => $url_euro,
+    CURLOPT_RETURNTRANSFER => true
+]);
+curl_setopt_array($ch_real, [
+    CURLOPT_URL => $url_real,
+    CURLOPT_RETURNTRANSFER => true
+]);
+curl_setopt_array($ch_pesou, [
+    CURLOPT_URL => $url_pesou,
+    CURLOPT_RETURNTRANSFER => true
+]);
+curl_setopt_array($ch_libra, [
+    CURLOPT_URL => $url_libra,
+    CURLOPT_RETURNTRANSFER => true
+]);
 
-// Function to format percentage values
+// cURL_multiple_handle
+$mh = curl_multi_init();
+
+// cURL_insert_handle
+curl_multi_add_handle($mh, $ch_dolar);
+curl_multi_add_handle($mh, $ch_dolar_blue);
+curl_multi_add_handle($mh, $ch_euro);
+curl_multi_add_handle($mh, $ch_real);
+curl_multi_add_handle($mh, $ch_pesou);
+curl_multi_add_handle($mh, $ch_libra);
+
+//cURL_do while
+do {
+    $status = curl_multi_exec($mh, $active);
+
+    if ($active) {
+        curl_multi_select($mh);
+    }
+} while (
+    $active && $status == CURLM_OK
+);
+
+// cURL_close
+curl_multi_remove_handle($mh, $ch_dolar);
+curl_multi_remove_handle($mh, $ch_dolar_blue);
+curl_multi_remove_handle($mh, $ch_euro);
+curl_multi_remove_handle($mh, $ch_real);
+curl_multi_remove_handle($mh, $ch_pesou);
+curl_multi_remove_handle($mh, $ch_libra);
+
+$numbers = [];
+for ($i = 0; $i < 10; $i++) {
+    $numbers[] = $i;
+};
+
 function addSign($val)
 {
-    if ($val > 0) {
-        return '+' . $val . '%';
-    } elseif ($val < 0) {
-        return $val . '%';
+    global $numbers;
+
+    if (in_array($val, $numbers)) {
+
+        if (substr($val, 0, 1) == "-") {
+            return $val . "%";
+        } elseif ($val === "0") {
+            return $val . ",0" . "%";
+        } else {
+            return "+" . $val . "%";
+        }
     } else {
-        return '0%,0';
+        return ($val > 0 ? '+' . $val : '-' . $val) . '%';
     }
 }
 
-// Function to determine color based on value
+// ------------------------------ CURRENCY RESPONSES ------------------------------ //
+
+$resp_dolar = curl_multi_getcontent($ch_dolar);
+$dec_dolar = ($e = curl_error($ch_dolar)) ? $e : json_decode($resp_dolar, true);
+
+$resp_dolar_blue = curl_multi_getcontent($ch_dolar_blue);
+$dec_dolar_blue = ($e = curl_error($ch_dolar_blue)) ? $e : json_decode($resp_dolar_blue, true);
+
+$resp_euro = curl_multi_getcontent($ch_euro);
+$dec_euro = ($e = curl_error($ch_euro)) ? $e : json_decode(curl_multi_getcontent($ch_euro), true);
+
+$resp_real = curl_multi_getcontent($ch_real);
+$dec_real = ($e = curl_error($ch_real)) ? $e : json_decode(curl_multi_getcontent($ch_real), true);
+
+$resp_pesou = curl_multi_getcontent($ch_pesou);
+$dec_pesou = ($e = curl_error($ch_pesou)) ? $e : json_decode(curl_multi_getcontent($ch_pesou), true);
+
+$resp_libra = curl_multi_getcontent($ch_libra);
+$dec_libra = ($e = curl_error($ch_libra)) ? $e : json_decode(curl_multi_getcontent($ch_libra), true);
+
+
+// ------------------------------ HELPERS ------------------------------ //
+
 function colorVar($value)
 {
-    if ($value < 0) {
+    if (substr($value, 0, 1) === '-') {
         echo '#F14668';
     } else {
         echo '#00D1B2';
     }
 }
 
-// Function to draw chart titles
 function drawChartTitles()
 {
     return <<<HTML
@@ -61,7 +146,6 @@ function drawChartTitles()
     HTML;
 }
 
-// Function to draw chart header
 function drawChartHeader($imageSrc, $altText, $titleText)
 {
     return <<<HTML
@@ -77,8 +161,8 @@ function drawChartHeader($imageSrc, $altText, $titleText)
         </div>
     HTML;
 }
-?>
 
+?>
 
 <!-- ---------------------------- HTML DOM ---------------------------- -->
 
