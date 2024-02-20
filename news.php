@@ -1,4 +1,6 @@
 <?php
+// Load and parse the .env file
+$dotenv = parse_ini_file('.env');
 
 // cURL Initialization
 $ch_aux = curl_init();
@@ -6,16 +8,15 @@ $ch_new = curl_init();
 
 // cURL Queries and Keys
 $apiKeyAux = http_build_query([
-    'api_token' => '58EXiaAuEbLbp7F4XKY4s90uKz6HFXjtwGf4z8u2',
-    'symbols' => 'CC:BTC',
-    'filter_entities' => 'true',
-    'language' => 'en'
+    'api_token' => $dotenv['API_KEY_AUX_API_TOKEN'],
+    'symbols' => $dotenv['API_KEY_AUX_SYMBOLS'],
+    'filter_entities' => $dotenv['API_KEY_AUX_API_FILTER_ENTITIES'],
+    'language' => $dotenv['API_KEY_AUX_LANGUAGE']
 ]);
-$apiKeyNew = 'apiKey=ae1fa2e325e04d0c9e1a93c6988517e0';
 
 // cURL URLs
 $url_aux = sprintf('%s?%s', 'https://api.marketaux.com/v1/news/all', $apiKeyAux);
-$url_new = 'https://newsapi.org/v2/everything?domains=wsj.com&' . $apiKeyNew;
+$url_new = 'https://newsapi.org/v2/everything?domains=wsj.com&' . $dotenv['API_KEY_NEW'];
 
 // cURL Set URLs and Configurations
 curl_setopt($ch_aux, CURLOPT_URL, $url_aux);
