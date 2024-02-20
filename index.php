@@ -31,7 +31,7 @@
     </div>
 
     <?php
-    // require_once('cryptocurrencies.php');
+    require_once('cryptocurrencies.php');
     ?>
 
     <div class="content has-background-white mt-5 xd-shadow">
@@ -39,7 +39,7 @@
     </div>
 
     <?php
-    // require_once('news.php');
+    require_once('news.php');
     ?>
 
     <br>

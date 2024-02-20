@@ -1,6 +1,6 @@
 <?php
 
-// Function to make a cURL request and return response
+// cURL initialization
 function curl_get_contents($url)
 {
     $ch = curl_init();
@@ -11,7 +11,7 @@ function curl_get_contents($url)
     return $response;
 }
 
-// URLs for different currencies
+// cURL URLs
 $url_dolar = 'https://api.bluelytics.com.ar/v2/latest';
 $url_dolar_blue = 'https://api.bluelytics.com.ar/v2/latest';
 $url_euro = 'https://api.economico.infobae.com/financial/asset/?ids=EURPES&range=now';
@@ -19,7 +19,7 @@ $url_real = 'https://api.economico.infobae.com/financial/asset/?ids=CMPES&range=
 $url_pesou = 'https://api.economico.infobae.com/financial/asset/?ids=URUPES&range=now';
 $url_libra = 'https://api.economico.infobae.com/financial/asset/?ids=LIBPES&range=now';
 
-// Fetching currency data sequentially
+// Fetching
 $dec_dolar = json_decode(curl_get_contents($url_dolar), true);
 $dec_dolar_blue = json_decode(curl_get_contents($url_dolar_blue), true);
 $dec_euro = json_decode(curl_get_contents($url_euro), true);
@@ -27,7 +27,7 @@ $dec_real = json_decode(curl_get_contents($url_real), true);
 $dec_pesou = json_decode(curl_get_contents($url_pesou), true);
 $dec_libra = json_decode(curl_get_contents($url_libra), true);
 
-// Function to format percentage values
+// Numeric values format
 function addSign($val)
 {
     if ($val > 0) {
@@ -39,7 +39,7 @@ function addSign($val)
     }
 }
 
-// Function to determine color based on value
+// Numeric values color
 function colorVar($value)
 {
     if ($value < 0) {
@@ -49,7 +49,8 @@ function colorVar($value)
     }
 }
 
-// Function to draw chart titles
+// ---------------------------- HELPERS ---------------------------- //
+
 function drawChartTitles()
 {
     return <<<HTML
@@ -61,7 +62,6 @@ function drawChartTitles()
     HTML;
 }
 
-// Function to draw chart header
 function drawChartHeader($imageSrc, $altText, $titleText)
 {
     return <<<HTML
@@ -77,6 +77,7 @@ function drawChartHeader($imageSrc, $altText, $titleText)
         </div>
     HTML;
 }
+
 ?>
 
 
